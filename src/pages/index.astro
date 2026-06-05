@@ -52,6 +52,23 @@ const showcaseImages = [
     text: "Women-led groups help carry Urdu Ai into schools, families, and community networks."
   }
 ];
+const investmentCase = [
+  {
+    label: "The access gap",
+    title: "AI is arriving faster than language equity.",
+    text: "Most AI learning still assumes English comfort, urban confidence, and self-directed online study. Urdu Ai lowers the first barrier by making AI understandable in the language people already use."
+  },
+  {
+    label: "The delivery advantage",
+    title: "WANG brings field trust, not just a digital channel.",
+    text: "The model combines Urdu Ai's national media ecosystem with WANG's long-standing community delivery experience, local facilitators, women-friendly settings, and district-level follow-up."
+  },
+  {
+    label: "The funder opportunity",
+    title: "This can become Pakistan's public-interest AI literacy infrastructure.",
+    text: "Partners can help convert mass awareness into deeper learning pathways, livelihood use cases, teacher support, and district evidence that is easy to inspect and improve."
+  }
+];
 const partnerBadges = [
   {
     label: "Implemented by",
@@ -83,6 +100,12 @@ const provinceSummary = [
   ["KPK", "3 Dosts"],
   ["ICT", "1 Dost"]
 ];
+const credibilitySignals = [
+  "AI Opportunity Fund: Asia-Pacific",
+  "Supported by Google.org and ADB",
+  "S&P Global Foundation StepForward",
+  "WANG field delivery ecosystem"
+];
 ---
 
 <BaseLayout
@@ -93,28 +116,59 @@ const provinceSummary = [
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-content" data-reveal>
-          <h1><span>Urdu</span> <span class="brand-ai">Ai</span> <span>Impact</span></h1>
+          <div class="credibility-row" aria-label="Urdu Ai credibility signals">
+            {credibilitySignals.map((item) => <span>{item}</span>)}
+          </div>
+          <h1><span>Pakistan's Urdu-first AI literacy movement.</span></h1>
           <p class="urdu-line hero-urdu">آسان اردو میں مصنوعی ذہانت کو سمجھنے کا سب سے معتبر پلیٹ فارم</p>
           <p class="hero-copy">
-            Public evidence of what changes when artificial intelligence learning is delivered in Urdu, through local trainers, community partners, and practical tools people can use immediately.
+            Urdu Ai turns artificial intelligence from an English-only advantage into practical learning for students, teachers, women, freelancers, farmers, and community leaders across Pakistan.
           </p>
           <div class="hero-actions">
-            <a class="button" href="#numbers">See the numbers</a>
-            <a class="button secondary" href="#stories">Watch field stories</a>
+            <a class="button" href="#map">Explore the impact atlas</a>
+            <a class="button secondary" href="#recognition">See partners</a>
           </div>
-          <p class="data-note">
-            Impact figures are presented as reported learner records and training completions. They should not be read as verified unique beneficiaries unless explicitly stated.
-          </p>
         </div>
-        <div class="hero-media" aria-label="Urdu Ai field training photos" data-reveal>
-          <img src="/assets/training-hero.jpg" alt="Urdu Ai training session with learners in Pakistan" />
-          <img src="/assets/classroom.jpg" alt="Learners attending an AI education session" />
-          <img src="/assets/dost-community.jpg" alt="Urdu Ai Dost community group" />
-          <img src="/assets/training-group.jpg" alt="Urdu Ai facilitators and participants" />
-          <div class="hero-photo-note">
-            <strong>29 districts</strong>
-            <span>Local Dost presence turning online learning into community access.</span>
+        <div class="hero-atlas" aria-label="Urdu Ai impact evidence preview" data-reveal>
+          <div class="atlas-photo">
+            <img src="/assets/showcase/women-community-workshop.jpg" alt="Women participating in an Urdu Ai community workshop" />
+            <div class="atlas-caption">
+              <strong>51%</strong>
+              <span>women participation across reported activity</span>
+            </div>
           </div>
+          <div class="atlas-proof-card">
+            <span class="proof-label">Reported reach</span>
+            <strong>13,569+</strong>
+            <p>Learner records combined from Phase 2 completions and May reporting.</p>
+          </div>
+          <div class="atlas-proof-card dark">
+            <span class="proof-label">Local delivery</span>
+            <strong>29</strong>
+            <p>Districts represented through Urdu Ai Dost public evidence.</p>
+          </div>
+          <div class="atlas-mini-grid">
+            <img src="/assets/showcase/school-computer-lab-workshop.jpg" alt="Urdu Ai Dost delivering a school computer lab session" />
+            <img src="/assets/showcase/night-community-session.jpg" alt="Urdu Ai Dost delivering a night community session" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="investment-strip" aria-label="Why Urdu Ai matters to funders" data-reveal>
+      <div class="container investment-grid">
+        <div class="investment-lead">
+          <span class="eyebrow">Investment case</span>
+          <h2>Fund the bridge between AI possibility and real access.</h2>
+        </div>
+        <div class="investment-cards">
+          {investmentCase.map((item) => (
+            <article class="investment-card">
+              <span>{item.label}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -122,7 +176,7 @@ const provinceSummary = [
     <section class="section alt" id="numbers" data-reveal>
       <div class="container">
         <div class="section-head">
-          <h2>Numbers that can be explained.</h2>
+          <h2>Reported numbers with a clear basis.</h2>
           <p class="section-lede">
             The impact site keeps headline metrics visible, but also gives partners the reporting basis behind them.
           </p>
@@ -139,20 +193,29 @@ const provinceSummary = [
         <ul class="proof-grid">
           {proofPoints.map((point) => <li>{point}</li>)}
         </ul>
+        <p class="data-note">
+          Impact figures are presented as reported learner records and training completions. They should not be read as verified unique beneficiaries unless explicitly stated.
+        </p>
       </div>
     </section>
 
-    <section class="section" id="map" data-reveal>
+    <section class="section atlas-section" id="map" data-reveal>
       <div class="container map-band">
         <div class="map-card">
-          <span class="map-number">29</span>
-          <h2>Districts with Urdu Ai Dost presence.</h2>
-          <p>
-            The Dost network turns a digital platform into local access: training rooms, campus sessions, community cohorts, women-friendly participation pathways, and follow-up support.
-          </p>
-          <div class="map-summary-chips" aria-label="Urdu Ai Dost map summary">
-            <span><strong>31</strong> active Dost records</span>
-            <span><strong>5</strong> regions represented</span>
+          <div class="map-kicker">
+            <span class="map-number">29</span>
+            <span>districts represented</span>
+          </div>
+          <div class="map-copy">
+            <h2>Impact Atlas: district evidence, not a generic reach claim.</h2>
+            <p>
+              The Dost network turns a digital platform into local access: training rooms, campus sessions, community cohorts, women-friendly participation pathways, and follow-up support that funders can inspect district by district.
+            </p>
+            <div class="map-summary-chips" aria-label="Urdu Ai Dost map summary">
+              <span><strong>31</strong> active Dost records</span>
+              <span><strong>5</strong> regions represented</span>
+              <span><strong>1M+</strong> public learning ecosystem</span>
+            </div>
           </div>
         </div>
         <div class="dost-map-panel">
@@ -167,6 +230,20 @@ const provinceSummary = [
             ))}
           </div>
           <a class="map-open-link" href="/dost-map/">Open full-screen Dost map</a>
+        </div>
+        <div class="atlas-notes" aria-label="How to read the Urdu Ai impact atlas">
+          <article>
+            <strong>Read the dots as delivery capacity.</strong>
+            <p>Each marker represents a reported Dost record connected to local AI literacy delivery, not an inflated beneficiary claim.</p>
+          </article>
+          <article>
+            <strong>Filter by province.</strong>
+            <p>Use the full-screen map to inspect Punjab, Balochistan, Sindh, KPK, and ICT coverage with district-level context.</p>
+          </article>
+          <article>
+            <strong>Follow the tour.</strong>
+            <p>The impact tour moves funders through the Dost network as a national delivery system rather than a static total.</p>
+          </article>
         </div>
         <div class="district-list" aria-label="Urdu Ai delivery channels">
           <div><strong>Schools and colleges</strong><br />AI awareness, teacher workflows, student research, and classroom use.</div>

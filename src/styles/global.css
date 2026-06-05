@@ -137,113 +137,275 @@ a {
 }
 
 .hero {
-  padding: 72px 0 54px;
+  padding: 42px 0 44px;
   background:
-    linear-gradient(180deg, rgba(250, 223, 112, 0.2), rgba(247, 249, 255, 0) 56%),
+    radial-gradient(circle at 10% 10%, rgba(250, 223, 112, 0.28), transparent 28%),
+    radial-gradient(circle at 84% 18%, rgba(46, 84, 154, 0.16), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 249, 255, 0) 72%),
     var(--bg);
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
-  gap: 54px;
+  grid-template-columns: minmax(0, 0.96fr) minmax(420px, 1.04fr);
+  gap: 42px;
   align-items: center;
+}
+
+.credibility-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.credibility-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid rgba(46, 84, 154, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 850;
+  line-height: 1.1;
+  box-shadow: 0 8px 20px rgba(46, 84, 154, 0.07);
 }
 
 .hero h1 {
   margin: 0;
-  max-width: 720px;
-  font-size: clamp(48px, 7vw, 92px);
-  line-height: 0.92;
+  max-width: 760px;
+  font-size: clamp(42px, 5.4vw, 72px);
+  line-height: 0.98;
   letter-spacing: 0;
   color: var(--teal);
 }
 
 .hero-copy {
-  margin: 26px 0 0;
+  margin: 20px 0 0;
   max-width: 680px;
   color: var(--muted);
-  font-size: clamp(18px, 2vw, 22px);
+  font-size: clamp(17px, 1.75vw, 20px);
 }
 
 .hero-urdu {
   max-width: 680px;
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   color: var(--teal);
-  font-size: clamp(22px, 3vw, 34px);
+  font-size: clamp(22px, 2.45vw, 30px);
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 32px;
+  margin-top: 26px;
 }
 
 .data-note {
-  margin-top: 28px;
+  margin-top: 18px;
   max-width: 680px;
   color: var(--muted);
   font-size: 14px;
 }
 
-.hero-media {
+.hero-atlas {
   display: grid;
-  grid-template-columns: 1fr 0.74fr;
-  grid-template-rows: 170px 220px 150px;
-  gap: 12px;
-  position: relative;
-  perspective: 1200px;
+  grid-template-columns: minmax(0, 1fr) 172px;
+  grid-template-rows: 180px 156px 122px;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid rgba(219, 229, 246, 0.92);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 34px 70px rgba(46, 84, 154, 0.16);
+  backdrop-filter: blur(14px);
 }
 
-.hero-media img {
+.atlas-photo {
+  position: relative;
+  grid-row: span 2;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--ink);
+}
+
+.atlas-photo img,
+.atlas-mini-grid img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  transform: translateZ(0);
-  transition: transform 260ms ease, box-shadow 260ms ease;
 }
 
-.hero-media img:first-child {
-  grid-row: span 2;
-}
-
-.hero-media img:nth-child(3) {
-  grid-column: span 2;
-}
-
-.hero-media img:hover {
-  transform: translateY(-5px) scale(1.015);
-  box-shadow: 0 24px 54px rgba(46, 84, 154, 0.2);
-}
-
-.hero-photo-note {
+.atlas-photo::after {
   position: absolute;
-  right: 18px;
-  bottom: 20px;
-  width: min(270px, calc(100% - 36px));
-  padding: 16px 18px;
-  background: rgba(46, 84, 154, 0.94);
-  color: var(--on-primary);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  box-shadow: 0 22px 48px rgba(22, 35, 63, 0.22);
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, rgba(22, 35, 63, 0) 35%, rgba(22, 35, 63, 0.78));
 }
 
-.hero-photo-note strong {
+.atlas-caption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1;
+  color: var(--on-primary);
+}
+
+.atlas-caption strong {
   display: block;
   color: var(--gold);
-  font-size: 26px;
-  line-height: 1;
+  font-size: 42px;
+  line-height: 0.9;
+  font-weight: 900;
 }
 
-.hero-photo-note span {
+.atlas-caption span {
   display: block;
   margin-top: 8px;
+  max-width: 280px;
   font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.atlas-proof-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.atlas-proof-card.dark {
+  border-color: rgba(250, 223, 112, 0.35);
+  background: var(--teal);
+  color: var(--on-primary);
+}
+
+.proof-label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.atlas-proof-card.dark .proof-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.atlas-proof-card strong {
+  display: block;
+  margin-top: 12px;
+  color: var(--teal);
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.atlas-proof-card.dark strong {
+  color: var(--gold);
+}
+
+.atlas-proof-card p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 12px;
   line-height: 1.45;
+}
+
+.atlas-proof-card.dark p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.atlas-mini-grid {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.atlas-mini-grid img {
+  aspect-ratio: 16 / 7;
+  border-radius: 8px;
+}
+
+.investment-strip {
+  padding: 30px 0 68px;
+  background:
+    linear-gradient(180deg, rgba(247, 249, 255, 0), var(--paper) 36%, var(--paper) 100%);
+}
+
+.investment-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+  gap: 26px;
+  align-items: stretch;
+}
+
+.investment-lead {
+  min-height: 100%;
+  padding: 30px;
+  border: 1px solid rgba(46, 84, 154, 0.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(150deg, var(--teal), var(--teal-soft));
+  color: var(--on-primary);
+  box-shadow: var(--shadow);
+}
+
+.investment-lead h2 {
+  margin: 0;
+  max-width: 430px;
+  color: var(--on-primary);
+  font-size: clamp(32px, 4.6vw, 58px);
+  line-height: 1.02;
+}
+
+.investment-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--line);
+  overflow: hidden;
+  box-shadow: 0 18px 44px rgba(46, 84, 154, 0.1);
+}
+
+.investment-card {
+  padding: 24px;
+  background: var(--paper);
+}
+
+.investment-card span {
+  display: inline-flex;
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.investment-card h3 {
+  margin: 22px 0 0;
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1.12;
+}
+
+.investment-card p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
 }
 
 .section {
@@ -347,17 +509,66 @@ a {
   align-items: stretch;
 }
 
+.atlas-section {
+  background:
+    linear-gradient(180deg, var(--paper) 0%, #eef4ff 100%);
+}
+
 .map-card {
+  position: relative;
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: minmax(180px, 0.3fr) minmax(0, 1fr);
+  grid-template-columns: minmax(190px, 0.26fr) minmax(0, 1fr);
   gap: 28px;
-  align-items: center;
+  align-items: end;
   padding: 34px;
-  background: var(--teal);
+  background:
+    linear-gradient(135deg, rgba(22, 35, 63, 0.28), rgba(22, 35, 63, 0)),
+    var(--teal);
   color: var(--on-primary);
   border-radius: 8px;
   min-height: auto;
+  overflow: hidden;
+  box-shadow: 0 26px 58px rgba(46, 84, 154, 0.22);
+}
+
+.map-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 8px;
+  content: "";
+  background: var(--gold);
+}
+
+.map-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.map-kicker {
+  display: grid;
+  gap: 10px;
+}
+
+.map-kicker > span:last-child {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.map-copy h2 {
+  max-width: 850px;
+  color: var(--on-primary);
+  font-size: clamp(34px, 4.6vw, 58px);
+}
+
+.map-copy p {
+  max-width: 680px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 18px;
 }
 
 .map-number {
@@ -421,6 +632,35 @@ a {
   font-size: 13px;
   font-weight: 850;
   text-decoration: none;
+}
+
+.atlas-notes {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.atlas-notes article {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 32px rgba(46, 84, 154, 0.08);
+}
+
+.atlas-notes strong {
+  display: block;
+  color: var(--teal);
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.atlas-notes p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .map-legend {
@@ -1176,8 +1416,8 @@ a {
 }
 
 .js [data-reveal] {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 0;
+  transform: translateY(16px);
   transition: opacity 680ms ease, transform 680ms ease;
 }
 
@@ -1198,24 +1438,12 @@ a {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hero-media img {
+  .hero-atlas {
     animation: photoDrift 9s ease-in-out infinite;
   }
 
-  .hero-media img:nth-child(2) {
-    animation-delay: -2.4s;
-  }
-
-  .hero-media img:nth-child(3) {
-    animation-delay: -4.8s;
-  }
-
-  .hero-media img:nth-child(4) {
-    animation-delay: -6.2s;
-  }
-
-  .hero-photo-note {
-    animation: photoDrift 10s ease-in-out infinite reverse;
+  .atlas-mini-grid img:nth-child(2) {
+    animation: photoDrift 11s ease-in-out infinite reverse;
   }
 }
 
@@ -1236,6 +1464,7 @@ a {
   }
 
   .hero-grid,
+  .investment-grid,
   .map-band,
   .capacity-hero,
   .quote-band,
@@ -1244,6 +1473,7 @@ a {
   }
 
   .stats-grid,
+  .investment-cards,
   .partner-badge-grid,
   .stories-grid,
   .recognition-grid,
@@ -1346,15 +1576,34 @@ a {
     font-size: 13px;
   }
 
-  .hero-media {
-    grid-template-rows: 170px 150px 130px;
+  .hero-atlas {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    padding: 10px;
   }
 
-  .hero-photo-note {
-    position: static;
-    grid-column: span 2;
-    width: 100%;
-    margin-top: 2px;
+  .atlas-photo {
+    grid-row: auto;
+    min-height: 320px;
+  }
+
+  .atlas-mini-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .atlas-mini-grid img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .investment-strip {
+    padding: 22px 0 52px;
+  }
+
+  .investment-lead,
+  .investment-card {
+    padding: 22px;
   }
 
   .section-head,
@@ -1368,9 +1617,11 @@ a {
   }
 
   .stats-grid,
+  .investment-cards,
   .partner-badge-grid,
   .proof-grid,
   .district-list,
+  .atlas-notes,
   .map-legend,
   .stories-grid,
   .recognition-grid,
