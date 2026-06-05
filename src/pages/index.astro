@@ -76,6 +76,58 @@ const partnerBadges = [
     variant: "square"
   }
 ];
+const dostDistricts = [
+  { district: "Lakki Marwat", province: "KPK", lat: 32.607, lng: 70.911, count: 1 },
+  { district: "Bhakkar", province: "Punjab", lat: 31.626, lng: 71.066, count: 1 },
+  { district: "Layyah", province: "Punjab", lat: 30.969, lng: 70.944, count: 1 },
+  { district: "Pishin", province: "Balochistan", lat: 30.583, lng: 67.0, count: 1 },
+  { district: "Pakpattan", province: "Punjab", lat: 30.343, lng: 73.386, count: 1 },
+  { district: "Rawalpindi", province: "Punjab", lat: 33.565, lng: 73.016, count: 1 },
+  { district: "Quetta", province: "Balochistan", lat: 30.179, lng: 66.975, count: 2 },
+  { district: "Musakhail", province: "Balochistan", lat: 30.775, lng: 69.822, count: 1 },
+  { district: "Khanewal", province: "Punjab", lat: 30.301, lng: 71.933, count: 1 },
+  { district: "Mianwali", province: "Punjab", lat: 32.586, lng: 71.544, count: 1 },
+  { district: "Chiniot", province: "Punjab", lat: 31.72, lng: 72.979, count: 1 },
+  { district: "Bahawalnagar", province: "Punjab", lat: 29.999, lng: 73.253, count: 1 },
+  { district: "Islamabad", province: "ICT", lat: 33.693, lng: 73.065, count: 1 },
+  { district: "Rahim Yar Khan", province: "Punjab", lat: 28.421, lng: 70.298, count: 1 },
+  { district: "Malakand", province: "KPK", lat: 34.565, lng: 71.93, count: 1 },
+  { district: "Panjgur", province: "Balochistan", lat: 26.964, lng: 64.1, count: 1 },
+  { district: "Dera Ismail Khan", province: "KPK", lat: 31.831, lng: 70.902, count: 1 },
+  { district: "Khairpur Mir's", province: "Sindh", lat: 27.529, lng: 68.759, count: 1 },
+  { district: "Sibi", province: "Balochistan", lat: 29.544, lng: 67.878, count: 1 },
+  { district: "Multan", province: "Punjab", lat: 30.157, lng: 71.524, count: 1 },
+  { district: "Vehari", province: "Punjab", lat: 30.045, lng: 72.355, count: 1 },
+  { district: "Hyderabad", province: "Sindh", lat: 25.379, lng: 68.368, count: 1 },
+  { district: "Dadu", province: "Sindh", lat: 26.73, lng: 67.776, count: 1 },
+  { district: "Nasirabad", province: "Balochistan", lat: 28.35, lng: 68.7, count: 1 },
+  { district: "Lahore", province: "Punjab", lat: 31.52, lng: 74.358, count: 1 },
+  { district: "Chakwal", province: "Punjab", lat: 32.93, lng: 72.857, count: 1 },
+  { district: "Mirpur Khas", province: "Sindh", lat: 25.525, lng: 69.012, count: 1 },
+  { district: "Lasbela", province: "Balochistan", lat: 25.807, lng: 66.621, count: 2 },
+  { district: "Hub Chowki", province: "Balochistan", lat: 25.121, lng: 66.882, count: 1 }
+];
+const provinceSummary = [
+  ["Punjab", "13 Dosts"],
+  ["Balochistan", "10 Dosts"],
+  ["Sindh", "4 Dosts"],
+  ["KPK", "3 Dosts"],
+  ["ICT", "1 Dost"]
+];
+const provinceColors = {
+  Punjab: "#2e549a",
+  Balochistan: "#d39b24",
+  Sindh: "#2f9d86",
+  KPK: "#7c63c7",
+  ICT: "#cf5d88"
+};
+const mapBounds = { minLng: 60.8, maxLng: 77.2, minLat: 23.4, maxLat: 37.1 };
+const mapPoints = dostDistricts.map((point) => ({
+  ...point,
+  x: ((point.lng - mapBounds.minLng) / (mapBounds.maxLng - mapBounds.minLng)) * 100,
+  y: ((mapBounds.maxLat - point.lat) / (mapBounds.maxLat - mapBounds.minLat)) * 100,
+  color: provinceColors[point.province] || provinceColors.Punjab
+}));
 ---
 
 <BaseLayout
@@ -143,14 +195,50 @@ const partnerBadges = [
           <p>
             The Dost network turns a digital platform into local access: training rooms, campus sessions, community cohorts, women-friendly participation pathways, and follow-up support.
           </p>
+          <div class="map-summary-chips" aria-label="Urdu Ai Dost map summary">
+            <span><strong>31</strong> active Dost records</span>
+            <span><strong>5</strong> regions represented</span>
+          </div>
+        </div>
+        <div class="dost-map-panel">
+          <div class="dost-network-map" aria-label="Map showing Urdu Ai Dost district presence">
+            <svg class="pakistan-shape" viewBox="0 0 100 100" aria-hidden="true">
+              <path d="M55 5C61 8 65 12 68 18C65 23 69 28 66 33C72 38 71 46 76 53C82 61 78 70 72 76C68 80 66 87 63 94C58 98 52 95 49 89C45 81 39 78 35 70C31 63 24 60 20 52C16 44 18 36 24 30C30 24 32 17 38 12C43 8 48 3 55 5Z"></path>
+              <path class="coastline" d="M36 70C42 79 50 84 56 93"></path>
+              <path class="region-line" d="M38 13C48 24 58 28 66 33"></path>
+              <path class="region-line" d="M22 52C36 48 50 48 66 33"></path>
+              <path class="region-line" d="M36 70C45 63 58 59 76 53"></path>
+            </svg>
+            <span class="map-region-label map-region-north">KPK / ICT</span>
+            <span class="map-region-label map-region-east">Punjab</span>
+            <span class="map-region-label map-region-west">Balochistan</span>
+            <span class="map-region-label map-region-south">Sindh</span>
+            {mapPoints.map((point) => (
+              <span
+                class:list={["map-pin", point.count > 1 && "map-pin--strong"]}
+                style={`--x:${point.x.toFixed(2)}%; --y:${point.y.toFixed(2)}%; --pin:${point.color};`}
+                title={`${point.district}, ${point.province}: ${point.count} Dost ${point.count === 1 ? "record" : "records"}`}
+                aria-label={`${point.district}, ${point.province}: ${point.count} Dost ${point.count === 1 ? "record" : "records"}`}
+              >
+                {point.count > 1 ? point.count : ""}
+              </span>
+            ))}
+          </div>
+          <div class="map-legend" aria-label="Urdu Ai Dost province summary">
+            {provinceSummary.map(([province, label]) => (
+              <span>
+                <i class={`province-dot province-${province.toLowerCase().replaceAll(" ", "-")}`}></i>
+                <strong>{province}</strong>
+                {label}
+              </span>
+            ))}
+          </div>
         </div>
         <div class="district-list" aria-label="Urdu Ai delivery channels">
           <div><strong>Schools and colleges</strong><br />AI awareness, teacher workflows, student research, and classroom use.</div>
-          <div><strong>Universities</strong><br />Campus workshops, youth employability, and practical AI tool adoption.</div>
+          <div><strong>Women and girls</strong><br />51% women participation shown through safer access, trusted settings, and follow-up learning.</div>
           <div><strong>Community cohorts</strong><br />Local facilitators helping first-time learners build confidence.</div>
-          <div><strong>Women and girls</strong><br />Participation support where personal devices, email access, or mobility are barriers.</div>
           <div><strong>Freelancers and MSMEs</strong><br />Design, content, customer service, documentation, and productivity workflows.</div>
-          <div><strong>Underserved groups</strong><br />Inclusive learning for learners often missed by English-first technology programmes.</div>
         </div>
       </div>
     </section>
@@ -438,7 +526,7 @@ const partnerBadges = [
       </p>
     </div>
   </footer>
-  <script>
+  <script is:inline>
     const revealItems = document.querySelectorAll("[data-reveal]");
 
     if ("IntersectionObserver" in window) {
