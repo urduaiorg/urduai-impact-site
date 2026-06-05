@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { stats, proofPoints, sectors, stories, shorts, mediaVideos, recognition } from "../data/impact.js";
+import { stats, proofPoints, sectors, stories, impactQuotes, shorts, mediaVideos, recognition } from "../data/impact.js";
 
 const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg", "/assets/classroom.jpg", "/assets/training-hero.jpg"];
 ---
@@ -12,7 +12,7 @@ const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg",
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div>
+        <div class="hero-content" data-reveal>
           <h1><span>Urdu</span> <span class="brand-ai">Ai</span> <span>Impact</span></h1>
           <p class="urdu-line hero-urdu">آسان اردو میں مصنوعی ذہانت کو سمجھنے کا سب سے معتبر پلیٹ فارم</p>
           <p class="hero-copy">
@@ -26,16 +26,20 @@ const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg",
             Impact figures are presented as reported learner records and training completions. They should not be read as verified unique beneficiaries unless explicitly stated.
           </p>
         </div>
-        <div class="hero-media" aria-label="Urdu Ai field training photos">
+        <div class="hero-media" aria-label="Urdu Ai field training photos" data-reveal>
           <img src="/assets/training-hero.jpg" alt="Urdu Ai training session with learners in Pakistan" />
           <img src="/assets/classroom.jpg" alt="Learners attending an AI education session" />
           <img src="/assets/dost-community.jpg" alt="Urdu Ai Dost community group" />
           <img src="/assets/training-group.jpg" alt="Urdu Ai facilitators and participants" />
+          <div class="hero-photo-note">
+            <strong>29 districts</strong>
+            <span>Local Dost presence turning online learning into community access.</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section alt" id="numbers">
+    <section class="section alt" id="numbers" data-reveal>
       <div class="container">
         <div class="section-head">
           <h2>Numbers that can be explained.</h2>
@@ -58,7 +62,7 @@ const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg",
       </div>
     </section>
 
-    <section class="section" id="map">
+    <section class="section" id="map" data-reveal>
       <div class="container map-band">
         <div class="map-card">
           <span class="map-number">29</span>
@@ -78,7 +82,7 @@ const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg",
       </div>
     </section>
 
-    <section class="section alt" id="stories">
+    <section class="section alt" id="stories" data-reveal>
       <div class="container">
         <div class="section-head">
           <h2>Field stories, not just totals.</h2>
@@ -100,7 +104,29 @@ const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg",
       </div>
     </section>
 
-    <section class="section">
+    <section class="section quote-section" data-reveal>
+      <div class="container quote-band">
+        <div class="quote-intro">
+          <h2>Impact sounds like confidence.</h2>
+          <p>
+            The public site should carry the numbers, but the writing also needs to show what changes for people when AI becomes understandable in Urdu.
+          </p>
+        </div>
+        <div class="quote-stack" aria-label="Urdu Ai impact themes">
+          {impactQuotes.map((item) => (
+            <figure class="impact-quote">
+              <blockquote>{item.quote}</blockquote>
+              <figcaption>
+                <strong>{item.source}</strong>
+                <span>{item.note}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-reveal>
       <div class="container">
         <div class="section-head">
           <h2>Latest impact Shorts.</h2>
@@ -119,7 +145,7 @@ const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg",
       </div>
     </section>
 
-    <section class="section alt" id="recognition">
+    <section class="section alt" id="recognition" data-reveal>
       <div class="container">
         <div class="section-head">
           <h2>Recognition and partners.</h2>
@@ -138,7 +164,7 @@ const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg",
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-reveal>
       <div class="container">
         <div class="section-head">
           <h2>Who Urdu Ai reached.</h2>
@@ -165,7 +191,7 @@ const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg",
       </div>
     </section>
 
-    <section class="section alt">
+    <section class="section alt" data-reveal>
       <div class="container">
         <div class="section-head">
           <h2>Media coverage.</h2>
@@ -185,7 +211,7 @@ const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg",
       </div>
     </section>
 
-    <section class="section" id="reports">
+    <section class="section" id="reports" data-reveal>
       <div class="container report-band">
         <article class="report-panel">
           <h3>Impact reporting that donors can read quickly.</h3>
@@ -211,4 +237,25 @@ const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg",
       <p>Built for clear partner reporting with public, audit-defensible language.</p>
     </div>
   </footer>
+  <script>
+    const revealItems = document.querySelectorAll("[data-reveal]");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -10% 0px", threshold: 0.16 }
+      );
+
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
 </BaseLayout>

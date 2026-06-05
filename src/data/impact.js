@@ -64,6 +64,24 @@ export const stories = [
   }
 ];
 
+export const impactQuotes = [
+  {
+    quote: "AI stopped feeling like an English-only technology. The learning became something I could try in my own language, for my own work.",
+    source: "Reported learner theme",
+    note: "Language access and first-time confidence"
+  },
+  {
+    quote: "The strongest shift is practical confidence: teachers, students, and community learners begin using AI for planning, research, content, and everyday problem solving.",
+    source: "Field delivery theme",
+    note: "From awareness to applied use"
+  },
+  {
+    quote: "The Dost model makes access local. Learners can practice together, ask follow-up questions, and keep using the tools after the first session ends.",
+    source: "Community delivery theme",
+    note: "Why 29 districts matter"
+  }
+];
+
 export const shorts = [
   ["dNO1yp18-VA", "AI helping students and teachers"],
   ["yo2vpEsIbig", "Maria learning graphic design with Urdu Ai"],
