@@ -1044,6 +1044,188 @@ a {
   background: var(--paper);
 }
 
+.institution-section {
+  background:
+    linear-gradient(180deg, var(--paper), var(--bg));
+}
+
+.institution-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 36px;
+  align-items: end;
+  margin-bottom: 30px;
+}
+
+.institution-head h2 {
+  max-width: 840px;
+}
+
+.institution-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.institution-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.institution-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  overflow: hidden;
+  box-shadow: 0 18px 44px rgba(46, 84, 154, 0.1);
+}
+
+.institution-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--teal-soft);
+}
+
+.institution-card div {
+  padding: 16px;
+}
+
+.institution-card span {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.institution-card h3 {
+  margin: 10px 0 0;
+  color: var(--ink);
+  font-size: 19px;
+  line-height: 1.1;
+}
+
+.institution-card p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.institution-proof {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.74fr) minmax(0, 1.26fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.institution-proof-copy {
+  padding: 28px;
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, var(--teal), var(--teal-soft));
+  color: var(--on-primary);
+  box-shadow: 0 22px 50px rgba(46, 84, 154, 0.18);
+}
+
+.institution-proof-copy strong {
+  display: block;
+  color: var(--gold);
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.institution-proof-copy p {
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.institution-proof-copy ul {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.institution-proof-copy li {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 14px;
+  line-height: 1.38;
+}
+
+.institution-proof-copy li::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 9px;
+  border-radius: 999px;
+  background: var(--gold);
+  vertical-align: 1px;
+}
+
+.institution-photo-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  grid-auto-rows: 220px;
+  gap: 14px;
+}
+
+.institution-photo-grid figure {
+  position: relative;
+  margin: 0;
+  border-radius: 8px;
+  background: var(--ink);
+  overflow: hidden;
+  box-shadow: 0 16px 38px rgba(46, 84, 154, 0.12);
+}
+
+.institution-photo-grid figure:first-child {
+  grid-row: span 2;
+}
+
+.institution-photo-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.institution-photo-grid figure::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, rgba(22, 35, 63, 0) 35%, rgba(22, 35, 63, 0.82));
+}
+
+.institution-photo-grid figcaption {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  z-index: 1;
+  color: var(--on-primary);
+}
+
+.institution-photo-grid figcaption strong {
+  display: block;
+  color: var(--gold);
+  font-size: 18px;
+  line-height: 1.12;
+}
+
+.institution-photo-grid figcaption span {
+  display: block;
+  margin-top: 7px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
 .profile-section {
   overflow: hidden;
 }
@@ -1603,6 +1785,8 @@ a {
   .investment-grid,
   .map-band,
   .capacity-hero,
+  .institution-head,
+  .institution-proof,
   .partner-ask,
   .quote-band,
   .report-band {
@@ -1611,6 +1795,7 @@ a {
 
   .stats-grid,
   .investment-cards,
+  .institution-feature-grid,
   .partner-badge-grid,
   .stories-grid,
   .recognition-grid,
@@ -1620,6 +1805,10 @@ a {
   }
 
   .showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .institution-photo-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1759,6 +1948,8 @@ a {
 
   .stats-grid,
   .investment-cards,
+  .institution-feature-grid,
+  .institution-photo-grid,
   .partner-badge-grid,
   .proof-grid,
   .district-list,
@@ -1806,7 +1997,15 @@ a {
     grid-auto-rows: 260px;
   }
 
+  .institution-photo-grid {
+    grid-auto-rows: 260px;
+  }
+
   .showcase-tile.wide {
+    grid-row: span 1;
+  }
+
+  .institution-photo-grid figure:first-child {
     grid-row: span 1;
   }
 

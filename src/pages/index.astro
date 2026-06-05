@@ -102,6 +102,49 @@ const evidencePack = [
   "Media coverage and public learning videos",
   "Methodology note for non-overclaimed numbers"
 ];
+const institutionalPartners = [
+  {
+    image: "/assets/institutions/sbk-womens-university-mou.png",
+    institution: "Sardar Bahadur Khan Women's University",
+    place: "Quetta",
+    focus: "AI training access for students and faculty"
+  },
+  {
+    image: "/assets/institutions/mir-chakar-university-mou.png",
+    institution: "Mir Chakar Khan Rind University",
+    place: "Sibi",
+    focus: "Youth and faculty AI training pathways"
+  },
+  {
+    image: "/assets/institutions/superior-university-mou.png",
+    institution: "Superior University",
+    place: "Lahore",
+    focus: "AI training collaboration for youth and faculty"
+  },
+  {
+    image: "/assets/institutions/university-of-makran-mou.png",
+    institution: "University of Makran",
+    place: "Panjgur",
+    focus: "Regional youth AI training through public education partners"
+  }
+];
+const institutionalEvidence = [
+  {
+    image: "/assets/institutions/women-institutional-workshop.jpg",
+    title: "Women-focused institutional access",
+    text: "Formal spaces help Urdu Ai reach women learners through trusted education partners."
+  },
+  {
+    image: "/assets/institutions/institutional-student-support.jpg",
+    title: "Hands-on student support",
+    text: "Learners move from awareness into practical setup, guided practice, and continued use."
+  },
+  {
+    image: "/assets/institutions/community-institution-banner.jpg",
+    title: "Local partner delivery",
+    text: "Institutional and community venues extend the Dost model beyond one-off sessions."
+  }
+];
 const partnerBadges = [
   {
     label: "Implemented by",
@@ -468,6 +511,59 @@ const credibilitySignals = [
               {item.url && <a href={item.url}>View reference</a>}
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section institution-section" id="institutions" data-reveal>
+      <div class="container">
+        <div class="institution-head">
+          <div>
+            <span class="eyebrow">Institutional partnerships</span>
+            <h2>Formal MoUs turn Urdu Ai into an education partner, not just a campaign.</h2>
+          </div>
+          <p>
+            Universities, women-focused institutes, and local education partners create trusted entry points for students, faculty, and communities. These agreements make it easier to schedule training, document delivery, and scale AI learning through existing institutions.
+          </p>
+        </div>
+
+        <div class="institution-feature-grid">
+          {institutionalPartners.map((partner) => (
+            <article class="institution-card">
+              <img src={partner.image} alt={`${partner.institution} Urdu Ai MoU`} loading="lazy" decoding="async" />
+              <div>
+                <span>{partner.place}</span>
+                <h3>{partner.institution}</h3>
+                <p>{partner.focus}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="institution-proof">
+          <article class="institution-proof-copy">
+            <strong>Why this matters to funders</strong>
+            <p>
+              Institutional partnerships reduce delivery friction. Urdu Ai can work through campuses, polytechnic institutes, local academies, and public-sector relationships where learners already gather and where follow-up is easier to organize.
+            </p>
+            <ul>
+              <li>MoUs with women-focused and regional universities</li>
+              <li>Training pathways for students, youth, and faculty</li>
+              <li>Public-sector relationship building and local trust signals</li>
+              <li>Evidence photos that show delivery inside real learning spaces</li>
+            </ul>
+          </article>
+          <div class="institution-photo-grid">
+            {institutionalEvidence.map((item) => (
+              <figure>
+                <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+                <figcaption>
+                  <strong>{item.title}</strong>
+                  <span>{item.text}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>
