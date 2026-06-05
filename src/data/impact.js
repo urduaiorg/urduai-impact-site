@@ -10,9 +10,9 @@ export const stats = [
     note: "Community-based cohorts delivered through Urdu Ai and Dost partners."
   },
   {
-    value: "3,620",
-    label: "Female learners",
-    note: "Reported in Phase 2 completion data."
+    value: "51%",
+    label: "Women participation",
+    note: "Presented as a participation share across reported learning activity."
   },
   {
     value: "64",
