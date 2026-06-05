@@ -2,8 +2,8 @@
 import "../styles/global.css";
 
 const {
-  title = "Urdu AI Impact",
-  description = "Public evidence hub for Urdu AI's AI literacy work across Pakistan."
+  title = "Urdu Ai Impact",
+  description = "Public evidence hub for Urdu Ai's AI literacy work across Pakistan."
 } = Astro.props;
 ---
 
@@ -17,11 +17,11 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://impact.urduai.org/" />
-    <meta property="og:image" content="https://impact.urduai.org/assets/training-hero.jpg" />
+    <meta property="og:image" content="https://impact.urduai.org/assets/urdu-ai-logo-og.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
@@ -31,8 +31,8 @@ const {
       <header class="site-header">
         <div class="container nav">
           <a class="brand" href="/">
-            <span class="brand-mark">AI</span>
-            <span>Urdu AI Impact</span>
+            <span class="brand-mark" aria-hidden="true"><span>U</span><span>Ai</span></span>
+            <span class="brand-word"><span>Urdu</span> <span class="brand-ai">Ai</span> <span>Impact</span></span>
           </a>
           <nav class="nav-links" aria-label="Primary">
             <a href="#numbers">Numbers</a>
@@ -41,7 +41,7 @@ const {
             <a href="#recognition">Recognition</a>
             <a href="#reports">Reports</a>
           </nav>
-          <a class="button secondary" href="https://urduai.org/">Visit UrduAI.org</a>
+          <a class="button secondary" href="https://urduai.org/">Visit urduai.org</a>
         </div>
       </header>
       <slot />
