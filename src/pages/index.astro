@@ -8,6 +8,50 @@ const dostCards = dostProfiles.map((profile) => ({
   ...profile,
   summary: `${profile.bio.split(". ")[0]}.`
 }));
+const capacitySteps = [
+  {
+    step: "01",
+    title: "Train Urdu Ai Dosts",
+    text: "Urdu Ai prepares local facilitators with Urdu-first AI concepts, practical tool workflows, session materials, and field reporting discipline."
+  },
+  {
+    step: "02",
+    title: "Dosts take AI into their districts",
+    text: "Dosts deliver sessions in schools, colleges, community spaces, vocational institutes, and local networks where English-first AI training rarely reaches."
+  },
+  {
+    step: "03",
+    title: "Communities learn through trusted people",
+    text: "Learners see AI explained by someone from their own context, with examples for teaching, study, farming, freelancing, small business, and daily work."
+  },
+  {
+    step: "04",
+    title: "Learning continues online",
+    text: "After the session, learners join Urdu Ai's 1M+ public learning ecosystem to keep practicing, asking questions, watching tutorials, and sharing progress."
+  }
+];
+const showcaseImages = [
+  {
+    image: "/assets/training-hero.jpg",
+    title: "Training the trainers",
+    text: "Dosts learn the method before they carry it into their communities."
+  },
+  {
+    image: "/assets/showcase/dost-community-field.jpg",
+    title: "One-to-one confidence",
+    text: "Local support helps first-time learners try AI on phones and familiar tools."
+  },
+  {
+    image: "/assets/classroom.jpg",
+    title: "Community sessions",
+    text: "Schools, colleges, and community rooms become practical AI learning spaces."
+  },
+  {
+    image: "/assets/dost-community.jpg",
+    title: "Ongoing network",
+    text: "The public online community keeps learning alive after field delivery."
+  }
+];
 ---
 
 <BaseLayout
@@ -83,6 +127,56 @@ const dostCards = dostProfiles.map((profile) => ({
           <div><strong>Women and girls</strong><br />Participation support where personal devices, email access, or mobility are barriers.</div>
           <div><strong>Freelancers and MSMEs</strong><br />Design, content, customer service, documentation, and productivity workflows.</div>
           <div><strong>Underserved groups</strong><br />Inclusive learning for learners often missed by English-first technology programmes.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section capacity-section" id="model" data-reveal>
+      <div class="container">
+        <div class="capacity-hero">
+          <div>
+            <span class="eyebrow">Capacity building model</span>
+            <h2>Urdu Ai does not stop at one workshop.</h2>
+            <p>
+              The model builds local capacity first. Urdu Ai trains Dosts, Dosts train their own communities, and learners continue inside Urdu Ai's 1M+ online learning ecosystem.
+            </p>
+          </div>
+          <div class="capacity-metrics" aria-label="Urdu Ai capacity building signals">
+            <div>
+              <strong>30+</strong>
+              <span>Dost facilitators supporting local learning</span>
+            </div>
+            <div>
+              <strong>29</strong>
+              <span>Districts represented in public delivery evidence</span>
+            </div>
+            <div>
+              <strong>1M+</strong>
+              <span>Online community for continued Urdu-first AI learning</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="model-flow" aria-label="How Urdu Ai capacity building works">
+          {capacitySteps.map((item) => (
+            <article class="model-step">
+              <span>{item.step}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+
+        <div class="showcase-grid" aria-label="Visual showcase of how Urdu Ai works">
+          {showcaseImages.map((item, index) => (
+            <figure class:list={["showcase-tile", index === 0 && "wide"]}>
+              <img src={item.image} alt={item.title} loading="lazy" />
+              <figcaption>
+                <strong>{item.title}</strong>
+                <span>{item.text}</span>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </section>

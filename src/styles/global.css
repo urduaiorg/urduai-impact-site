@@ -377,6 +377,182 @@ a {
   border-radius: 8px;
 }
 
+.capacity-section {
+  background:
+    linear-gradient(180deg, var(--teal) 0%, var(--teal-soft) 54%, var(--bg) 54%, var(--bg) 100%);
+  color: var(--on-primary);
+}
+
+.capacity-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.78fr);
+  gap: 42px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  margin-bottom: 14px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.capacity-hero h2 {
+  max-width: 760px;
+  color: var(--on-primary);
+}
+
+.capacity-hero p {
+  max-width: 680px;
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 20px;
+}
+
+.capacity-metrics {
+  display: grid;
+  gap: 1px;
+  border: 1px solid rgba(250, 223, 112, 0.38);
+  border-radius: 8px;
+  background: rgba(250, 223, 112, 0.28);
+  overflow: hidden;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+}
+
+.capacity-metrics div {
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.capacity-metrics strong {
+  display: block;
+  color: var(--gold);
+  font-size: 44px;
+  line-height: 1;
+  font-weight: 900;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+.capacity-metrics span {
+  display: block;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.model-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  border: 1px solid rgba(250, 223, 112, 0.5);
+  border-radius: 8px;
+  background: rgba(250, 223, 112, 0.5);
+  overflow: hidden;
+  box-shadow: 0 22px 54px rgba(22, 35, 63, 0.2);
+}
+
+.model-step {
+  min-height: 286px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--ink);
+}
+
+.model-step span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  background: var(--gold);
+  color: var(--teal);
+  font-weight: 900;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+.model-step h3 {
+  margin: 22px 0 0;
+  color: var(--teal);
+  font-size: 23px;
+  line-height: 1.12;
+}
+
+.model-step p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1fr;
+  grid-auto-rows: 240px;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.showcase-tile {
+  position: relative;
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.showcase-tile.wide {
+  grid-row: span 2;
+}
+
+.showcase-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform 520ms ease;
+}
+
+.showcase-tile:hover img {
+  transform: scale(1.06);
+}
+
+.showcase-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(22, 35, 63, 0) 28%, rgba(22, 35, 63, 0.86) 100%);
+}
+
+.showcase-tile figcaption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1;
+  color: var(--on-primary);
+}
+
+.showcase-tile figcaption strong {
+  display: block;
+  color: var(--gold);
+  font-size: 18px;
+  line-height: 1.12;
+}
+
+.showcase-tile figcaption span {
+  display: block;
+  margin-top: 7px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 .stories-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -814,6 +990,7 @@ a {
 
   .hero-grid,
   .map-band,
+  .capacity-hero,
   .quote-band,
   .report-band {
     grid-template-columns: 1fr;
@@ -822,7 +999,12 @@ a {
   .stats-grid,
   .stories-grid,
   .recognition-grid,
+  .model-flow,
   .profile-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .showcase-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -929,10 +1111,39 @@ a {
   .district-list,
   .stories-grid,
   .recognition-grid,
+  .model-flow,
   .profile-summary,
   .dost-grid,
   .team-grid {
     grid-template-columns: 1fr;
+  }
+
+  .capacity-section {
+    background:
+      linear-gradient(180deg, var(--teal) 0%, var(--teal-soft) 68%, var(--bg) 68%, var(--bg) 100%);
+  }
+
+  .capacity-hero p {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .capacity-metrics strong {
+    font-size: 36px;
+  }
+
+  .model-step {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .showcase-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 260px;
+  }
+
+  .showcase-tile.wide {
+    grid-row: span 1;
   }
 
   .profile-summary div {
