@@ -170,11 +170,12 @@ const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg",
           <h2>Media coverage.</h2>
           <p class="section-lede">
             National and regional media coverage helps document Urdu AI's public visibility and momentum.
+            Source channel: @UrduAiinMedia.
           </p>
         </div>
-        <div class="shorts-grid">
+        <div class="media-grid">
           {mediaVideos.map(([id, title]) => (
-            <article class="short-card">
+            <article class="media-card">
               <iframe src={`https://www.youtube.com/embed/${id}`} title={title} loading="lazy" allowfullscreen></iframe>
               <p>{title}</p>
             </article>

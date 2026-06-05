@@ -74,6 +74,8 @@ export const shorts = [
 ];
 
 export const mediaVideos = [
+  ["egkGr7RjMlg", "Urdu AI on Aaj News"],
+  ["X42Mk2BswVw", "Urdu AI on Geo News"],
   ["cKt0_lrMKeg", "Urdu AI on ARY News"],
   ["zsC-WQQQSTs", "Urdu AI on ABN News"],
   ["nMJAcafTpmY", "Urdu AI on Express News"]
