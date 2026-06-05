@@ -943,6 +943,15 @@ a {
   font-size: 14px;
 }
 
+.recognition-card a {
+  display: inline-flex;
+  margin-top: 16px;
+  color: var(--teal);
+  font-size: 13px;
+  font-weight: 850;
+  text-decoration: none;
+}
+
 .shorts-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -1304,6 +1313,133 @@ a {
   color: var(--teal);
 }
 
+.partner-ask-section {
+  background:
+    radial-gradient(circle at 82% 16%, rgba(250, 223, 112, 0.28), transparent 30%),
+    linear-gradient(180deg, var(--paper), #eef4ff);
+}
+
+.partner-ask {
+  display: grid;
+  grid-template-columns: minmax(340px, 0.92fr) minmax(0, 1.08fr);
+  gap: 34px;
+  align-items: stretch;
+}
+
+.partner-ask-copy {
+  padding: clamp(28px, 4vw, 46px);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(46, 84, 154, 0.96), rgba(38, 73, 128, 0.98));
+  color: var(--on-primary);
+  box-shadow: 0 26px 58px rgba(46, 84, 154, 0.24);
+}
+
+.partner-ask-copy h2 {
+  margin: 0;
+  max-width: 640px;
+  color: var(--on-primary);
+  font-size: clamp(34px, 4.6vw, 60px);
+  line-height: 1.02;
+}
+
+.partner-ask-copy > p {
+  max-width: 620px;
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 18px;
+}
+
+.evidence-pack {
+  margin: 28px 0;
+  padding: 20px;
+  border: 1px solid rgba(250, 223, 112, 0.34);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.evidence-pack strong {
+  display: block;
+  color: var(--gold);
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.evidence-pack ul {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.evidence-pack li {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.evidence-pack li::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 9px;
+  border-radius: 999px;
+  background: var(--gold);
+  vertical-align: 1px;
+}
+
+.funding-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.funding-card {
+  display: flex;
+  min-height: 252px;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 16px 36px rgba(46, 84, 154, 0.09);
+}
+
+.funding-card span {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.funding-card h3 {
+  margin: 22px 0 0;
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.funding-card p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.funding-card em {
+  display: block;
+  margin-top: auto;
+  padding-top: 16px;
+  color: var(--teal);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 850;
+  line-height: 1.35;
+}
+
 .report-band {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1467,6 +1603,7 @@ a {
   .investment-grid,
   .map-band,
   .capacity-hero,
+  .partner-ask,
   .quote-band,
   .report-band {
     grid-template-columns: 1fr;
@@ -1491,6 +1628,10 @@ a {
   }
 
   .media-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .funding-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1626,6 +1767,7 @@ a {
   .stories-grid,
   .recognition-grid,
   .model-flow,
+  .funding-grid,
   .profile-summary,
   .dost-grid,
   .team-grid {

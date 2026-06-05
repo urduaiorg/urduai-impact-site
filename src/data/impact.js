@@ -102,14 +102,17 @@ export const mediaVideos = [
 export const recognition = [
   {
     name: "S&P Global Foundation StepForward",
-    text: "Selected as one of six regional partners from 336 submissions under the StepForward: Essential Innovation Challenge, strengthening Urdu Ai's impact measurement and AI-to-livelihood pathway."
+    text: "Selected as one of six regional partners from 336 submissions under the StepForward: Essential Innovation Challenge, strengthening Urdu Ai's impact measurement and AI-to-livelihood pathway.",
+    url: "https://www.spglobal.com/en/who-we-are/corporate-responsibility/foundation"
   },
   {
     name: "AI Opportunity Fund: Asia-Pacific",
-    text: "This initiative is part of the AI Opportunity Fund: Asia-Pacific, implemented by WANG in collaboration with AVPN and supported by Google.org and the Asian Development Bank (ADB)."
+    text: "This initiative is part of the AI Opportunity Fund: Asia-Pacific, implemented by WANG in collaboration with AVPN and supported by Google.org and the Asian Development Bank (ADB).",
+    url: "https://avpn.asia/ai-course/urdu-ai/"
   },
   {
     name: "WANG and WALI delivery ecosystem",
-    text: "Backed by WANG's 35-year community presence and WALI's rural innovation infrastructure in Balochistan."
+    text: "Backed by WANG's 35-year community presence and WALI's rural innovation infrastructure in Balochistan.",
+    url: "https://wang.org.pk/about.html"
   }
 ];

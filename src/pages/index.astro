@@ -69,6 +69,39 @@ const investmentCase = [
     text: "Partners can help convert mass awareness into deeper learning pathways, livelihood use cases, teacher support, and district evidence that is easy to inspect and improve."
   }
 ];
+const fundingPriorities = [
+  {
+    label: "District expansion",
+    title: "Take Urdu-first AI learning into more underserved districts.",
+    text: "Support Dost-led training, local venue costs, travel, district coordination, and follow-up cohorts where digital reach alone is not enough.",
+    proof: "Builds from the current 29-district evidence base."
+  },
+  {
+    label: "Women-led pathways",
+    title: "Deepen safer, trusted AI learning spaces for women and girls.",
+    text: "Fund women-friendly cohorts, female facilitators, community access points, and applied learning tracks for education, livelihood, and confidence.",
+    proof: "Anchored in the reported 51% women participation signal."
+  },
+  {
+    label: "Teacher and livelihood tracks",
+    title: "Turn awareness into practical skills people use every week.",
+    text: "Create structured Urdu learning pathways for teachers, freelancers, students, MSMEs, rural workers, and first-time AI users.",
+    proof: "Connects mass media reach to measurable learning outcomes."
+  },
+  {
+    label: "Impact evidence",
+    title: "Make district impact easier to verify, compare, and improve.",
+    text: "Strengthen reporting tools, story collection, dashboards, partner briefs, consented testimonials, and public evidence packs.",
+    proof: "Moves the site from reporting totals to funder-grade evidence."
+  }
+];
+const evidencePack = [
+  "Reported learner records and completion basis",
+  "District-level Dost map and facilitator profiles",
+  "Partner and award references",
+  "Media coverage and public learning videos",
+  "Methodology note for non-overclaimed numbers"
+];
 const partnerBadges = [
   {
     label: "Implemented by",
@@ -293,7 +326,7 @@ const credibilitySignals = [
         <div class="showcase-grid" aria-label="Visual showcase of how Urdu Ai works">
           {showcaseImages.map((item, index) => (
             <figure class:list={["showcase-tile", index === 0 && "wide"]}>
-              <img src={item.image} alt={item.title} loading="lazy" />
+              <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
               <figcaption>
                 <strong>{item.title}</strong>
                 <span>{item.text}</span>
@@ -329,7 +362,7 @@ const credibilitySignals = [
         <div class="dost-grid">
           {dostCards.map((profile) => (
             <article class="profile-card dost-card">
-              <img src={profile.image} alt={`${profile.name}, Urdu Ai Dost in ${profile.district}`} loading="lazy" />
+              <img src={profile.image} alt={`${profile.name}, Urdu Ai Dost in ${profile.district}`} loading="lazy" decoding="async" />
               <div class="profile-card-body">
                 <span class="profile-location">{profile.district}</span>
                 <h3>{profile.name}</h3>
@@ -356,7 +389,7 @@ const credibilitySignals = [
         <div class="stories-grid">
           {stories.map((story, index) => (
             <article class="story">
-              <img src={storyImages[index]} alt={story.title} />
+              <img src={storyImages[index]} alt={story.title} loading="lazy" decoding="async" />
               <div>
                 <h3>{story.title}</h3>
                 <p>{story.text}</p>
@@ -421,7 +454,7 @@ const credibilitySignals = [
             <article class:list={["partner-badge", partner.variant && `partner-badge--${partner.variant}`]}>
               <span>{partner.label}</span>
               <div class="partner-logo-frame">
-                <img src={partner.image} alt={partner.name} loading="lazy" />
+                <img src={partner.image} alt={partner.name} loading="lazy" decoding="async" />
               </div>
               <strong>{partner.name}</strong>
             </article>
@@ -432,6 +465,7 @@ const credibilitySignals = [
             <article class="recognition-card">
               <h3>{item.name}</h3>
               <p>{item.text}</p>
+              {item.url && <a href={item.url}>View reference</a>}
             </article>
           ))}
         </div>
@@ -449,7 +483,7 @@ const credibilitySignals = [
         <div class="team-grid">
           {teamProfiles.map((profile) => (
             <article class="profile-card team-card">
-              <img src={profile.image} alt={profile.name} loading="lazy" />
+              <img src={profile.image} alt={profile.name} loading="lazy" decoding="async" />
               <div class="profile-card-body">
                 <span class="profile-location">{profile.role}</span>
                 <h3>{profile.name}</h3>
@@ -502,6 +536,35 @@ const credibilitySignals = [
             <article class="media-card">
               <iframe src={`https://www.youtube.com/embed/${id}`} title={title} loading="lazy" allowfullscreen></iframe>
               <p>{title}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section partner-ask-section" id="partner" data-reveal>
+      <div class="container partner-ask">
+        <div class="partner-ask-copy">
+          <span class="eyebrow">Partner pathway</span>
+          <h2>What a funder can help Urdu Ai build next.</h2>
+          <p>
+            Urdu Ai already has the ingredients that funders look for: trusted field delivery, national attention, women participation, district evidence, media visibility, and a practical language-access thesis. The next step is deeper, better-measured learning pathways.
+          </p>
+          <div class="evidence-pack" aria-label="Evidence available for partners">
+            <strong>Evidence pack already visible on this site</strong>
+            <ul>
+              {evidencePack.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+          <a class="button" href="mailto:ai@urduai.org">Discuss partnership</a>
+        </div>
+        <div class="funding-grid">
+          {fundingPriorities.map((item) => (
+            <article class="funding-card">
+              <span>{item.label}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <em>{item.proof}</em>
             </article>
           ))}
         </div>
