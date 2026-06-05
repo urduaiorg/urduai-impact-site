@@ -85,9 +85,10 @@ a {
   border-radius: 8px;
   background: var(--teal);
   color: var(--on-primary);
-  font-weight: 900;
+  font-weight: 700;
   font-size: 20px;
   line-height: 1;
+  letter-spacing: 0.01em;
   box-shadow: 0 10px 22px rgba(46, 84, 154, 0.22);
 }
 
