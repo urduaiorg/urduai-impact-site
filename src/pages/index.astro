@@ -1,8 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { stats, proofPoints, sectors, stories, impactQuotes, shorts, mediaVideos, recognition } from "../data/impact.js";
+import { dostProfiles, teamProfiles } from "../data/profiles.js";
 
 const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg", "/assets/classroom.jpg", "/assets/training-hero.jpg"];
+const dostCards = dostProfiles.map((profile) => ({
+  ...profile,
+  summary: `${profile.bio.split(". ")[0]}.`
+}));
 ---
 
 <BaseLayout
@@ -78,6 +83,47 @@ const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg",
           <div><strong>Women and girls</strong><br />Participation support where personal devices, email access, or mobility are barriers.</div>
           <div><strong>Freelancers and MSMEs</strong><br />Design, content, customer service, documentation, and productivity workflows.</div>
           <div><strong>Underserved groups</strong><br />Inclusive learning for learners often missed by English-first technology programmes.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt profile-section" id="dosts" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <h2>Dost profiles show the delivery network.</h2>
+          <p class="section-lede">
+            The Dost model is the human layer behind Urdu Ai's district reach: educators, organizers, technologists, advocates, and community leaders who make AI learning local.
+          </p>
+        </div>
+        <div class="profile-summary">
+          <div>
+            <strong>31</strong>
+            <span>Active Dosts reported on the current impact site</span>
+          </div>
+          <div>
+            <strong>{dostProfiles.length}</strong>
+            <span>Public Dost profiles currently available from the WordPress directory</span>
+          </div>
+          <div>
+            <strong>29</strong>
+            <span>Districts represented in the public impact map</span>
+          </div>
+        </div>
+        <div class="dost-grid">
+          {dostCards.map((profile) => (
+            <article class="profile-card dost-card">
+              <img src={profile.image} alt={`${profile.name}, Urdu Ai Dost in ${profile.district}`} loading="lazy" />
+              <div class="profile-card-body">
+                <span class="profile-location">{profile.district}</span>
+                <h3>{profile.name}</h3>
+                <p>{profile.summary}</p>
+                <details>
+                  <summary>Read profile</summary>
+                  <p>{profile.bio}</p>
+                </details>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -158,6 +204,29 @@ const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg",
             <article class="recognition-card">
               <h3>{item.name}</h3>
               <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section profile-section" id="team" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <h2>The team accountable for the work.</h2>
+          <p class="section-lede">
+            The impact site should make leadership visible: programme direction, field management, content, media, and gender perspectives.
+          </p>
+        </div>
+        <div class="team-grid">
+          {teamProfiles.map((profile) => (
+            <article class="profile-card team-card">
+              <img src={profile.image} alt={profile.name} loading="lazy" />
+              <div class="profile-card-body">
+                <span class="profile-location">{profile.role}</span>
+                <h3>{profile.name}</h3>
+                <p>{profile.bio}</p>
+              </div>
             </article>
           ))}
         </div>
