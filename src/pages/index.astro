@@ -1,0 +1,212 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { stats, proofPoints, sectors, stories, shorts, mediaVideos, recognition } from "../data/impact.js";
+
+const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg", "/assets/classroom.jpg", "/assets/training-hero.jpg"];
+---
+
+<BaseLayout
+  title="Urdu AI Impact | Reported AI Literacy Reach Across Pakistan"
+  description="Impact evidence, learner records, district coverage, Urdu AI Dost stories, media coverage, and recognition for Urdu AI's AI literacy work across Pakistan."
+>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Urdu AI Impact</h1>
+          <p class="hero-copy">
+            Public evidence of what changes when artificial intelligence learning is delivered in Urdu, through local trainers, community partners, and practical tools people can use immediately.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#numbers">See the numbers</a>
+            <a class="button secondary" href="#stories">Watch field stories</a>
+          </div>
+          <p class="data-note">
+            Impact figures are presented as reported learner records and training completions. They should not be read as verified unique beneficiaries unless explicitly stated.
+          </p>
+        </div>
+        <div class="hero-media" aria-label="Urdu AI field training photos">
+          <img src="/assets/training-hero.jpg" alt="Urdu AI training session with learners in Pakistan" />
+          <img src="/assets/classroom.jpg" alt="Learners attending an AI education session" />
+          <img src="/assets/dost-community.jpg" alt="Urdu AI Dost community group" />
+          <img src="/assets/training-group.jpg" alt="Urdu AI facilitators and participants" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="numbers">
+      <div class="container">
+        <div class="section-head">
+          <h2>Numbers that can be explained.</h2>
+          <p class="section-lede">
+            The impact site keeps headline metrics visible, but also gives partners the reporting basis behind them.
+          </p>
+        </div>
+        <div class="stats-grid">
+          {stats.map((stat) => (
+            <article class="stat">
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+              <p>{stat.note}</p>
+            </article>
+          ))}
+        </div>
+        <ul class="proof-grid">
+          {proofPoints.map((point) => <li>{point}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="map">
+      <div class="container map-band">
+        <div class="map-card">
+          <span class="map-number">29</span>
+          <h2>Districts with Urdu AI Dost presence.</h2>
+          <p>
+            The Dost network turns a digital platform into local access: training rooms, campus sessions, community cohorts, women-friendly participation pathways, and follow-up support.
+          </p>
+        </div>
+        <div class="district-list" aria-label="Urdu AI delivery channels">
+          <div><strong>Schools and colleges</strong><br />AI awareness, teacher workflows, student research, and classroom use.</div>
+          <div><strong>Universities</strong><br />Campus workshops, youth employability, and practical AI tool adoption.</div>
+          <div><strong>Community cohorts</strong><br />Local facilitators helping first-time learners build confidence.</div>
+          <div><strong>Women and girls</strong><br />Participation support where personal devices, email access, or mobility are barriers.</div>
+          <div><strong>Freelancers and MSMEs</strong><br />Design, content, customer service, documentation, and productivity workflows.</div>
+          <div><strong>Underserved groups</strong><br />Inclusive learning for learners often missed by English-first technology programmes.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="stories">
+      <div class="container">
+        <div class="section-head">
+          <h2>Field stories, not just totals.</h2>
+          <p class="section-lede">
+            Urdu AI tracks applied use: how learners move from awareness to confidence, productivity, and livelihood pathways.
+          </p>
+        </div>
+        <div class="stories-grid">
+          {stories.map((story, index) => (
+            <article class="story">
+              <img src={storyImages[index]} alt={story.title} />
+              <div>
+                <h3>{story.title}</h3>
+                <p>{story.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Latest impact Shorts.</h2>
+          <p class="section-lede">
+            Short, mobile-first evidence from learners, teachers, Dosts, farmers, and communities using AI in everyday work.
+          </p>
+        </div>
+        <div class="shorts-grid">
+          {shorts.map(([id, title]) => (
+            <article class="short-card">
+              <iframe src={`https://www.youtube.com/embed/${id}`} title={title} loading="lazy" allowfullscreen></iframe>
+              <p>{title}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="recognition">
+      <div class="container">
+        <div class="section-head">
+          <h2>Recognition and partners.</h2>
+          <p class="section-lede">
+            Urdu AI is delivered through WANG/WALI's community infrastructure and supported by partners investing in inclusive AI literacy.
+          </p>
+        </div>
+        <div class="recognition-grid">
+          {recognition.map((item) => (
+            <article class="recognition-card">
+              <h3>{item.name}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Who Urdu AI reached.</h2>
+          <p class="section-lede">
+            Phase 2 completion data includes learners across education, employment, social sector, and small business contexts.
+          </p>
+        </div>
+        <table class="sector-table">
+          <thead>
+            <tr>
+              <th>Reported learner group</th>
+              <th>Records</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sectors.map(([sector, count]) => (
+              <tr>
+                <td>{sector}</td>
+                <td>{count}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Media coverage.</h2>
+          <p class="section-lede">
+            National and regional media coverage helps document Urdu AI's public visibility and momentum.
+          </p>
+        </div>
+        <div class="shorts-grid">
+          {mediaVideos.map(([id, title]) => (
+            <article class="short-card">
+              <iframe src={`https://www.youtube.com/embed/${id}`} title={title} loading="lazy" allowfullscreen></iframe>
+              <p>{title}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reports">
+      <div class="container report-band">
+        <article class="report-panel">
+          <h3>Impact reporting that donors can read quickly.</h3>
+          <p>
+            The new site can publish quarterly impact briefs, district snapshots, media packs, and a transparent methodology note without opening Elementor.
+          </p>
+          <a class="button" href="mailto:info@urduai.org">Request impact brief</a>
+        </article>
+        <article class="report-panel">
+          <h3>Methodology note.</h3>
+          <p>
+            Current headline numbers combine reported training completions and learner records. Contact fields and shared institutional records are treated carefully and not overclaimed as unique verified people.
+          </p>
+          <a class="button secondary" href="#numbers">Review reporting basis</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p>Urdu AI Impact is the public evidence hub for Urdu AI's learning and community delivery work.</p>
+      <p>Built for clear partner reporting with public, audit-defensible language.</p>
+    </div>
+  </footer>
+</BaseLayout>
