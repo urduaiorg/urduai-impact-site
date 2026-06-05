@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Urdu Ai Dost Network - Pakistan</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <style>
+      :root {
+        --bg-1: #040d24;
+        --bg-2: #2e549a;
+        --panel: rgba(7, 19, 48, 0.78);
+        --panel-strong: rgba(8, 22, 56, 0.94);
+        --line: rgba(125, 163, 235, 0.35);
+        --text: #ecf4ff;
+        --muted: #9eb6de;
+        --urdu: #ffffff;
+        --ai: #fadf70;
+        --ai-bright: #fadf70;
+        --shadow: 0 18px 35px rgba(0, 0, 0, 0.44);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 10% 8%, #1b3a76 0%, transparent 33%),
+          radial-gradient(circle at 85% 86%, #11356d 0%, transparent 26%),
+          linear-gradient(145deg, var(--bg-1), var(--bg-2));
+        overflow: hidden;
+      }
+
+      #map {
+        width: 100%;
+        height: 100%;
+      }
+
+      .grain {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+        background-size: 3px 3px;
+        opacity: 0.08;
+        z-index: 410;
+      }
+
+      .topbar {
+        position: fixed;
+        z-index: 1200;
+        top: 14px;
+        left: 14px;
+        right: 14px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .brand {
+        background: rgba(5, 16, 43, 0.94);
+        border: 1px solid rgba(173, 201, 255, 0.45);
+        border-radius: 14px;
+        padding: 10px 14px;
+        backdrop-filter: blur(8px);
+        box-shadow: var(--shadow);
+      }
+
+      .brand-title {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: #ffffff;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+      }
+
+      .brand-title .urdu {
+        color: var(--urdu);
+      }
+
+      .brand-title .ai {
+        color: var(--ai);
+      }
+
+      .brand-sub {
+        margin: 0.25rem 0 0;
+        color: #d4e5ff;
+        font-size: 0.76rem;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+      }
+
+      .actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+        color: #eaf3ff;
+        font: inherit;
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 0.5rem 0.7rem;
+        cursor: pointer;
+        backdrop-filter: blur(8px);
+      }
+
+      .btn.primary {
+        border-color: #f3c85a;
+        background: #1c2f5d;
+        color: #ffd979;
+        box-shadow: inset 0 0 0 1px rgba(243, 200, 90, 0.25);
+      }
+
+      .btn.active {
+        border-color: rgba(241, 195, 74, 0.8);
+        box-shadow: inset 0 0 0 1px rgba(241, 195, 74, 0.2);
+      }
+
+      .map-select {
+        border: 1px solid rgba(145, 179, 242, 0.65);
+        border-radius: 10px;
+        background: rgba(13, 32, 68, 0.95);
+        color: #eef5ff;
+        font: inherit;
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 0.48rem 0.56rem;
+        min-width: 132px;
+      }
+
+      .hud {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        background: rgba(5, 16, 43, 0.9);
+        border: 1px solid rgba(173, 201, 255, 0.35);
+        border-radius: 12px;
+        padding: 6px 8px;
+        backdrop-filter: blur(8px);
+      }
+
+      .chip {
+        border: 1px solid rgba(241, 195, 74, 0.55);
+        background: rgba(29, 41, 74, 0.95);
+        color: #ffd979;
+        border-radius: 999px;
+        padding: 0.35rem 0.62rem;
+        font-size: 0.74rem;
+        font-weight: 700;
+      }
+
+      .province-rail {
+        display: inline-flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        background: rgba(5, 16, 43, 0.9);
+        border: 1px solid rgba(173, 201, 255, 0.35);
+        border-radius: 12px;
+        padding: 8px;
+        backdrop-filter: blur(8px);
+        width: fit-content;
+        max-width: 100%;
+      }
+
+      .province-pill {
+        border: 1px solid rgba(145, 179, 242, 0.6);
+        border-radius: 999px;
+        padding: 0.36rem 0.62rem;
+        font-size: 0.74rem;
+        font-weight: 700;
+        color: #eff5ff;
+        background: rgba(17, 38, 79, 0.95);
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .province-pill.active {
+        border-color: rgba(241, 195, 74, 0.95);
+        color: #ffd979;
+        background: rgba(45, 55, 93, 0.98);
+      }
+
+      .sheet {
+        position: fixed;
+        z-index: 520;
+        left: 50%;
+        bottom: 14px;
+        width: min(880px, calc(100% - 28px));
+        transform: translate(-50%, 130%);
+        transition: transform 0.35s ease;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--panel-strong);
+        box-shadow: 0 24px 42px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(9px);
+      }
+
+      .sheet.open {
+        transform: translate(-50%, 0);
+      }
+
+      .sheet-inner {
+        padding: 12px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        border: 1px solid rgba(199, 154, 29, 0.52);
+        background: rgba(199, 154, 29, 0.12);
+        color: #f4d998;
+        border-radius: 8px;
+        padding: 0.24rem 0.44rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .sheet-name {
+        margin: 0.35rem 0 0;
+        font-size: 1.06rem;
+        font-weight: 800;
+      }
+
+      .sheet-profile {
+        display: grid;
+        grid-template-columns: 74px 1fr;
+        gap: 10px;
+        align-items: start;
+      }
+
+      .sheet-portrait {
+        width: 74px;
+        height: 74px;
+        border-radius: 12px;
+        object-fit: cover;
+        border: 1px solid rgba(241, 195, 74, 0.55);
+        background: linear-gradient(145deg, #0f2a5d, #132f66);
+      }
+
+      .sheet-portrait-fallback {
+        width: 74px;
+        height: 74px;
+        border-radius: 12px;
+        border: 1px solid rgba(241, 195, 74, 0.55);
+        background: linear-gradient(145deg, #0f2a5d, #132f66);
+        display: grid;
+        place-items: center;
+        color: #f3d995;
+        font-weight: 800;
+        font-size: 1.2rem;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      .sheet-urdu {
+        margin: 0.2rem 0;
+        direction: rtl;
+        font-family: "Noto Nastaliq Urdu", serif;
+        font-size: 1.03rem;
+        color: #fff;
+      }
+
+      .sheet-meta {
+        margin: 0;
+        font-size: 0.84rem;
+        color: #b4caee;
+      }
+
+      .sheet-links {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        align-content: flex-start;
+      }
+
+      .sheet-link {
+        text-decoration: none;
+        border: 1px solid rgba(131, 168, 235, 0.45);
+        border-radius: 999px;
+        padding: 0.35rem 0.56rem;
+        font-size: 0.72rem;
+        color: #e7f0ff;
+        font-weight: 700;
+        background: rgba(12, 33, 74, 0.68);
+      }
+
+      .sheet-link.impact {
+        border-color: rgba(199, 154, 29, 0.55);
+        color: #f3d890;
+      }
+
+      .sheet-close {
+        border: 1px solid var(--line);
+        background: transparent;
+        color: #bfd2f2;
+        border-radius: 8px;
+        font: inherit;
+        padding: 0.3rem 0.52rem;
+        cursor: pointer;
+        margin-left: auto;
+      }
+
+      .marker {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid #0e2e67;
+        background: radial-gradient(circle at 35% 30%, #f6d071, #c8981a 65%);
+        box-shadow: 0 0 0 0 rgba(241, 195, 74, 0.5);
+        animation: pulse 2.2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(241, 195, 74, 0.48);
+        }
+        80% {
+          box-shadow: 0 0 0 12px rgba(241, 195, 74, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(241, 195, 74, 0);
+        }
+      }
+
+      .search-modal {
+        position: fixed;
+        z-index: 560;
+        inset: 0;
+        display: none;
+        place-items: start center;
+        padding-top: 78px;
+        background: rgba(4, 12, 30, 0.5);
+        backdrop-filter: blur(4px);
+      }
+
+      .search-modal.open {
+        display: grid;
+      }
+
+      .search-card {
+        width: min(760px, calc(100% - 24px));
+        background: rgba(8, 21, 52, 0.97);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .search-input {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid rgba(111, 151, 227, 0.3);
+        background: transparent;
+        color: #eef5ff;
+        font: inherit;
+        font-size: 0.94rem;
+        padding: 0.85rem 0.9rem;
+        outline: none;
+      }
+
+      .results {
+        max-height: 320px;
+        overflow: auto;
+      }
+
+      .result {
+        padding: 0.62rem 0.9rem;
+        border-bottom: 1px solid rgba(102, 144, 222, 0.18);
+        cursor: pointer;
+      }
+
+      .result:hover {
+        background: rgba(18, 43, 89, 0.58);
+      }
+
+      .result strong {
+        display: block;
+        color: #f2f7ff;
+        font-size: 0.86rem;
+      }
+
+      .result span {
+        color: #9fb6de;
+        font-size: 0.75rem;
+      }
+
+      .intro {
+        position: fixed;
+        inset: 0;
+        z-index: 650;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(145deg, #020917, #071d45);
+        animation: introFade 1.8s forwards;
+      }
+
+      .intro h2 {
+        margin: 0;
+        font-size: clamp(1.5rem, 4vw, 2.4rem);
+        letter-spacing: 0.3px;
+      }
+
+      .intro .urdu {
+        color: #fff;
+      }
+
+      .intro .ai {
+        color: #eec15a;
+      }
+
+      @keyframes introFade {
+        0%,
+        65% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+
+      @media (max-width: 840px) {
+        .row {
+          gap: 8px;
+        }
+
+        .brand {
+          width: 100%;
+          padding: 8px 10px;
+        }
+
+        .brand-title {
+          font-size: 0.9rem;
+        }
+
+        .brand-sub {
+          font-size: 0.7rem;
+        }
+
+        .actions {
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+        }
+
+        .btn,
+        .map-select {
+          width: 100%;
+          min-width: 0;
+          font-size: 0.74rem;
+          padding: 0.45rem 0.5rem;
+        }
+
+        .hud {
+          width: 100%;
+          display: flex;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          padding: 6px;
+          gap: 6px;
+        }
+
+        .chip {
+          font-size: 0.68rem;
+          white-space: nowrap;
+        }
+
+        .province-rail {
+          width: 100%;
+          display: flex;
+          overflow-x: auto;
+          gap: 6px;
+          padding: 6px;
+        }
+
+        .province-pill {
+          font-size: 0.68rem;
+          padding: 0.32rem 0.52rem;
+        }
+
+        .sheet-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .sheet-profile {
+          grid-template-columns: 60px 1fr;
+        }
+
+        .sheet-portrait {
+          width: 60px;
+          height: 60px;
+        }
+
+        .sheet-portrait-fallback {
+          width: 60px;
+          height: 60px;
+        }
+
+        .topbar {
+          top: 10px;
+          left: 10px;
+          right: 10px;
+        }
+
+        .sheet {
+          width: calc(100% - 12px);
+          bottom: 6px;
+          border-radius: 12px;
+          max-height: 44vh;
+          overflow: auto;
+        }
+
+        .sheet-inner {
+          padding: 10px;
+          gap: 8px;
+        }
+
+        .sheet-name {
+          font-size: 0.95rem;
+        }
+
+        .sheet-urdu {
+          font-size: 0.9rem;
+        }
+
+        .sheet-meta {
+          font-size: 0.76rem;
+        }
+
+        .sheet-link {
+          font-size: 0.67rem;
+          padding: 0.28rem 0.48rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="intro" class="intro">
+      <h2><span class="urdu">Urdu</span> <span class="ai">Ai</span> Dost Network</h2>
+    </div>
+
+    <div class="topbar">
+      <div class="row">
+        <section class="brand">
+          <h1 class="brand-title"><span class="urdu">Urdu</span> <span class="ai">Ai</span> Dost Network</h1>
+          <p class="brand-sub">Pakistan District Coverage Map</p>
+        </section>
+
+        <section class="actions">
+          <select id="mapStyleSelect" class="map-select" aria-label="Map style">
+            <option value="day">Day View</option>
+            <option value="night">Night View</option>
+            <option value="satellite">Satellite View</option>
+          </select>
+          <button id="searchBtn" class="btn" type="button">Search</button>
+          <button id="tourBtn" class="btn primary" type="button">Start Impact Tour</button>
+        </section>
+      </div>
+
+      <div class="row">
+        <div id="hud" class="hud"></div>
+      </div>
+
+      <div id="provinceRail" class="province-rail"></div>
+    </div>
+
+    <div id="map" aria-label="Interactive map of Pakistan"></div>
+
+    <section id="sheet" class="sheet" aria-live="polite">
+      <div class="sheet-inner">
+        <div>
+          <div class="sheet-profile">
+            <img id="sheetPortrait" class="sheet-portrait hidden" alt="Dost portrait" />
+            <div id="sheetPortraitFallback" class="sheet-portrait-fallback">UA</div>
+            <div>
+              <span class="badge"><span style="color:#fff">Urdu</span> <span style="color:#fadf70">Ai</span> Dost</span>
+              <h3 id="sheetName" class="sheet-name"></h3>
+              <p id="sheetUrdu" class="sheet-urdu"></p>
+              <p id="sheetMeta" class="sheet-meta"></p>
+              <p id="sheetNote" class="sheet-meta">District-level Urdu Ai Dost delivery record</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button id="closeSheet" class="sheet-close" type="button">Close</button>
+          <div class="sheet-links" style="margin-top:8px">
+            <a class="sheet-link" href="https://www.linkedin.com/company/urduaiorg/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="sheet-link" href="https://www.facebook.com/urduaiorg" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a class="sheet-link" href="https://www.tiktok.com/@urduaiorg" target="_blank" rel="noopener noreferrer">TikTok</a>
+            <a class="sheet-link" href="https://www.instagram.com/urduaiorg" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="sheet-link" href="https://www.youtube.com/@urduaiorg" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a class="sheet-link impact" href="https://impact.urduai.org" target="_blank" rel="noopener noreferrer">Learn about Urdu Ai Impact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="searchModal" class="search-modal" aria-hidden="true">
+      <div class="search-card">
+        <input id="searchInput" class="search-input" placeholder="Search by name, district, or province..." />
+        <div id="results" class="results"></div>
+      </div>
+    </section>
+
+    <div class="grain"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      if (typeof window.L === "undefined") {
+        document.write('<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"><\\/script>');
+      }
+    </script>
+
+    <script>
+      if (typeof window.L === "undefined") {
+        const mapEl = document.getElementById("map");
+        if (mapEl) {
+          mapEl.innerHTML =
+            '<div style="display:grid;place-items:center;height:100%;font-family:Montserrat,sans-serif;color:#fff;background:#071b45;">Map library failed to load on this host. Please allow external scripts from cdn.jsdelivr.net and unpkg.com.</div>';
+        }
+        throw new Error("Leaflet failed to load");
+      }
+
+      const dosts = [
+        { id: 1, name: "Tariq Nawaz", urdu: "طارق نواز", district: "Lakki Marwat", province: "KPK", lat: 32.607, lng: 70.911 },
+        { id: 2, name: "Junaid Khan", urdu: "جنید خان", district: "Bhakkar", province: "Punjab", lat: 31.626, lng: 71.066 },
+        { id: 3, name: "Syed Imran Ali Shah", urdu: "سید عمران علی شاہ", district: "Layyah", province: "Punjab", lat: 30.969, lng: 70.944 },
+        { id: 4, name: "Shah Nawaz Raheeq", urdu: "شاہ نواز رہیق", district: "Pishin", province: "Balochistan", lat: 30.583, lng: 67.0 },
+        { id: 5, name: "Tajammal Hussain", urdu: "تجمل حسین", district: "Pakpattan", province: "Punjab", lat: 30.343, lng: 73.386 },
+        { id: 6, name: "Junaid Hussain Malik", urdu: "جنید حسین ملک", district: "Rawalpindi", province: "Punjab", lat: 33.565, lng: 73.016 },
+        { id: 7, name: "Rizwana Ayub", urdu: "رضوانہ ایوب", district: "Quetta", province: "Balochistan", lat: 30.179, lng: 66.975 },
+        { id: 8, name: "Syed Zia Ullah Shah", urdu: "سید ضیاء اللہ شاہ", district: "Musakhail", province: "Balochistan", lat: 30.775, lng: 69.822 },
+        { id: 9, name: "Rana Muhammad Wajid Imran Khan", urdu: "رانا محمد واجد عمران خان", district: "Khanewal", province: "Punjab", lat: 30.301, lng: 71.933 },
+        { id: 10, name: "Zahir Mehmbood", urdu: "ظہیر محمود", district: "Mianwali", province: "Punjab", lat: 32.586, lng: 71.544 },
+        { id: 11, name: "Rai Ahmad Raza Tahir", urdu: "رائے احمد رضا طاہر", district: "Chiniot", province: "Punjab", lat: 31.72, lng: 72.979 },
+        { id: 12, name: "Mohammed Zeshan", urdu: "محمد ذیشان", district: "Bahawalnagar", province: "Punjab", lat: 29.999, lng: 73.253 },
+        { id: 13, name: "Hamid Bashir", urdu: "حمید بشیر", district: "Islamabad", province: "ICT", lat: 33.693, lng: 73.065 },
+        { id: 14, name: "Dherminder Kumar", urdu: "دھرمندر کمار", district: "Rahim Yar Khan", province: "Punjab", lat: 28.421, lng: 70.298 },
+        { id: 15, name: "Shabir Ahmad", urdu: "شبیر احمد", district: "Malakand", province: "KPK", lat: 34.565, lng: 71.93 },
+        { id: 16, name: "Baqir Baloch Syed", urdu: "باقر بلوچ سید", district: "Panjgur", province: "Balochistan", lat: 26.964, lng: 64.1 },
+        { id: 17, name: "Farhadullah", urdu: "فرہاداللہ", district: "Dera Ismail Khan", province: "KPK", lat: 31.831, lng: 70.902 },
+        { id: 18, name: "Waseem Abbas", urdu: "وسیم عباس", district: "Khairpur Mir's", province: "Sindh", lat: 27.529, lng: 68.759 },
+        { id: 19, name: "Gul Muhammad", urdu: "گل محمد", district: "Sibi", province: "Balochistan", lat: 29.544, lng: 67.878 },
+        { id: 20, name: "Hafiz Yasir Chaudhary", urdu: "حافظ یاسر چودھری", district: "Multan", province: "Punjab", lat: 30.157, lng: 71.524 },
+        { id: 21, name: "Fakhar Ul Zaman", urdu: "فخر الزمان", district: "Vehari", province: "Punjab", lat: 30.045, lng: 72.355 },
+        { id: 22, name: "Roshni Anwar", urdu: "روشنی انور", district: "Hyderabad", province: "Sindh", lat: 25.379, lng: 68.368 },
+        { id: 23, name: "Dua Korejo", urdu: "دعا کوریجو", district: "Dadu", province: "Sindh", lat: 26.73, lng: 67.776 },
+        { id: 24, name: "Asifa Jamali", urdu: "آصفہ جمالی", district: "Nasirabad", province: "Balochistan", lat: 28.35, lng: 68.7 },
+        { id: 25, name: "Jan Muhammad", urdu: "جان محمد", district: "Quetta", province: "Balochistan", lat: 30.179, lng: 66.975 },
+        { id: 26, name: "Naimat Ur Raheem", urdu: "نعمت الرحیم", district: "Lahore", province: "Punjab", lat: 31.52, lng: 74.358 },
+        { id: 27, name: "Hamza Bashir", urdu: "حمزہ بشیر", district: "Chakwal", province: "Punjab", lat: 32.93, lng: 72.857 },
+        { id: 28, name: "Saif Ali", urdu: "سیف علی", district: "Mirpur Khas", province: "Sindh", lat: 25.525, lng: 69.012 },
+        { id: 29, name: "Abrar Roonjha", urdu: "ابرار رونجھا", district: "Lasbela", province: "Balochistan", lat: 25.807, lng: 66.621 },
+        { id: 30, name: "Mairaj Ahmed", urdu: "معراج احمد", district: "Lasbela", province: "Balochistan", lat: 25.807, lng: 66.621, portrait: "https://urduai.org/wp-content/uploads/2025/04/mairajc.jpg" },
+        { id: 31, name: "Batool Lasi", urdu: "بتول لاسی", district: "Hub Chowki", province: "Balochistan", lat: 25.121, lng: 66.882 }
+      ];
+
+      const provinceColors = {
+        Punjab: "#5fa4ff",
+        Sindh: "#4fd1b8",
+        Balochistan: "#f0b648",
+        KPK: "#ca8cff",
+        ICT: "#ff7ea5"
+      };
+
+      const pakistanBounds = [
+        [23.5, 60.8],
+        [37.3, 77.9]
+      ];
+      const map = L.map("map", {
+        minZoom: 5,
+        maxZoom: 11,
+        zoomControl: false,
+        maxBounds: pakistanBounds,
+        maxBoundsViscosity: 1.0
+      });
+      L.control.zoom({ position: "bottomright" }).addTo(map);
+
+      const dayLayer = L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; CARTO'
+      });
+      const nightLayer = L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; CARTO'
+      });
+      const satelliteLayer = L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        {
+          attribution: "Tiles &copy; Esri"
+        }
+      );
+      const baseLayerMap = { day: dayLayer, night: nightLayer, satellite: satelliteLayer };
+      let currentBaseLayer = dayLayer;
+      currentBaseLayer.addTo(map);
+      map.fitBounds(pakistanBounds);
+
+
+      const haloLayer = L.layerGroup().addTo(map);
+      const markerLayer = L.layerGroup().addTo(map);
+
+      const provinceRail = document.getElementById("provinceRail");
+      const hud = document.getElementById("hud");
+      const sheet = document.getElementById("sheet");
+      const mapStyleSelect = document.getElementById("mapStyleSelect");
+      const searchBtn = document.getElementById("searchBtn");
+      const tourBtn = document.getElementById("tourBtn");
+      const closeSheetBtn = document.getElementById("closeSheet");
+      const searchModal = document.getElementById("searchModal");
+      const searchInput = document.getElementById("searchInput");
+      const resultsEl = document.getElementById("results");
+      const sheetPortrait = document.getElementById("sheetPortrait");
+      const sheetPortraitFallback = document.getElementById("sheetPortraitFallback");
+
+      let selectedProvince = "ALL";
+      let currentTour = null;
+      let filtered = [...dosts];
+
+      function markerIcon() {
+        return L.divIcon({ className: "", html: '<div class="marker"></div>', iconSize: [20, 20], iconAnchor: [10, 10] });
+      }
+
+      function setBaseLayer(styleKey) {
+        const nextLayer = baseLayerMap[styleKey] || dayLayer;
+        if (currentBaseLayer === nextLayer) return;
+        map.removeLayer(currentBaseLayer);
+        nextLayer.addTo(map);
+        currentBaseLayer = nextLayer;
+      }
+
+
+      function initials(name) {
+        return name
+          .split(" ")
+          .filter(Boolean)
+          .slice(0, 2)
+          .map((s) => s[0])
+          .join("")
+          .toUpperCase();
+      }
+
+      function setPortrait(d) {
+        const fallback = () => {
+          sheetPortrait.removeAttribute("src");
+          sheetPortrait.classList.add("hidden");
+          sheetPortraitFallback.classList.remove("hidden");
+          sheetPortraitFallback.textContent = initials(d.name);
+        };
+
+        if (!d.portrait) {
+          fallback();
+          return;
+        }
+
+        sheetPortraitFallback.classList.add("hidden");
+        sheetPortrait.classList.remove("hidden");
+        sheetPortrait.alt = `${d.name} portrait`;
+        sheetPortrait.onerror = fallback;
+        sheetPortrait.src = d.portrait;
+      }
+
+      function openSheet(d) {
+        setPortrait(d);
+        document.getElementById("sheetName").textContent = d.name;
+        document.getElementById("sheetUrdu").textContent = d.urdu;
+        document.getElementById("sheetMeta").textContent = `${d.district}, ${d.province}`;
+        document.getElementById("sheetNote").textContent = "Public Dost map record";
+        sheet.classList.add("open");
+      }
+
+      function closeSheet() {
+        sheet.classList.remove("open");
+      }
+
+      function updateHud(items) {
+        const districts = new Set(items.map((d) => d.district)).size;
+        hud.innerHTML = `
+          <span class="chip">${items.length} Active Dosts</span>
+          <span class="chip">${districts} Districts</span>
+          <span class="chip">${selectedProvince === "ALL" ? "National View" : selectedProvince}</span>
+        `;
+      }
+
+      function renderMap(items) {
+        markerLayer.clearLayers();
+        haloLayer.clearLayers();
+
+        items.forEach((d) => {
+          L.circle([d.lat, d.lng], {
+            radius: 26000,
+            color: provinceColors[d.province] || "#6da9ff",
+            weight: 1,
+            fillColor: provinceColors[d.province] || "#6da9ff",
+            fillOpacity: 0.14
+          }).addTo(haloLayer);
+
+          const marker = L.marker([d.lat, d.lng], { icon: markerIcon() }).addTo(markerLayer);
+          marker.on("click", () => {
+            map.flyTo([d.lat, d.lng], 8, { duration: 0.8 });
+            openSheet(d);
+          });
+        });
+
+        updateHud(items);
+      }
+
+      function provincePills() {
+        const provinces = ["ALL", ...new Set(dosts.map((d) => d.province))];
+        provinceRail.innerHTML = "";
+
+        provinces.forEach((p) => {
+          const pill = document.createElement("button");
+          pill.type = "button";
+          pill.className = "province-pill" + (p === selectedProvince ? " active" : "");
+          pill.textContent = p === "ALL" ? "All Provinces" : p;
+          pill.addEventListener("click", () => {
+            selectedProvince = p;
+            filtered = p === "ALL" ? [...dosts] : dosts.filter((d) => d.province === p);
+            provincePills();
+            renderMap(filtered);
+            if (currentTour) stopTour();
+          });
+          provinceRail.appendChild(pill);
+        });
+      }
+
+      function buildResults(query) {
+        const q = query.trim().toLowerCase();
+        const rows = (q ? dosts.filter((d) => `${d.name} ${d.district} ${d.province}`.toLowerCase().includes(q)) : dosts).slice(0, 28);
+
+        resultsEl.innerHTML = "";
+        rows.forEach((d) => {
+          const el = document.createElement("div");
+          el.className = "result";
+          el.innerHTML = `<strong>${d.name}</strong><span>${d.district}, ${d.province}</span>`;
+          el.addEventListener("click", () => {
+            map.flyTo([d.lat, d.lng], 8, { duration: 0.8 });
+            openSheet(d);
+            closeSearch();
+          });
+          resultsEl.appendChild(el);
+        });
+      }
+
+      function openSearch() {
+        searchModal.classList.add("open");
+        searchModal.setAttribute("aria-hidden", "false");
+        searchInput.value = "";
+        buildResults("");
+        setTimeout(() => searchInput.focus(), 40);
+      }
+
+      function closeSearch() {
+        searchModal.classList.remove("open");
+        searchModal.setAttribute("aria-hidden", "true");
+      }
+
+      function startTour() {
+        if (!filtered.length) return;
+        let index = 0;
+        tourBtn.classList.add("active");
+        tourBtn.textContent = "Stop Impact Tour";
+
+        const step = () => {
+          const d = filtered[index % filtered.length];
+          map.flyTo([d.lat, d.lng], 7.5, { duration: 1 });
+          openSheet(d);
+          index += 1;
+        };
+
+        step();
+        currentTour = setInterval(step, 2600);
+      }
+
+      function stopTour() {
+        clearInterval(currentTour);
+        currentTour = null;
+        tourBtn.classList.remove("active");
+        tourBtn.textContent = "Start Impact Tour";
+      }
+
+      searchBtn.addEventListener("click", openSearch);
+      closeSheetBtn.addEventListener("click", closeSheet);
+      searchModal.addEventListener("click", (e) => {
+        if (e.target === searchModal) closeSearch();
+      });
+      searchInput.addEventListener("input", (e) => buildResults(e.target.value));
+
+      tourBtn.addEventListener("click", () => {
+        if (currentTour) {
+          stopTour();
+          return;
+        }
+        startTour();
+      });
+
+      mapStyleSelect.addEventListener("change", () => {
+        setBaseLayer(mapStyleSelect.value);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        const isK = e.key.toLowerCase() === "k";
+        if ((e.ctrlKey || e.metaKey) && isK) {
+          e.preventDefault();
+          openSearch();
+          return;
+        }
+        if (e.key === "Escape") {
+          closeSearch();
+          closeSheet();
+        }
+      });
+
+      provincePills();
+      renderMap(filtered);
+
+      setTimeout(() => {
+        const intro = document.getElementById("intro");
+        if (intro) intro.remove();
+      }, 1900);
+    </script>
+  </body>
+</html>
