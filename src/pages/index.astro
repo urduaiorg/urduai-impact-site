@@ -52,6 +52,30 @@ const showcaseImages = [
     text: "Women-led groups help carry Urdu Ai into schools, families, and community networks."
   }
 ];
+const partnerBadges = [
+  {
+    label: "Implemented by",
+    name: "WANG",
+    image: "/assets/partners/wang-logo.png",
+    variant: "wang"
+  },
+  {
+    label: "In collaboration with",
+    name: "AVPN",
+    image: "/assets/partners/partner-avpn.svg"
+  },
+  {
+    label: "Supported by",
+    name: "Google.org",
+    image: "/assets/partners/partner-google-org.png"
+  },
+  {
+    label: "Supported by",
+    name: "Asian Development Bank",
+    image: "/assets/partners/partner-adb.png",
+    variant: "square"
+  }
+];
 ---
 
 <BaseLayout
@@ -292,6 +316,17 @@ const showcaseImages = [
           <p class="section-lede">
             This initiative is part of the AI Opportunity Fund: Asia-Pacific, implemented by WANG in collaboration with AVPN and supported by Google.org and the Asian Development Bank (ADB).
           </p>
+        </div>
+        <div class="partner-badge-grid" aria-label="AI Opportunity Fund partner badges">
+          {partnerBadges.map((partner) => (
+            <article class:list={["partner-badge", partner.variant && `partner-badge--${partner.variant}`]}>
+              <span>{partner.label}</span>
+              <div class="partner-logo-frame">
+                <img src={partner.image} alt={partner.name} loading="lazy" />
+              </div>
+              <strong>{partner.name}</strong>
+            </article>
+          ))}
         </div>
         <div class="recognition-grid">
           {recognition.map((item) => (
