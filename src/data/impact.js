@@ -105,8 +105,8 @@ export const recognition = [
     text: "Selected as one of six regional partners from 336 submissions under the StepForward: Essential Innovation Challenge, strengthening Urdu Ai's impact measurement and AI-to-livelihood pathway."
   },
   {
-    name: "AVPN, Google.org, and Asian Development Bank",
-    text: "Supported through the AI Opportunity Fund Asia Pacific to expand accessible, localized AI learning for underserved communities in Pakistan."
+    name: "AI Opportunity Fund: Asia-Pacific",
+    text: "This initiative is part of the AI Opportunity Fund: Asia-Pacific, implemented by WANG in collaboration with AVPN and supported by Google.org and the Asian Development Bank (ADB)."
   },
   {
     name: "WANG and WALI delivery ecosystem",
