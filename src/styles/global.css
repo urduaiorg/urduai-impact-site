@@ -928,6 +928,13 @@ a {
   gap: 24px;
 }
 
+.site-footer a {
+  display: inline-flex;
+  margin-left: 8px;
+  color: var(--teal);
+  font-weight: 850;
+}
+
 .js [data-reveal] {
   opacity: 1;
   transform: translateY(0);
