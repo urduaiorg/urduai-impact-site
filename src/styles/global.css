@@ -1846,6 +1846,12 @@ a {
 }
 
 @media (max-width: 640px) {
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .container {
     width: min(100% - 28px, 1180px);
   }
@@ -1907,24 +1913,39 @@ a {
   }
 
   .hero-atlas {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: auto;
     gap: 10px;
     padding: 10px;
   }
 
   .atlas-photo {
+    grid-column: 1 / -1;
     grid-row: auto;
-    min-height: 320px;
+    min-height: 260px;
+  }
+
+  .atlas-proof-card {
+    min-height: 150px;
+    padding: 14px;
+  }
+
+  .atlas-proof-card strong {
+    font-size: 30px;
+  }
+
+  .atlas-proof-card p {
+    font-size: 11px;
+    line-height: 1.38;
   }
 
   .atlas-mini-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
   .atlas-mini-grid img {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 3;
   }
 
   .investment-strip {
