@@ -64,6 +64,45 @@ export const stories = [
   }
 ];
 
+export const learnerOutcomes = [
+  {
+    name: "Asma Iqbal",
+    role: "BS Computer Science student",
+    location: "D.I. Khan",
+    signal: "2-3 hours to 30-45 minutes",
+    title: "From AI learner to paid design work.",
+    text: "After the training, Asma began using AI for study notes, video ideas, scripts, thumbnails, and graphic design. She reports that tasks which previously took 2-3 hours can now be completed in 30-45 minutes, and that the skills helped her secure regular work as an AI-based graphic designer.",
+    tools: "Gemini, ChatGPT, Grok, Flow AI"
+  },
+  {
+    name: "Urooj Naz",
+    role: "University student",
+    location: "D.I. Khan",
+    signal: "Started freelance design work",
+    title: "AI confidence turned into client work.",
+    text: "Urooj joined the training unsure where to start with AI. She now uses AI tools for assignments and graphic design, creating posters for local clients such as hotels and clothing collections. Her testimonial links the training to stronger confidence, faster study work, and new earning opportunities.",
+    tools: "ChatGPT, Gemini, Canva AI"
+  },
+  {
+    name: "Hakemeen Khan",
+    role: "Young digital service provider",
+    location: "Lakki Marwat / North Waziristan",
+    signal: "Built local business software",
+    title: "AI skills became practical software services.",
+    text: "Hakemeen used the training to move from interest in online work to building digital tools. He reports creating a digital ledger for shopkeepers and working on a petrol pump management system, using AI to support coding, school materials, reports, and client services.",
+    tools: "Claude, Gemini, NotebookLM, ChatGPT"
+  },
+  {
+    name: "Advocate Usman Khan Rumi",
+    role: "Practicing lawyer",
+    location: "Pakistan",
+    signal: "30-40% time saved",
+    title: "Legal work became faster and easier to explain.",
+    text: "Usman uses AI for legal research support, drafting, document summaries, case notes, and public legal awareness content. His testimonial reports a 30-40% reduction in research and drafting time, while emphasizing that legal outputs remain manually reviewed.",
+    tools: "ChatGPT, Gemini, NotebookLM"
+  }
+];
+
 export const impactQuotes = [
   {
     quote: "AI stopped feeling like an English-only technology. The learning became something I could try in my own language, for my own work.",

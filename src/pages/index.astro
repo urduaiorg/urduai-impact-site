@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { stats, proofPoints, sectors, stories, impactQuotes, shorts, mediaVideos, recognition } from "../data/impact.js";
+import { stats, proofPoints, sectors, stories, learnerOutcomes, impactQuotes, shorts, mediaVideos, recognition } from "../data/impact.js";
 import { dostProfiles, teamProfiles } from "../data/profiles.js";
 
 const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg", "/assets/classroom.jpg", "/assets/training-hero.jpg"];
@@ -440,6 +440,37 @@ const credibilitySignals = [
             </article>
           ))}
         </div>
+      </div>
+    </section>
+
+    <section class="section outcome-section" id="outcomes" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <h2>Learners are turning AI into study, work, and income.</h2>
+          <p class="section-lede">
+            Written testimonials show the shift from first-time AI exposure to practical use: faster study work, paid design services, local business tools, and professional productivity.
+          </p>
+        </div>
+        <div class="outcome-grid">
+          {learnerOutcomes.map((outcome) => (
+            <article class="outcome-card">
+              <div class="outcome-signal">
+                <span>{outcome.location}</span>
+                <strong>{outcome.signal}</strong>
+              </div>
+              <h3>{outcome.title}</h3>
+              <p>{outcome.text}</p>
+              <div class="outcome-person">
+                <strong>{outcome.name}</strong>
+                <span>{outcome.role}</span>
+              </div>
+              <p class="outcome-tools">{outcome.tools}</p>
+            </article>
+          ))}
+        </div>
+        <p class="data-note">
+          These cards are paraphrased from written learner testimonials submitted in May 2026. Reported time savings and income outcomes are learner-reported and should be read as testimonial evidence, not independently audited financial data.
+        </p>
       </div>
     </section>
 

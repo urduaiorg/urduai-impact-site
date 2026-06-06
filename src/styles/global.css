@@ -943,6 +943,99 @@ a {
   font-size: 14px;
 }
 
+.outcome-section {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(250, 223, 112, 0.24), transparent 28%),
+    linear-gradient(180deg, var(--paper), var(--bg));
+}
+
+.outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.outcome-card {
+  display: flex;
+  min-height: 420px;
+  flex-direction: column;
+  padding: 22px;
+  border: 1px solid rgba(219, 229, 246, 0.95);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 44px rgba(46, 84, 154, 0.11);
+}
+
+.outcome-signal {
+  display: grid;
+  gap: 8px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.outcome-signal span {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.outcome-signal strong {
+  color: var(--gold);
+  font-size: 24px;
+  line-height: 1.05;
+  text-shadow: 0 1px 0 rgba(46, 84, 154, 0.16);
+}
+
+.outcome-card h3 {
+  margin: 22px 0 0;
+  color: var(--ink);
+  font-size: 23px;
+  line-height: 1.08;
+}
+
+.outcome-card > p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.outcome-person {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.outcome-person strong {
+  display: block;
+  color: var(--teal);
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.outcome-person span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.outcome-tools {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: 12px !important;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(46, 84, 154, 0.08);
+  color: var(--teal) !important;
+  font-size: 11px !important;
+  font-weight: 850;
+  line-height: 1.2 !important;
+}
+
 .recognition-card a {
   display: inline-flex;
   margin-top: 16px;
@@ -1798,6 +1891,7 @@ a {
   .institution-feature-grid,
   .partner-badge-grid,
   .stories-grid,
+  .outcome-grid,
   .recognition-grid,
   .model-flow,
   .profile-summary {
@@ -1977,6 +2071,7 @@ a {
   .atlas-notes,
   .map-legend,
   .stories-grid,
+  .outcome-grid,
   .recognition-grid,
   .model-flow,
   .funding-grid,
