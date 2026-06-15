@@ -1898,6 +1898,13 @@ a {
   font-feature-settings: "tnum" 1, "lnum" 1;
 }
 
+.partnership-hero-card--text strong {
+  max-width: 320px;
+  font-size: clamp(34px, 4.5vw, 52px);
+  line-height: 1;
+  font-feature-settings: normal;
+}
+
 .partnership-hero-card span {
   display: block;
   margin-top: 14px;
@@ -1996,15 +2003,18 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 14px;
+  height: 14px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: var(--paper);
-  color: var(--teal);
-  font-size: 13px;
-  font-weight: 900;
+  background: rgba(13, 76, 111, 0.12);
   text-decoration: none;
+}
+
+.mou-dots a:hover,
+.mou-dots a:focus-visible {
+  background: var(--gold);
+  border-color: var(--gold);
 }
 
 .funder-case-grid {

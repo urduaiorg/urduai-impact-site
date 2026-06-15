@@ -16,6 +16,22 @@ export const institutionalPartners = [
     type: "Public technical and vocational center"
   },
   {
+    image: "/assets/institutions/szabist-zabtech-itve-mou.jpg",
+    institution: "SZABIST ZABTech (iTVE)",
+    place: "ZABTech TTC Hub",
+    focus: "AI education, digital literacy, and future-ready skills for technical learners",
+    audience: "Technical and vocational students",
+    type: "Technical and vocational education partner"
+  },
+  {
+    image: "/assets/institutions/lasbela-university-luawms-mou.jpg",
+    institution: "Lasbela University of Agriculture, Water and Marine Sciences (LUAWMS)",
+    place: "Lasbela",
+    focus: "AI education, digital literacy, and future-ready skills for students",
+    audience: "University students and faculty",
+    type: "Regional public university"
+  },
+  {
     image: "/assets/institutions/sbk-womens-university-mou.png",
     institution: "Sardar Bahadur Khan Women's University",
     place: "Quetta",

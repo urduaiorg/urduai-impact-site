@@ -5,10 +5,8 @@ import { stats } from "../data/impact.js";
 
 const pageTitle = "Institutional Partnerships & MoUs | Urdu Ai Impact";
 const pageDescription =
-  "Urdu Ai institutional partnerships and MoUs with universities, women-focused institutes, and technical training centers advancing community AI education, digital literacy, and future-ready skills in Pakistan.";
+  "Urdu Ai institutional partnerships and MoUs with universities, women-focused institutes, technical and vocational partners, and regional education centers advancing community AI education, digital literacy, and future-ready skills in Pakistan.";
 
-const partnerCount = institutionalPartners.length;
-const placeSummary = institutionalPartners.map((partner) => partner.place).join(", ");
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -97,10 +95,10 @@ const schema = {
             <a class="button secondary" href="#why-funders-care">Why funders care</a>
           </div>
         </div>
-        <div class="partnership-hero-card" aria-label="MoU partnership summary">
-          <strong>{partnerCount}</strong>
-          <span>formal institutional MoU partners shown</span>
-          <p>{placeSummary}</p>
+        <div class="partnership-hero-card partnership-hero-card--text" aria-label="MoU partnership summary">
+          <strong>MoU network</strong>
+          <span>Universities, technical centers, and regional education partners</span>
+          <p>Formal agreements help Urdu Ai schedule training, document delivery, and grow trusted AI literacy pathways without relying on one-off campaigns.</p>
         </div>
       </div>
     </section>
@@ -129,7 +127,7 @@ const schema = {
 
         <div class="mou-dots" aria-label="MoU slide navigation">
           {institutionalPartners.map((partner, index) => (
-            <a href={`#mou-${index + 1}`} aria-label={`Show ${partner.institution} MoU`}>{index + 1}</a>
+            <a href={`#mou-${index + 1}`} aria-label={`Show ${partner.institution} MoU`}></a>
           ))}
         </div>
       </div>
