@@ -9,7 +9,7 @@ export const teamProfiles = [
     name: "Amir Bakhsh",
     role: "National Project Manager",
     image: "/assets/profiles/team-amir-bakhsh.jpeg",
-    bio: "Amir Bakhsh is a development sector professional with over a decade of experience dedicated to research, community development, livelihood, health, and education. Holding an M.Phil in Sociology, he has successfully led numerous initiatives and specialized training programs. Currently, he serves as the National Project Manager at Urdu Ai, where he oversees impactful projects at a national scale."
+    bio: "Amir Bakhsh is a development sector professional with over a decade of experience in research, community development, livelihood, health, and education. Holding an M.Phil in Sociology, he has led many community initiatives and specialized training programs. As National Project Manager at Urdu Ai, he helps coordinate learning work across Pakistan."
   },
   {
     name: "Nawaz Ali",
@@ -27,7 +27,7 @@ export const teamProfiles = [
     name: "Hafsa Qadir",
     role: "Gender Perspectives Lead",
     image: "/assets/profiles/team-hafsa-qadir.jpeg",
-    bio: "Hafsa Qadir supports gender perspectives across Urdu Ai delivery, helping keep participation, safer access, and reporting attentive to women and underserved learners."
+    bio: "Hafsa Qadir supports gender perspectives across Urdu Ai delivery, helping keep participation, safer access, and follow-up attentive to women and underserved learners."
   }
 ];
 
@@ -168,7 +168,7 @@ export const dostProfiles = [
     name: "Rizwana Ansari",
     district: "Quetta",
     image: "/assets/profiles/dost-rizwana-ansari.jpg",
-    bio: "Rizwana Ansari works in gender equality, youth empowerment, and community research. She has led large-scale development initiatives with measurable impact. As an Urdu Ai Dost, she promotes inclusive AI learning in Urdu to expand opportunities for women and youth."
+    bio: "Rizwana Ansari works in gender equality, youth empowerment, and community research. She has led large-scale community initiatives focused on practical change. As an Urdu Ai Dost, she promotes inclusive AI learning in Urdu to expand opportunities for women and youth."
   },
   {
     name: "Batool Lasi",
@@ -210,6 +210,6 @@ export const dostProfiles = [
     name: "Baqir Baloch",
     district: "Panjgur",
     image: "/assets/profiles/dost-bakir-baloch.jpg",
-    bio: "With academic training in International Relations and Political Science, Baqir Baloch has contributed to community development initiatives through monitoring, evaluation, and program implementation. His work focuses on strengthening civic participation and inclusive growth. As an Urdu Ai Dost, he promotes AI literacy in Urdu to strengthen communities and expand digital awareness."
+    bio: "With academic training in International Relations and Political Science, Baqir Baloch has contributed to community development initiatives and local project work. His work focuses on strengthening civic participation and inclusive growth. As an Urdu Ai Dost, he promotes AI literacy in Urdu to strengthen communities and expand digital awareness."
   }
 ];

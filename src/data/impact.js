@@ -2,7 +2,7 @@ export const stats = [
   {
     value: "13,569+",
     label: "Reported learner records",
-    note: "Combines 9,563 Phase 2 completions and 4,006 cumulative May reporting."
+    note: "Combines 9,563 training completions and 4,006 learner records reported in May 2026."
   },
   {
     value: "311",
@@ -22,8 +22,8 @@ export const stats = [
 ];
 
 export const proofPoints = [
-  "10,528 learners started Phase 2 training pathways.",
-  "9,563 learners completed Phase 2 training records.",
+  "10,528 learners started structured training pathways.",
+  "9,563 learners completed structured training records.",
   "29 districts represented in the Urdu Ai Dost impact map.",
   "30+ community facilitators supporting local access and follow-up.",
   "35-40 million estimated monthly digital reach through Urdu Ai content.",
@@ -35,7 +35,7 @@ export const sectors = [
   ["Education workers, including teachers", "2,335"],
   ["Vocational school students", "1,549"],
   ["Unemployed learners", "1,006"],
-  ["MSME employees", "362"],
+  ["Small business and MSME employees", "362"],
   ["Nonprofit workers", "180"],
   ["Service sector workers", "167"],
   ["Healthcare-related workers", "44"]
@@ -141,7 +141,7 @@ export const mediaVideos = [
 export const recognition = [
   {
     name: "S&P Global Foundation StepForward",
-    text: "Selected as one of six regional partners from 336 submissions under the StepForward: Essential Innovation Challenge, strengthening Urdu Ai's impact measurement and AI-to-livelihood pathway.",
+    text: "Selected as one of six regional partners from 336 submissions under the StepForward: Essential Innovation Challenge, supporting Urdu Ai's work to connect AI learning with livelihood pathways.",
     url: "https://www.spglobal.com/en/who-we-are/corporate-responsibility/foundation"
   },
   {
@@ -150,8 +150,8 @@ export const recognition = [
     url: "https://avpn.asia/ai-course/urdu-ai/"
   },
   {
-    name: "WANG and WALI delivery ecosystem",
-    text: "Backed by WANG's 35-year community presence and WALI's rural innovation infrastructure in Balochistan.",
+    name: "WANG and WALI community network",
+    text: "Backed by WANG's 35-year community presence and WALI's rural innovation work in Balochistan.",
     url: "https://wang.org.pk/about.html"
   }
 ];

@@ -13,7 +13,7 @@ const capacitySteps = [
   {
     step: "01",
     title: "Train Urdu Ai Dosts",
-    text: "Urdu Ai prepares local facilitators with Urdu-first AI concepts, practical tool workflows, session materials, and field reporting discipline."
+    text: "Urdu Ai prepares local facilitators with Urdu-first AI concepts, practical tool workflows, session materials, and simple follow-up practices."
   },
   {
     step: "02",
@@ -65,9 +65,9 @@ const investmentCase = [
     text: "The model combines Urdu Ai's national media ecosystem with WANG's long-standing community delivery experience, local facilitators, women-friendly settings, and district-level follow-up."
   },
   {
-    label: "The funder opportunity",
-    title: "A path toward Pakistan's public-interest AI literacy infrastructure.",
-    text: "Partner support can convert mass awareness into deeper learning pathways, livelihood use cases, teacher support, and district evidence that is easy to inspect and improve."
+    label: "The partnership opportunity",
+    title: "A path toward Pakistan's Urdu-first community AI literacy movement.",
+    text: "Partner support can turn public awareness into deeper learning pathways, livelihood use cases, teacher support, and district-level progress that is easy to understand and improve."
   }
 ];
 const fundingPriorities = [
@@ -75,33 +75,33 @@ const fundingPriorities = [
     label: "District expansion",
     title: "Take Urdu-first AI learning into more underserved districts.",
     text: "Support Dost-led training, local venue costs, travel, district coordination, and follow-up cohorts where digital reach alone is not enough.",
-    proof: "Builds from the current 29-district evidence base."
+    proof: "Builds from the current 29-district delivery record."
   },
   {
     label: "Women-led pathways",
     title: "Deepen safer, trusted AI learning spaces for women and girls.",
-    text: "Fund women-friendly cohorts, female facilitators, community access points, and applied learning tracks for education, livelihood, and confidence.",
-    proof: "Anchored in the reported 51% women participation signal."
+    text: "Support women-friendly cohorts, female facilitators, community access points, and applied learning tracks for education, livelihood, and confidence.",
+    proof: "Anchored in reported 51% women participation."
   },
   {
     label: "Teacher and livelihood tracks",
     title: "Turn awareness into practical skills people use every week.",
-    text: "Create structured Urdu learning pathways for teachers, freelancers, students, MSMEs, rural workers, and first-time AI users.",
-    proof: "Connects mass media reach to measurable learning outcomes."
+    text: "Create structured Urdu learning pathways for teachers, freelancers, students, small businesses, rural workers, and first-time AI users.",
+    proof: "Connects public reach with practical learning outcomes."
   },
   {
-    label: "Impact evidence",
-    title: "Make district impact easier to verify, compare, and improve.",
-    text: "Strengthen reporting tools, story collection, dashboards, partner briefs, consented testimonials, and public evidence packs.",
-    proof: "Moves the site from reporting totals to funder-grade evidence."
+    label: "Public learning records",
+    title: "Show district progress clearly and responsibly.",
+    text: "Strengthen learner stories, partner updates, consented testimonials, and public impact pages that explain what changed.",
+    proof: "Turns headline numbers into clear public learning records."
   }
 ];
 const evidencePack = [
-  "Reported learner records and completion basis",
+  "Learner records and how they are counted",
   "District-level Dost map and facilitator profiles",
   "Partner and award references",
   "Media coverage and public learning videos",
-  "Methodology note for non-overclaimed numbers"
+  "Plain-language note on how numbers are counted"
 ];
 const partnerBadges = [
   {
@@ -138,20 +138,20 @@ const credibilitySignals = [
   "AI Opportunity Fund: Asia-Pacific",
   "Supported by Google.org and ADB",
   "S&P Global Foundation StepForward",
-  "WANG field delivery ecosystem"
+  "WANG community network"
 ];
 ---
 
 <BaseLayout
   title="Urdu Ai Impact | Reported AI Literacy Reach Across Pakistan"
-  description="Impact evidence, learner records, district coverage, Urdu Ai Dost stories, media coverage, and recognition for Urdu Ai's AI literacy work across Pakistan."
+  description="Impact stories, learner records, district coverage, Urdu Ai Dost profiles, media coverage, and recognition for Urdu Ai's AI literacy work across Pakistan."
   canonical="https://impact.urduai.org/"
 >
   <main>
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-content" data-reveal>
-          <div class="credibility-row" aria-label="Urdu Ai credibility signals">
+          <div class="credibility-row" aria-label="Urdu Ai credibility highlights">
             {credibilitySignals.map((item) => <span>{item}</span>)}
           </div>
           <h1><span>Pakistan's Urdu-first AI literacy movement.</span></h1>
@@ -164,7 +164,7 @@ const credibilitySignals = [
             <a class="button secondary" href="#recognition">See partners</a>
           </div>
         </div>
-        <div class="hero-atlas" aria-label="Urdu Ai impact evidence preview" data-reveal>
+        <div class="hero-atlas" aria-label="Urdu Ai impact preview" data-reveal>
           <div class="atlas-photo">
             <img src="/assets/showcase/women-community-workshop.jpg" alt="Women participating in an Urdu Ai community workshop" />
             <div class="atlas-caption">
@@ -175,12 +175,12 @@ const credibilitySignals = [
           <div class="atlas-proof-card">
             <span class="proof-label">Reported reach</span>
             <strong>13,569+</strong>
-            <p>Learner records combined from Phase 2 completions and May reporting.</p>
+            <p>Learner records combined from training completions and May 2026 records.</p>
           </div>
           <div class="atlas-proof-card dark">
             <span class="proof-label">Local delivery</span>
             <strong>29</strong>
-            <p>Districts represented through Urdu Ai Dost public evidence.</p>
+            <p>Districts represented through public Urdu Ai Dost records.</p>
           </div>
           <div class="atlas-mini-grid">
             <img src="/assets/showcase/school-computer-lab-workshop.jpg" alt="Urdu Ai Dost delivering a school computer lab session" />
@@ -190,11 +190,11 @@ const credibilitySignals = [
       </div>
     </section>
 
-    <section class="investment-strip" aria-label="Why Urdu Ai matters to funders" data-reveal>
+    <section class="investment-strip" aria-label="Why Urdu Ai matters to partners and supporters" data-reveal>
       <div class="container investment-grid">
         <div class="investment-lead">
-          <span class="eyebrow">Investment case</span>
-          <h2>Fund the bridge between AI possibility and real access.</h2>
+          <span class="eyebrow">Why support Urdu Ai</span>
+          <h2>Build the bridge between AI possibility and real access.</h2>
         </div>
         <div class="investment-cards">
           {investmentCase.map((item) => (
@@ -213,7 +213,7 @@ const credibilitySignals = [
         <div class="section-head">
           <h2>Reported numbers with a clear basis.</h2>
           <p class="section-lede">
-            Headline metrics are paired with the reporting basis behind them, so partners can see both scale and evidence.
+            Each headline number explains what it includes, so partners and the public can understand both the scale and the basis behind it.
           </p>
         </div>
         <div class="stats-grid">
@@ -229,7 +229,7 @@ const credibilitySignals = [
           {proofPoints.map((point) => <li>{point}</li>)}
         </ul>
         <p class="data-note">
-          Impact figures are presented as reported learner records and training completions. They are not counted as verified unique beneficiaries unless explicitly stated.
+          These figures are reported learner records and training completions. They are not presented as unique people unless that is clearly stated.
         </p>
       </div>
     </section>
@@ -242,9 +242,9 @@ const credibilitySignals = [
             <span>districts represented</span>
           </div>
           <div class="map-copy">
-            <h2>Impact Atlas: district evidence, not a generic reach claim.</h2>
+            <h2>Impact Atlas: a district view of local AI learning.</h2>
             <p>
-              The Dost network turns a digital platform into local access: training rooms, campus sessions, community cohorts, women-friendly participation pathways, and follow-up support that funders can inspect district by district.
+              The Dost network turns a digital platform into local access: training rooms, campus sessions, community cohorts, women-friendly learning spaces, and follow-up support across districts.
             </p>
             <div class="map-summary-chips" aria-label="Urdu Ai Dost map summary">
               <span><strong>31</strong> active Dost records</span>
@@ -268,23 +268,23 @@ const credibilitySignals = [
         </div>
         <div class="atlas-notes" aria-label="How to read the Urdu Ai impact atlas">
           <article>
-            <strong>Read the dots as delivery capacity.</strong>
-            <p>Each marker represents a reported Dost record connected to local AI literacy delivery, not an inflated beneficiary claim.</p>
+            <strong>Read the dots as local activity.</strong>
+            <p>Each marker represents a reported Dost record connected to local AI literacy delivery.</p>
           </article>
           <article>
             <strong>Filter by province.</strong>
-            <p>Use the full-screen map to inspect Punjab, Balochistan, Sindh, KPK, and ICT coverage with district-level context.</p>
+            <p>Use the full-screen map to view Punjab, Balochistan, Sindh, KPK, and ICT coverage with district-level context.</p>
           </article>
           <article>
             <strong>Follow the tour.</strong>
-            <p>The impact tour moves funders through the Dost network as a national delivery system rather than a static total.</p>
+            <p>The impact tour shows how the Dost network brings AI learning into local communities.</p>
           </article>
         </div>
         <div class="district-list" aria-label="Urdu Ai delivery channels">
           <div><strong>Schools and colleges</strong><br />AI awareness, teacher workflows, student research, and classroom use.</div>
           <div><strong>Women and girls</strong><br />51% women participation shown through safer access, trusted settings, and follow-up learning.</div>
           <div><strong>Community cohorts</strong><br />Local facilitators helping first-time learners build confidence.</div>
-          <div><strong>Freelancers and MSMEs</strong><br />Design, content, customer service, documentation, and productivity workflows.</div>
+          <div><strong>Freelancers and small businesses</strong><br />Design, content, customer service, documentation, and productivity workflows.</div>
         </div>
       </div>
     </section>
@@ -299,14 +299,14 @@ const credibilitySignals = [
               The model builds local capacity first. Urdu Ai trains Dosts, Dosts train their own communities, and learners continue inside Urdu Ai's 1M+ online learning ecosystem.
             </p>
           </div>
-          <div class="capacity-metrics" aria-label="Urdu Ai capacity building signals">
+          <div class="capacity-metrics" aria-label="Urdu Ai capacity building highlights">
             <div>
               <strong>30+</strong>
               <span>Dost facilitators supporting local learning</span>
             </div>
             <div>
               <strong>29</strong>
-              <span>Districts represented in public delivery evidence</span>
+              <span>Districts represented in public delivery records</span>
             </div>
             <div>
               <strong>1M+</strong>
@@ -342,7 +342,7 @@ const credibilitySignals = [
     <section class="section alt profile-section" id="dosts" data-reveal>
       <div class="container">
         <div class="section-head">
-          <h2>Dost profiles show the delivery network.</h2>
+          <h2>Dost profiles show the local people behind the reach.</h2>
           <p class="section-lede">
             The Dost model is the human layer behind Urdu Ai's district reach: educators, organizers, technologists, advocates, and community leaders who make AI learning local.
           </p>
@@ -354,7 +354,7 @@ const credibilitySignals = [
           </div>
           <div>
             <strong>{dostProfiles.length}</strong>
-            <span>Public Dost profiles available for partner review</span>
+            <span>Public Dost profiles available to read</span>
           </div>
           <div>
             <strong>29</strong>
@@ -385,7 +385,7 @@ const credibilitySignals = [
         <div class="section-head">
           <h2>Field stories, not just totals.</h2>
           <p class="section-lede">
-            Urdu Ai tracks applied use: how learners move from awareness to confidence, productivity, and livelihood pathways.
+            Urdu Ai follows applied use: how learners move from awareness to confidence, productivity, and practical income pathways.
           </p>
         </div>
         <div class="stories-grid">
@@ -428,7 +428,7 @@ const credibilitySignals = [
           ))}
         </div>
         <p class="data-note">
-          These cards are paraphrased from written learner testimonials submitted in May 2026. Reported time savings and income outcomes are learner-reported and should be read as testimonial evidence, not independently audited financial data.
+          These cards are paraphrased from written learner testimonials submitted in May 2026. Reported time savings and income outcomes come from learners' own accounts and are not independent financial verification.
         </p>
       </div>
     </section>
@@ -460,7 +460,7 @@ const credibilitySignals = [
         <div class="section-head">
           <h2>Latest impact Shorts.</h2>
           <p class="section-lede">
-            Short, mobile-first evidence from learners, teachers, Dosts, farmers, and communities using AI in everyday work.
+            Short, mobile-first stories from learners, teachers, Dosts, farmers, and communities using AI in everyday work.
           </p>
         </div>
         <div class="shorts-grid">
@@ -513,7 +513,7 @@ const credibilitySignals = [
             <h2>Formal MoUs turn Urdu Ai into an education partner, not just a campaign.</h2>
           </div>
           <p>
-            Universities, women-focused institutes, technical and vocational partners, and local education partners create trusted entry points for students, faculty, and communities. These agreements make it easier to schedule training, document delivery, and scale AI learning through existing institutions.
+            Universities, women-focused institutes, technical and vocational partners, and local education partners create trusted entry points for students, faculty, and communities. These agreements make it easier to schedule training, support learners, and grow AI learning through existing institutions.
           </p>
         </div>
 
@@ -532,18 +532,18 @@ const credibilitySignals = [
 
         <div class="institution-proof">
           <article class="institution-proof-copy">
-            <strong>Why this matters to funders</strong>
+            <strong>Why this matters for learners and partners</strong>
             <p>
-              Institutional partnerships reduce delivery friction. Urdu Ai can work through campuses, polytechnic institutes, local academies, and public-sector relationships where learners already gather and where follow-up is easier to organize.
+              Institutional partnerships make it easier to bring training into places where learners already gather: campuses, polytechnic institutes, local academies, and public-sector education spaces.
             </p>
             <ul>
               <li>MoUs with women-focused and regional universities</li>
               <li>Technical and vocational training access for employability pathways</li>
               <li>Training pathways for students, youth, and faculty</li>
-              <li>Public-sector relationship building and local trust signals</li>
-              <li>Evidence photos that show delivery inside real learning spaces</li>
+              <li>Public-sector relationships and local trust</li>
+              <li>Photos that show delivery inside real learning spaces</li>
             </ul>
-            <a class="button institution-proof-link" href="/institutional-partnerships/">View the MoU evidence page</a>
+            <a class="button institution-proof-link" href="/institutional-partnerships/">View institutional partnerships</a>
           </article>
           <div class="institution-photo-grid">
             {institutionalEvidence.map((item) => (
@@ -563,9 +563,9 @@ const credibilitySignals = [
     <section class="section profile-section" id="team" data-reveal>
       <div class="container">
         <div class="section-head">
-          <h2>The team accountable for the work.</h2>
+          <h2>The team behind the work.</h2>
           <p class="section-lede">
-            Programme direction, field management, content, media, and gender perspectives are led by a visible team accountable for delivery.
+            Programme direction, field management, content, media, and gender perspectives are led by a visible team with clear roles.
           </p>
         </div>
         <div class="team-grid">
@@ -588,7 +588,7 @@ const credibilitySignals = [
         <div class="section-head">
           <h2>Who Urdu Ai reached.</h2>
           <p class="section-lede">
-            Phase 2 completion data includes learners across education, employment, social sector, and small business contexts.
+            Training completion data includes learners across education, employment, social sector, and small business contexts.
           </p>
         </div>
         <table class="sector-table">
@@ -634,12 +634,12 @@ const credibilitySignals = [
       <div class="container partner-ask">
         <div class="partner-ask-copy">
           <span class="eyebrow">Partner pathway</span>
-          <h2>Where funding can take Urdu Ai next.</h2>
+          <h2>Where support can take Urdu Ai next.</h2>
           <p>
-            Urdu Ai already has the ingredients that funders look for: trusted field delivery, national attention, women participation, district evidence, media visibility, and a practical language-access thesis. The next step is deeper, better-measured learning pathways.
+            Urdu Ai already has a strong foundation: trusted field delivery, national attention, women participation, district-level records, media visibility, and a practical model for Urdu-language access. The next step is deeper, better-supported learning pathways.
           </p>
-          <div class="evidence-pack" aria-label="Evidence available for partners">
-            <strong>Evidence available for partner review</strong>
+          <div class="evidence-pack" aria-label="Information available for partners">
+            <strong>What partners can review</strong>
             <ul>
               {evidencePack.map((item) => <li>{item}</li>)}
             </ul>
@@ -662,18 +662,18 @@ const credibilitySignals = [
     <section class="section" id="reports" data-reveal>
       <div class="container report-band">
         <article class="report-panel">
-          <h3>Impact reports for partners and donors.</h3>
+          <h3>Impact updates for partners.</h3>
           <p>
-            Urdu Ai shares clear impact updates, district snapshots, media evidence, learner stories, and methodology notes so partners can understand both the scale and basis of reported results.
+            Urdu Ai shares clear impact updates, district snapshots, media coverage, learner stories, and counting notes so partners can understand both the scale and the basis of reported results.
           </p>
           <a class="button" href="mailto:ai@urduai.org">Request impact brief</a>
         </article>
         <article class="report-panel">
-          <h3>Methodology note.</h3>
+          <h3>How the numbers are counted.</h3>
           <p>
-            Current headline numbers combine reported training completions and learner records. Duplicate entries and shared institutional records are handled conservatively and not overclaimed as unique verified people.
+            Current headline numbers combine reported training completions and learner records. Duplicate entries and shared institutional records are handled carefully and are not presented as unique people unless clearly stated.
           </p>
-          <a class="button secondary" href="#numbers">Review reporting basis</a>
+          <a class="button secondary" href="#numbers">Review how numbers are counted</a>
         </article>
       </div>
     </section>
@@ -681,9 +681,9 @@ const credibilitySignals = [
 
   <footer class="site-footer">
     <div class="container footer-row">
-      <p>Urdu Ai Impact is the public evidence hub for Urdu Ai's learning and community delivery work.</p>
+      <p>Urdu Ai Impact is the public impact hub for Urdu Ai's learning and community delivery work.</p>
       <p>
-        Clear partner reporting with public, audit-defensible language.
+        Clear public updates with careful, responsible language.
         <a href="https://www.linkedin.com/company/urduaiorg/">Latest public updates on LinkedIn</a>
       </p>
     </div>
