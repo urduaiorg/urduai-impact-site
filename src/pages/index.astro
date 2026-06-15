@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { stats, proofPoints, sectors, stories, learnerOutcomes, impactQuotes, shorts, mediaVideos, recognition } from "../data/impact.js";
+import { institutionalPartners, institutionalEvidence } from "../data/institutions.js";
 import { dostProfiles, teamProfiles } from "../data/profiles.js";
 
 const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg", "/assets/classroom.jpg", "/assets/training-hero.jpg"];
@@ -65,8 +66,8 @@ const investmentCase = [
   },
   {
     label: "The funder opportunity",
-    title: "This can become Pakistan's public-interest AI literacy infrastructure.",
-    text: "Partners can help convert mass awareness into deeper learning pathways, livelihood use cases, teacher support, and district evidence that is easy to inspect and improve."
+    title: "A path toward Pakistan's public-interest AI literacy infrastructure.",
+    text: "Partner support can convert mass awareness into deeper learning pathways, livelihood use cases, teacher support, and district evidence that is easy to inspect and improve."
   }
 ];
 const fundingPriorities = [
@@ -101,49 +102,6 @@ const evidencePack = [
   "Partner and award references",
   "Media coverage and public learning videos",
   "Methodology note for non-overclaimed numbers"
-];
-const institutionalPartners = [
-  {
-    image: "/assets/institutions/sbk-womens-university-mou.png",
-    institution: "Sardar Bahadur Khan Women's University",
-    place: "Quetta",
-    focus: "AI training access for students and faculty"
-  },
-  {
-    image: "/assets/institutions/mir-chakar-university-mou.png",
-    institution: "Mir Chakar Khan Rind University",
-    place: "Sibi",
-    focus: "Youth and faculty AI training pathways"
-  },
-  {
-    image: "/assets/institutions/superior-university-mou.png",
-    institution: "Superior University",
-    place: "Lahore",
-    focus: "AI training collaboration for youth and faculty"
-  },
-  {
-    image: "/assets/institutions/university-of-makran-mou.png",
-    institution: "University of Makran",
-    place: "Panjgur",
-    focus: "Regional youth AI training through public education partners"
-  }
-];
-const institutionalEvidence = [
-  {
-    image: "/assets/institutions/women-institutional-workshop.jpg",
-    title: "Women-focused institutional access",
-    text: "Formal spaces help Urdu Ai reach women learners through trusted education partners."
-  },
-  {
-    image: "/assets/institutions/institutional-student-support.jpg",
-    title: "Hands-on student support",
-    text: "Learners move from awareness into practical setup, guided practice, and continued use."
-  },
-  {
-    image: "/assets/institutions/community-institution-banner.jpg",
-    title: "Local partner delivery",
-    text: "Institutional and community venues extend the Dost model beyond one-off sessions."
-  }
 ];
 const partnerBadges = [
   {
@@ -187,6 +145,7 @@ const credibilitySignals = [
 <BaseLayout
   title="Urdu Ai Impact | Reported AI Literacy Reach Across Pakistan"
   description="Impact evidence, learner records, district coverage, Urdu Ai Dost stories, media coverage, and recognition for Urdu Ai's AI literacy work across Pakistan."
+  canonical="https://impact.urduai.org/"
 >
   <main>
     <section class="hero">
@@ -254,7 +213,7 @@ const credibilitySignals = [
         <div class="section-head">
           <h2>Reported numbers with a clear basis.</h2>
           <p class="section-lede">
-            The impact site keeps headline metrics visible, but also gives partners the reporting basis behind them.
+            Headline metrics are paired with the reporting basis behind them, so partners can see both scale and evidence.
           </p>
         </div>
         <div class="stats-grid">
@@ -270,7 +229,7 @@ const credibilitySignals = [
           {proofPoints.map((point) => <li>{point}</li>)}
         </ul>
         <p class="data-note">
-          Impact figures are presented as reported learner records and training completions. They should not be read as verified unique beneficiaries unless explicitly stated.
+          Impact figures are presented as reported learner records and training completions. They are not counted as verified unique beneficiaries unless explicitly stated.
         </p>
       </div>
     </section>
@@ -391,11 +350,11 @@ const credibilitySignals = [
         <div class="profile-summary">
           <div>
             <strong>31</strong>
-            <span>Active Dosts reported on the current impact site</span>
+            <span>Active Dost records in the public network</span>
           </div>
           <div>
             <strong>{dostProfiles.length}</strong>
-            <span>Public Dost profiles currently available from the WordPress directory</span>
+            <span>Public Dost profiles available for partner review</span>
           </div>
           <div>
             <strong>29</strong>
@@ -479,7 +438,7 @@ const credibilitySignals = [
         <div class="quote-intro">
           <h2>Impact sounds like confidence.</h2>
           <p>
-            The public site should carry the numbers, but the writing also needs to show what changes for people when AI becomes understandable in Urdu.
+            The numbers matter, but the deeper shift is confidence: learners begin using AI in their own language for study, teaching, work, and everyday problem solving.
           </p>
         </div>
         <div class="quote-stack" aria-label="Urdu Ai impact themes">
@@ -579,10 +538,12 @@ const credibilitySignals = [
             </p>
             <ul>
               <li>MoUs with women-focused and regional universities</li>
+              <li>Technical and vocational training access for employability pathways</li>
               <li>Training pathways for students, youth, and faculty</li>
               <li>Public-sector relationship building and local trust signals</li>
               <li>Evidence photos that show delivery inside real learning spaces</li>
             </ul>
+            <a class="button institution-proof-link" href="/institutional-partnerships/">View the MoU evidence page</a>
           </article>
           <div class="institution-photo-grid">
             {institutionalEvidence.map((item) => (
@@ -604,7 +565,7 @@ const credibilitySignals = [
         <div class="section-head">
           <h2>The team accountable for the work.</h2>
           <p class="section-lede">
-            The impact site should make leadership visible: programme direction, field management, content, media, and gender perspectives.
+            Programme direction, field management, content, media, and gender perspectives are led by a visible team accountable for delivery.
           </p>
         </div>
         <div class="team-grid">
@@ -655,7 +616,7 @@ const credibilitySignals = [
           <h2>Media coverage.</h2>
           <p class="section-lede">
             National and regional media coverage helps document Urdu Ai's public visibility and momentum.
-            Source channel: @UrduAiinMedia.
+            Source: Urdu Ai in Media channel.
           </p>
         </div>
         <div class="media-grid">
@@ -673,12 +634,12 @@ const credibilitySignals = [
       <div class="container partner-ask">
         <div class="partner-ask-copy">
           <span class="eyebrow">Partner pathway</span>
-          <h2>What a funder can help Urdu Ai build next.</h2>
+          <h2>Where funding can take Urdu Ai next.</h2>
           <p>
             Urdu Ai already has the ingredients that funders look for: trusted field delivery, national attention, women participation, district evidence, media visibility, and a practical language-access thesis. The next step is deeper, better-measured learning pathways.
           </p>
           <div class="evidence-pack" aria-label="Evidence available for partners">
-            <strong>Evidence pack already visible on this site</strong>
+            <strong>Evidence available for partner review</strong>
             <ul>
               {evidencePack.map((item) => <li>{item}</li>)}
             </ul>
@@ -701,16 +662,16 @@ const credibilitySignals = [
     <section class="section" id="reports" data-reveal>
       <div class="container report-band">
         <article class="report-panel">
-          <h3>Impact reporting that donors can read quickly.</h3>
+          <h3>Impact reports for partners and donors.</h3>
           <p>
-            The site can publish quarterly impact briefs, district snapshots, media packs, and a transparent methodology note while LinkedIn carries current learner stories.
+            Urdu Ai shares clear impact updates, district snapshots, media evidence, learner stories, and methodology notes so partners can understand both the scale and basis of reported results.
           </p>
-          <a class="button" href="mailto:ai@urduai.org">Contact Urdu Ai</a>
+          <a class="button" href="mailto:ai@urduai.org">Request impact brief</a>
         </article>
         <article class="report-panel">
           <h3>Methodology note.</h3>
           <p>
-            Current headline numbers combine reported training completions and learner records. Contact fields and shared institutional records are treated carefully and not overclaimed as unique verified people.
+            Current headline numbers combine reported training completions and learner records. Duplicate entries and shared institutional records are handled conservatively and not overclaimed as unique verified people.
           </p>
           <a class="button secondary" href="#numbers">Review reporting basis</a>
         </article>
@@ -722,13 +683,14 @@ const credibilitySignals = [
     <div class="container footer-row">
       <p>Urdu Ai Impact is the public evidence hub for Urdu Ai's learning and community delivery work.</p>
       <p>
-        Built for clear partner reporting with public, audit-defensible language.
+        Clear partner reporting with public, audit-defensible language.
         <a href="https://www.linkedin.com/company/urduaiorg/">Latest public updates on LinkedIn</a>
       </p>
     </div>
   </footer>
   <script is:inline>
     const revealItems = document.querySelectorAll("[data-reveal]");
+    document.documentElement.classList.add("js-ready");
 
     if ("IntersectionObserver" in window) {
       const observer = new IntersectionObserver(

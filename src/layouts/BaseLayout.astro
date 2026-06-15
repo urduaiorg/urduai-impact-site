@@ -3,8 +3,14 @@ import "../styles/global.css";
 
 const {
   title = "Urdu Ai Impact",
-  description = "Public evidence hub for Urdu Ai's AI literacy work across Pakistan."
+  description = "Public evidence hub for Urdu Ai's AI literacy work across Pakistan.",
+  canonical,
+  ogImage = "/assets/urdu-ai-logo-og.png"
 } = Astro.props;
+
+const site = Astro.site ?? new URL("https://impact.urduai.org");
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site).href;
+const ogImageUrl = new URL(ogImage, site).href;
 ---
 
 <!doctype html>
@@ -13,11 +19,22 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://impact.urduai.org/" />
-    <meta property="og:image" content="https://impact.urduai.org/assets/urdu-ai-logo-og.png" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Urdu Ai Impact Program" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <link rel="sitemap" href="https://impact.urduai.org/sitemap-index.xml" />
     <script is:inline>
       document.documentElement.classList.add("js");
     </script>
@@ -43,6 +60,7 @@ const {
             <a href="/#model">Model</a>
             <a href="/#dosts">Dosts</a>
             <a href="/#stories">Stories</a>
+            <a href="/institutional-partnerships/">MoUs</a>
             <a href="/#team">Team</a>
             <a href="/#recognition">Recognition</a>
             <a href="/#partner">Partner</a>

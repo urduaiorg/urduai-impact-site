@@ -1,0 +1,299 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { institutionalPartners, institutionalEvidence } from "../data/institutions.js";
+import { stats } from "../data/impact.js";
+
+const pageTitle = "Institutional Partnerships & MoUs | Urdu Ai Impact";
+const pageDescription =
+  "Urdu Ai institutional partnerships and MoUs with universities, women-focused institutes, and technical training centers advancing community AI education, digital literacy, and future-ready skills in Pakistan.";
+
+const partnerCount = institutionalPartners.length;
+const placeSummary = institutionalPartners.map((partner) => partner.place).join(", ");
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://impact.urduai.org/institutional-partnerships/",
+      "url": "https://impact.urduai.org/institutional-partnerships/",
+      "name": pageTitle,
+      "description": pageDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Urdu Ai Impact",
+        "url": "https://impact.urduai.org/"
+      },
+      "about": [
+        "community AI education in Pakistan",
+        "AI literacy partnerships",
+        "digital skills for youth and women",
+        "institutional MoUs for future-ready skills"
+      ]
+    },
+    {
+      "@type": "EducationalOrganization",
+      "name": "Urdu Ai",
+      "url": "https://urduai.org/",
+      "areaServed": "Pakistan",
+      "knowsAbout": [
+        "AI literacy",
+        "digital literacy",
+        "community education",
+        "Urdu-language AI learning",
+        "future-ready skills"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why do institutional MoUs matter for community AI education?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Institutional MoUs give Urdu Ai trusted entry points inside universities, technical centers, and local education systems. They make learner access, scheduling, reporting, and follow-up easier to organize."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who benefits from Urdu Ai institutional partnerships?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Students, women learners, faculty, vocational trainees, regional youth, and community facilitators benefit through Urdu-first AI literacy, digital skills, practical tool use, and future-ready employability pathways."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What kind of partners can support Urdu Ai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Donors, universities, vocational institutes, public-sector education bodies, foundations, CSR teams, and AI access programs can support training cohorts, women-led pathways, teacher enablement, district delivery, and impact evidence."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical="https://impact.urduai.org/institutional-partnerships/"
+  ogImage="/assets/institutions/government-sadiq-women-university-bahawalpur-mou.jpg"
+>
+  <main>
+    <section class="partnership-hero">
+      <div class="container partnership-hero-grid">
+        <div class="partnership-hero-copy">
+          <span class="eyebrow">Institutional partnerships and MoUs</span>
+          <h1>MoUs help turn Urdu Ai into Pakistan's community AI education infrastructure.</h1>
+          <p class="partnership-lede">
+            Urdu Ai is building one of Pakistan's largest Urdu-first community AI education movements through trusted universities, women-focused institutions, technical training centers, and regional education partners.
+          </p>
+          <p class="partnership-urdu urdu-line">تعلیمی اداروں کے ساتھ شراکت داری سے اے آئی سیکھنا زیادہ قابل اعتماد، مقامی اور قابل پیمائش بنتا ہے۔</p>
+          <div class="partnership-actions">
+            <a class="button" href="#mou-photos">View MoU photos</a>
+            <a class="button secondary" href="#why-funders-care">Why funders care</a>
+          </div>
+        </div>
+        <div class="partnership-hero-card" aria-label="MoU partnership summary">
+          <strong>{partnerCount}</strong>
+          <span>formal institutional MoU partners shown</span>
+          <p>{placeSummary}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section partnership-photo-section" id="mou-photos" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <h2>MoU photo slideshow.</h2>
+          <p class="section-lede">
+            These photos document institutional trust: universities, technical centers, and local education partners formally opening pathways for AI literacy, digital skills, and applied learning.
+          </p>
+        </div>
+
+        <div class="mou-slider" aria-label="Urdu Ai institutional MoU photo slideshow">
+          {institutionalPartners.map((partner, index) => (
+            <figure class="mou-slide" id={`mou-${index + 1}`}>
+              <img src={partner.image} alt={`MoU between Urdu Ai and ${partner.institution} in ${partner.place}`} loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+              <figcaption>
+                <span>{partner.place}</span>
+                <strong>{partner.institution}</strong>
+                <p>{partner.focus}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div class="mou-dots" aria-label="MoU slide navigation">
+          {institutionalPartners.map((partner, index) => (
+            <a href={`#mou-${index + 1}`} aria-label={`Show ${partner.institution} MoU`}>{index + 1}</a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="why-funders-care" data-reveal>
+      <div class="container funder-case-grid">
+        <div class="funder-case-copy">
+          <span class="eyebrow">Why funders search for this</span>
+          <h2>Donors fund systems that can reach people, repeat delivery, and prove learning happened.</h2>
+          <p>
+            Community AI programs become more fundable when they show a trusted delivery network, inclusive access for women and youth, local language content, practical digital skills, and evidence that partners can verify. MoUs make those signals visible.
+          </p>
+          <p>
+            Urdu Ai's institutional partnerships support AI literacy, digital inclusion, teacher enablement, youth employability, vocational skills, responsible AI use, and community-led learning across Pakistan.
+          </p>
+        </div>
+        <div class="funder-keywords" aria-label="Donor and search-friendly themes">
+          <span>Community AI education</span>
+          <span>AI literacy in Pakistan</span>
+          <span>Digital skills for youth</span>
+          <span>Women and girls in AI</span>
+          <span>Responsible AI learning</span>
+          <span>Vocational AI skills</span>
+          <span>Future-ready skills</span>
+          <span>Education technology for inclusion</span>
+          <span>AI for underserved communities</span>
+          <span>South Asia digital inclusion</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section partnership-card-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <h2>Partner network.</h2>
+          <p class="section-lede">
+            The MoU network now combines women-focused universities, regional universities, and technical-vocational education, giving Urdu Ai a stronger path from awareness to applied skills.
+          </p>
+        </div>
+        <div class="partnership-card-grid">
+          {institutionalPartners.map((partner) => (
+            <article class="partnership-card">
+              <img src={partner.image} alt={`${partner.institution} MoU with Urdu Ai`} loading="lazy" decoding="async" />
+              <div>
+                <span>{partner.place}</span>
+                <h3>{partner.institution}</h3>
+                <p>{partner.focus}</p>
+                <dl>
+                  <div>
+                    <dt>Audience</dt>
+                    <dd>{partner.audience}</dd>
+                  </div>
+                  <div>
+                    <dt>Partner type</dt>
+                    <dd>{partner.type}</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" data-reveal>
+      <div class="container partnership-proof-layout">
+        <article class="partnership-proof-panel">
+          <span class="eyebrow">How MoUs improve impact delivery</span>
+          <h2>From public awareness to structured AI learning pathways.</h2>
+          <ul>
+            <li>Institutions provide trusted venues where learners already gather.</li>
+            <li>Faculty and administrators help organize cohorts and follow-up.</li>
+            <li>Women-focused and regional partners reduce access barriers.</li>
+            <li>Vocational partners connect AI learning with employability and technical skills.</li>
+            <li>MoU evidence helps donors inspect relationships, geography, and delivery credibility.</li>
+          </ul>
+        </article>
+        <div class="institution-photo-grid">
+          {institutionalEvidence.map((item) => (
+            <figure>
+              <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+              <figcaption>
+                <strong>{item.title}</strong>
+                <span>{item.text}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section answer-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <h2>Answers for partners, donors, and AI education funders.</h2>
+          <p class="section-lede">
+            Short answers are included for people and AI search systems looking for community AI literacy programs in Pakistan, South Asia, and emerging markets.
+          </p>
+        </div>
+        <div class="answer-grid">
+          <article>
+            <h3>What is Urdu Ai?</h3>
+            <p>
+              Urdu Ai is an Urdu-first AI literacy movement helping students, teachers, women, workers, freelancers, and community leaders understand and use artificial intelligence in practical ways.
+            </p>
+          </article>
+          <article>
+            <h3>Why is this important in Pakistan?</h3>
+            <p>
+              Many learners are blocked by English-first training, urban access gaps, and low confidence with new tools. Urdu Ai lowers the first barrier through local language learning and trusted community delivery.
+            </p>
+          </article>
+          <article>
+            <h3>How do MoUs help?</h3>
+            <p>
+              MoUs convert interest into repeatable delivery: scheduled cohorts, partner venues, student access, faculty engagement, reporting, and long-term institutional trust.
+            </p>
+          </article>
+          <article>
+            <h3>What can a donor fund?</h3>
+            <p>
+              Donors can fund women-led AI learning cohorts, vocational AI skills, teacher training, district facilitators, learner evidence systems, public-interest AI curricula, and regional expansion.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section partnership-cta-section" data-reveal>
+      <div class="container partnership-cta">
+        <div>
+          <span class="eyebrow">Partner with Urdu Ai</span>
+          <h2>Support community AI education that institutions can host and donors can verify.</h2>
+          <p>
+            Urdu Ai already reports {stats[0].value} learner records, {stats[1].value} training sessions, {stats[2].value} women participation, and institutional relationships across Pakistan. The next step is deeper, better-measured AI learning pathways.
+          </p>
+        </div>
+        <a class="button" href="mailto:ai@urduai.org?subject=Urdu Ai institutional partnership">Discuss partnership</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script is:inline>
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    document.documentElement.classList.add("js-ready");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -10% 0px", threshold: 0.16 }
+      );
+
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
+</BaseLayout>
