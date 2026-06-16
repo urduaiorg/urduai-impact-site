@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { impactNotes } from "../../data/impactNotes.js";
+
+const pageTitle = "Urdu Ai Impact Notes | Community AI Education in Pakistan";
+const pageDescription =
+  "Field notes, stories, and insights from Urdu Ai's community AI education work across Pakistan, including AI literacy, digital skills, women's access, vocational learning, and institutional partnerships.";
+const canonical = "https://impact.urduai.org/impact-notes/";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": canonical,
+  "url": canonical,
+  "name": pageTitle,
+  "description": pageDescription,
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Urdu Ai Impact",
+    "url": "https://impact.urduai.org/"
+  },
+  "about": [
+    "community AI education",
+    "AI literacy in Pakistan",
+    "Urdu-language AI learning",
+    "digital skills for underserved communities",
+    "women and youth in AI"
+  ],
+  "hasPart": impactNotes.map((note) => ({
+    "@type": "Article",
+    "headline": note.title,
+    "url": `https://impact.urduai.org/impact-notes/${note.slug}/`,
+    "description": note.description
+  }))
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={canonical}
+  ogImage="/assets/showcase/women-community-workshop.jpg"
+>
+  <main>
+    <section class="notes-hero">
+      <div class="container notes-hero-grid">
+        <div>
+          <span class="eyebrow">Impact Notes</span>
+          <h1>Field notes on community AI education, Urdu-first learning, and digital inclusion.</h1>
+          <p class="notes-lede">
+            Public articles for partners, supporters, educators, and AI access programs looking for practical community AI education models in Pakistan and South Asia.
+          </p>
+          <div class="notes-actions">
+            <a class="button" href="#latest-notes">Read the first notes</a>
+            <a class="button secondary" href="/contact/">Discuss partnership</a>
+          </div>
+        </div>
+        <aside class="notes-topic-panel" aria-label="Impact Notes topics">
+          <strong>Core themes</strong>
+          <span>AI literacy in Pakistan</span>
+          <span>Community AI education</span>
+          <span>Women and youth digital skills</span>
+          <span>Institutional MoUs</span>
+          <span>Urdu-first responsible AI learning</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="latest-notes" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <h2>Latest Impact Notes.</h2>
+          <p class="section-lede">
+            These first articles explain why Urdu-language AI literacy matters and what makes community AI education programs effective for learners, institutions, and donors.
+          </p>
+        </div>
+
+        <div class="notes-grid">
+          {impactNotes.map((note) => (
+            <article class="note-card">
+              <a href={`/impact-notes/${note.slug}/`} aria-label={`Read ${note.title}`}>
+                <img src={note.image} alt={note.title} loading="lazy" decoding="async" />
+              </a>
+              <div>
+                <span>{note.category} · {note.readingTime}</span>
+                <h2><a href={`/impact-notes/${note.slug}/`}>{note.title}</a></h2>
+                <p>{note.description}</p>
+                <ul>
+                  {note.takeaways.slice(0, 2).map((takeaway) => <li>{takeaway}</li>)}
+                </ul>
+                <a class="text-link" href={`/impact-notes/${note.slug}/`}>Read note</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" data-reveal>
+      <div class="container notes-partner-band">
+        <div>
+          <span class="eyebrow">Built for discovery</span>
+          <h2>Helpful content for people and answer engines searching for community AI education programs.</h2>
+          <p>
+            Impact Notes connect Urdu Ai's public numbers, Dost network, MoU partners, learner stories, media coverage, WANG's community roots, WALI's rural innovation work, and AVPN-linked recognition into searchable public explanations.
+          </p>
+        </div>
+        <div class="notes-link-list">
+          <a href="/#numbers">Impact numbers</a>
+          <a href="/#map">Dost map</a>
+          <a href="/institutional-partnerships/">Institutional MoUs</a>
+          <a href="https://urduai.org/">Urdu Ai main site</a>
+          <a href="https://wang.org.pk/about.html">WANG</a>
+          <a href="https://walipak.com/">WALI</a>
+          <a href="https://avpn.asia/ai-course/urdu-ai/">AVPN profile</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</BaseLayout>
