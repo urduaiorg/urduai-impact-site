@@ -1,5 +1,161 @@
 export const impactNotes = [
   {
+    slug: "when-teachers-learn-ai-classrooms-change",
+    title: "When Teachers Learn AI, Classrooms Change",
+    seoTitle: "When Teachers Learn AI, Classrooms Change | Urdu Ai",
+    description:
+      "How Urdu Ai Dost facilitators help Pakistani educators learn AI in Urdu, then carry practical tools into classrooms and communities.",
+    date: "2026-06-18",
+    readingTime: "7 min read",
+    category: "Teachers and AI",
+    image: "/assets/impact-notes/teachers-ai-classrooms/teacher-training-room.jpg",
+    imageWebp: "/assets/impact-notes/teachers-ai-classrooms/teacher-training-room.webp",
+    author: "Urdu Ai Impact Team",
+    reviewedBy: "Welfare Association for New Generation (WANG)",
+    audience: "Teachers, school leaders, education partners, universities, vocational institutes, CSR teams, foundations, and AI access programs",
+    keywords: [
+      "AI literacy for teachers Pakistan",
+      "AI education for Pakistani teachers",
+      "Urdu AI teacher training",
+      "teacher AI training Pakistan",
+      "Urdu Ai Dost network",
+      "AI in classrooms Pakistan"
+    ],
+    takeaways: [
+      "Teachers are one of the strongest multipliers for AI literacy because each educator can carry practical learning into classrooms, staff rooms, and homes.",
+      "Urdu Ai Dost facilitators make AI training local by teaching educators face-to-face, in Urdu, and inside their own communities.",
+      "AI education should not stop at metropolitan schools. It must reach government schools, vocational centers, rural classrooms, and places left out of English-first training."
+    ],
+    sections: [
+      {
+        heading: "Short answer",
+        body: [
+          "If Pakistan wants AI literacy to reach the next generation, teachers cannot be last in line. They need to understand AI early, practically, and in a language they can use with confidence.",
+          "Urdu Ai is taking AI learning from cities into classrooms by working through local Dost facilitators. These facilitators help educators see AI not as a distant technology trend, but as a practical classroom tool for lesson planning, explanation, research, student support, and responsible digital learning."
+        ]
+      },
+      {
+        heading: "The teacher is the multiplier",
+        body: [
+          "Every conversation about AI in education eventually returns to the same person: the teacher. Students who will live with AI for the rest of their lives are sitting in classrooms today. The people preparing them are educators.",
+          "When one teacher understands AI, the learning does not stay with one person. It can move into a lesson plan, a staff room discussion, a student assignment, a parent conversation, and a school culture. One teacher can reach dozens of students, and those students carry the idea home."
+        ],
+        image: {
+          src: "/assets/impact-notes/teachers-ai-classrooms/teacher-discussion.jpg",
+          webp: "/assets/impact-notes/teachers-ai-classrooms/teacher-discussion.webp",
+          alt: "Educators attending an Urdu Ai teacher training session",
+          caption: "Teacher training turns AI literacy into a classroom multiplier."
+        }
+      },
+      {
+        heading: "Why Urdu changes the first step",
+        body: [
+          "Many teachers have heard about AI, but English-first tutorials can make the field feel technical, urban, and distant. That first barrier matters. If a teacher feels AI is only for engineers or elite schools, it stays outside the classroom.",
+          "Urdu lowers that first barrier. When AI is explained in the language teachers already use with students, the questions become clearer. Educators can ask what AI can help with, where it can make mistakes, how to protect students, and how to use it responsibly without turning the classroom into a technology experiment."
+        ]
+      },
+      {
+        heading: "The Urdu Ai Dost network makes training local",
+        body: [
+          "Urdu Ai trained community AI ambassadors, known as Dosts, to lead workshops in their own hometowns. The strength of the model is simple: local people teaching local educators face-to-face.",
+          "This is not centralized training delivered from far away. Dosts already understand the community, the language, the school environment, and the confidence gap. That local trust helps teachers practice AI without feeling judged for asking basic questions."
+        ]
+      },
+      {
+        heading: "Reaching classrooms beyond the usual map",
+        body: [
+          "Some of the most important AI sessions happen in places that rarely appear in technology conversations: government schools, vocational training institutes, village classrooms, community spaces, and towns outside the major cities.",
+          "This matters because the future cannot be built only in metropolitan classrooms. If AI literacy reaches only the already-connected, the gap grows. If it reaches teachers in underserved communities, the learning can travel further than any single workshop."
+        ],
+        image: {
+          src: "/assets/impact-notes/teachers-ai-classrooms/night-community-classroom.jpg",
+          webp: "/assets/impact-notes/teachers-ai-classrooms/night-community-classroom.webp",
+          alt: "Urdu Ai community learning session held outdoors at night",
+          caption: "AI learning reaches further when training follows the community, not only formal venues."
+        }
+      },
+      {
+        heading: "Women educators are central to the classroom story",
+        body: [
+          "Teacher AI literacy is also a women and girls access issue. In many communities, women educators are trusted guides for students, families, and peer learning. When women teachers gain confidence with AI, that confidence can move across classrooms and households.",
+          "Urdu Ai's field sessions show that women educators are not only participants. They are carriers of digital confidence, especially where girls and young women need visible examples of practical technology use."
+        ],
+        image: {
+          src: "/assets/impact-notes/teachers-ai-classrooms/women-educators.jpg",
+          webp: "/assets/impact-notes/teachers-ai-classrooms/women-educators.webp",
+          alt: "Women educators participating in an Urdu Ai learning session",
+          caption: "Women educators help AI literacy travel through classrooms, families, and peer networks."
+        }
+      },
+      {
+        heading: "What changes when a teacher learns AI?",
+        body: [
+          "The change is rarely dramatic at first. A teacher uses an AI tool once to plan a difficult lesson. A few weeks later, they show another teacher. A few months later, students are using AI tools alongside their notebooks, with guidance on what to trust and what to check.",
+          "That is the pattern Urdu Ai is documenting: school by school, the conversation moves from \"AI is for someone else\" to \"AI is a tool we can understand and use responsibly.\" The classroom becomes less afraid of the future because the teacher has already opened the door."
+        ],
+        image: {
+          src: "/assets/impact-notes/teachers-ai-classrooms/teachers-classroom.jpg",
+          webp: "/assets/impact-notes/teachers-ai-classrooms/teachers-classroom.webp",
+          alt: "Urdu Ai Dost leading a classroom workshop for educators",
+          caption: "The classroom shift often begins quietly, with one teacher testing one useful workflow."
+        }
+      },
+      {
+        heading: "Teacher training is public infrastructure",
+        body: [
+          "AI education for teachers should not be treated as a luxury add-on. It is part of public learning infrastructure. If teachers understand AI, they can guide students through opportunity and risk at the same time.",
+          "That includes practical use, but it also includes judgment: checking outputs, protecting privacy, identifying weak answers, avoiding blind copying, and using AI to support learning rather than replace thinking."
+        ]
+      },
+      {
+        heading: "What Urdu Ai stands for",
+        body: [
+          "Urdu Ai is not only teaching teachers how to use tools. It is building a network of local AI educators across provinces, districts, schools, and communities. The goal is to make sure Pakistani educators can lead the AI conversation in their own classrooms.",
+          "AI must be available to everyone, and it must arrive in the language people already speak. This work is part of the AI Opportunity Fund: Asia-Pacific, implemented by WANG in collaboration with AVPN and supported by Google.org and the Asian Development Bank."
+        ],
+        image: {
+          src: "/assets/impact-notes/teachers-ai-classrooms/women-teacher-classroom.jpg",
+          webp: "/assets/impact-notes/teachers-ai-classrooms/women-teacher-classroom.webp",
+          alt: "Women attending an Urdu Ai teacher training session in a classroom",
+          caption: "AI learning reaches women educators inside classrooms where they already gather."
+        }
+      }
+    ],
+    faqs: [
+      {
+        question: "Why does AI literacy for teachers matter?",
+        answer:
+          "AI literacy for teachers matters because educators can carry practical AI understanding into classrooms, staff rooms, student assignments, and family learning. One trained teacher can influence many learners."
+      },
+      {
+        question: "How does Urdu Ai support teachers?",
+        answer:
+          "Urdu Ai supports teachers through Urdu-first explanations, local Dost facilitators, face-to-face workshops, practical classroom examples, and guidance on responsible AI use."
+      },
+      {
+        question: "Why should teacher AI training happen in Urdu?",
+        answer:
+          "Teacher AI training should happen in Urdu because language affects confidence. When educators learn AI in a familiar language, they can ask better questions and adapt the tools to their own classrooms."
+      }
+    ],
+    sources: [
+      { label: "AI Opportunity Fund: Asia-Pacific", href: "https://avpn.asia/ai-opportunity-fund-asia-pacific/" },
+      { label: "AVPN Urdu Ai profile", href: "https://avpn.asia/ai-course/urdu-ai/" },
+      { label: "WANG", href: "https://wang.org.pk/about.html" },
+      { label: "Google.org", href: "https://www.google.org/" },
+      { label: "Asian Development Bank", href: "https://www.adb.org/" }
+    ],
+    links: [
+      { label: "Explore Urdu Ai's reported impact numbers", href: "/#numbers" },
+      { label: "View the Urdu Ai Dost map", href: "/#map" },
+      { label: "See institutional MoUs", href: "/institutional-partnerships/" },
+      { label: "Read about women and AI", href: "/impact-notes/women-ai-and-the-language-of-confidence/" },
+      { label: "Discuss partnership", href: "/contact/" },
+      { label: "AVPN Urdu Ai profile", href: "https://avpn.asia/ai-course/urdu-ai/" },
+      { label: "Visit urduai.org", href: "https://urduai.org/" }
+    ]
+  },
+  {
     slug: "women-ai-and-the-language-of-confidence",
     title: "Women, AI, and the Language of Confidence",
     seoTitle: "Women, AI, and the Language of Confidence | Urdu Ai Impact Notes",

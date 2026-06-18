@@ -2522,6 +2522,10 @@ a {
   text-decoration: none;
 }
 
+.article-hero .eyebrow {
+  color: var(--teal);
+}
+
 .article-hero h1 {
   max-width: 920px;
   margin: 0;

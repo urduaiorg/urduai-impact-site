@@ -181,7 +181,7 @@ const articleSchema = {
                   ) : (
                     <img src={section.image.src} alt={section.image.alt} loading="lazy" decoding="async" />
                   )}
-                  <figcaption>{section.image.caption}</figcaption>
+                  {section.image.caption && <figcaption>{section.image.caption}</figcaption>}
                 </figure>
               )}
             </section>
