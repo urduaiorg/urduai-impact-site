@@ -4,7 +4,7 @@ import { impactNotes } from "../../data/impactNotes.js";
 
 const pageTitle = "Urdu Ai Impact Notes | Community AI Education in Pakistan";
 const pageDescription =
-  "Field notes, stories, and insights from Urdu Ai's community AI education work across Pakistan, including AI literacy, digital skills, women's access, vocational learning, and institutional partnerships.";
+  "Field notes from Urdu Ai's community AI education work in Pakistan, covering AI literacy, women's access, digital skills, and partnerships.";
 const canonical = "https://impact.urduai.org/impact-notes/";
 const schema = {
   "@context": "https://schema.org",
@@ -70,7 +70,7 @@ const schema = {
         <div class="section-head">
           <h2>Latest Impact Notes.</h2>
           <p class="section-lede">
-            These first articles explain why Urdu-language AI literacy matters and what makes community AI education programs effective for learners, institutions, and donors.
+            These articles explain why Urdu-language AI literacy matters, how women build confidence with AI, and what makes community AI education effective for learners, institutions, and donors.
           </p>
         </div>
 
@@ -78,7 +78,14 @@ const schema = {
           {impactNotes.map((note) => (
             <article class="note-card">
               <a href={`/impact-notes/${note.slug}/`} aria-label={`Read ${note.title}`}>
-                <img src={note.image} alt={note.title} loading="lazy" decoding="async" />
+                {note.imageWebp ? (
+                  <picture>
+                    <source srcset={note.imageWebp} type="image/webp" />
+                    <img src={note.image} alt={note.title} loading="lazy" decoding="async" width="1200" height="750" />
+                  </picture>
+                ) : (
+                  <img src={note.image} alt={note.title} loading="lazy" decoding="async" />
+                )}
               </a>
               <div>
                 <span>{note.category} · {note.readingTime}</span>
@@ -98,10 +105,10 @@ const schema = {
     <section class="section alt" data-reveal>
       <div class="container notes-partner-band">
         <div>
-          <span class="eyebrow">Built for discovery</span>
-          <h2>Helpful content for people and answer engines searching for community AI education programs.</h2>
+          <span class="eyebrow">For partners and supporters</span>
+          <h2>A public record of how Urdu Ai is making AI learning more accessible.</h2>
           <p>
-            Impact Notes connect Urdu Ai's public numbers, Dost network, MoU partners, learner stories, media coverage, WANG's community roots, WALI's rural innovation work, and AVPN-linked recognition into searchable public explanations.
+            Impact Notes bring together field stories, learner outcomes, Dost network updates, institutional partnerships, and clear explanations of reported numbers so partners and the public can understand the work behind the headlines.
           </p>
         </div>
         <div class="notes-link-list">

@@ -1,5 +1,154 @@
 export const impactNotes = [
   {
+    slug: "women-ai-and-the-language-of-confidence",
+    title: "Women, AI, and the Language of Confidence",
+    seoTitle: "Women, AI, and the Language of Confidence | Urdu Ai Impact Notes",
+    description:
+      "How Urdu Ai helps women learn artificial intelligence in Urdu through trusted spaces, practical examples, and community learning.",
+    date: "2026-06-18",
+    readingTime: "7 min read",
+    category: "Women and AI",
+    image: "/assets/impact-notes/women-ai-confidence/learning-circle.jpg",
+    imageWebp: "/assets/impact-notes/women-ai-confidence/learning-circle.webp",
+    author: "Urdu Ai Impact Team",
+    reviewedBy: "Welfare Association for New Generation (WANG)",
+    audience: "Women learners, educators, community partners, institutional partners, CSR teams, foundations, and AI access programs",
+    keywords: [
+      "women and AI Pakistan",
+      "AI literacy for women",
+      "Urdu AI women learners",
+      "digital inclusion for women",
+      "AI education in Urdu",
+      "community AI education Pakistan"
+    ],
+    takeaways: [
+      "Women-centered AI literacy works best when training happens in trusted spaces, in a familiar language, and with practical examples.",
+      "Urdu Ai helps women move from awareness to use: lesson planning, study support, CV writing, small business content, research, and everyday problem solving.",
+      "When women gain confidence with AI, the learning travels into families, classrooms, workplaces, and community networks."
+    ],
+    sections: [
+      {
+        heading: "Short answer",
+        body: [
+          "Women should not enter Pakistan's AI future late. They should be part of it from the beginning.",
+          "Across Urdu Ai field sessions, women are learning artificial intelligence in spaces that feel familiar: classrooms, vocational centres, community halls, and small group learning circles. The most important change is not only that they hear about AI. It is that they begin to use it, question it, and see where it fits into their own lives."
+        ]
+      },
+      {
+        heading: "The first barrier is confidence",
+        body: [
+          "For many first-time learners, AI does not feel like a tool made for them. It can sound technical, English-first, urban, and distant. Women who are already managing studies, teaching, home responsibilities, work, or community roles may not have the time or confidence to search through English tutorials and experiment alone.",
+          "Urdu changes that first step. When AI is explained in a language learners already use, the room changes. People ask better questions. They test ideas. They connect the tool to real needs instead of treating it like a distant technology trend."
+        ],
+        image: {
+          src: "/assets/impact-notes/women-ai-confidence/classroom-banner.jpg",
+          webp: "/assets/impact-notes/women-ai-confidence/classroom-banner.webp",
+          alt: "Women standing together with an Urdu Ai banner after a learning session",
+          caption: "Women-centered sessions create visible confidence around AI learning."
+        }
+      },
+      {
+        heading: "Practical use matters more than hype",
+        body: [
+          "Urdu Ai does not introduce AI as magic. The sessions focus on practical use: how to ask a useful question, how to improve a draft, how to plan a lesson, how to prepare a CV, how to summarize a document, how to create basic content, and how to check whether an answer is reliable.",
+          "This is where confidence becomes capability. A teacher can prepare classroom material. A student can organize study notes. A young woman can improve a job application. A small business owner can write product descriptions. A community worker can communicate more clearly. These are small use cases, but they are often the first bridge into digital confidence."
+        ],
+        image: {
+          src: "/assets/impact-notes/women-ai-confidence/presentation.jpg",
+          webp: "/assets/impact-notes/women-ai-confidence/presentation.webp",
+          alt: "A woman facilitator leading an Urdu Ai workshop",
+          caption: "Local facilitators make AI feel practical, not remote."
+        }
+      },
+      {
+        heading: "Women are not only participants",
+        body: [
+          "In many communities, women are the first teachers and the most trusted explainers. They help children learn, guide families through decisions, support classrooms, run local initiatives, and share useful knowledge with others.",
+          "That is why AI literacy for women has a multiplier effect. When one woman learns how to use AI responsibly, the learning can move into a classroom, a family, a workplace, or a peer group. The impact may begin quietly, but it does not remain small."
+        ],
+        image: {
+          src: "/assets/impact-notes/women-ai-confidence/vocational.jpg",
+          webp: "/assets/impact-notes/women-ai-confidence/vocational.webp",
+          alt: "Women attending an Urdu Ai session in a vocational learning space",
+          caption: "AI learning can happen in the same places where women already gather to build skills."
+        }
+      },
+      {
+        heading: "Trusted spaces make access real",
+        body: [
+          "Access is not only a question of internet connection. It is also a question of trust, timing, venue, language, and whether learners feel safe enough to ask basic questions.",
+          "The photos from Urdu Ai sessions show why local spaces matter. AI learning can happen beside a chalkboard, in a training centre, in a community room, or in a courtyard. It does not need to wait for elite campuses or expensive labs. When the space is trusted, the conversation opens."
+        ],
+        image: {
+          src: "/assets/impact-notes/women-ai-confidence/courtyard.jpg",
+          webp: "/assets/impact-notes/women-ai-confidence/courtyard.webp",
+          alt: "Women attending an Urdu Ai session in a community courtyard",
+          caption: "AI literacy reaches further when it can enter everyday community spaces."
+        }
+      },
+      {
+        heading: "Responsible AI begins with understanding",
+        body: [
+          "Digital inclusion should not mean pushing people toward tools without context. Urdu Ai sessions also explain that AI can make mistakes, that private information should be protected, and that outputs should be checked before they are trusted.",
+          "This balance matters for new learners. The goal is not blind adoption. The goal is informed use: confidence without hype, access without exploitation, and opportunity with judgment."
+        ]
+      },
+      {
+        heading: "What changes when women learn AI?",
+        body: [
+          "The change is often quiet. Someone who had never opened an AI tool asks her first question. Someone who thought AI was only for engineers discovers it can help with writing, learning, planning, and problem solving. Someone who felt excluded from the technology conversation begins to feel included.",
+          "That quiet shift is the beginning of larger change. A woman with AI confidence can support her own learning, help a child study, improve her work, guide a peer, or carry the idea into an institution. This is how AI literacy becomes social impact."
+        ],
+        image: {
+          src: "/assets/impact-notes/women-ai-confidence/group.jpg",
+          webp: "/assets/impact-notes/women-ai-confidence/group.webp",
+          alt: "Women standing together after an Urdu Ai training session",
+          caption: "When women learn AI together, confidence becomes collective."
+        }
+      },
+      {
+        heading: "A future that includes women from the beginning",
+        body: [
+          "Pakistan's AI future should not be built only in English, only in large cities, or only for people who already feel comfortable with technology. It must include women from the beginning.",
+          "Urdu Ai is working toward that future through Urdu-first learning, local Dost facilitators, institutional partnerships, women-friendly spaces, and practical workshops. The aim is not simply to introduce women to AI. The aim is to make sure women can use AI with confidence, dignity, and agency.",
+          "This work is part of the AI Opportunity Fund: Asia-Pacific, implemented by WANG in collaboration with AVPN and supported by Google.org and the Asian Development Bank."
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: "Why does AI literacy for women matter?",
+        answer:
+          "AI literacy for women matters because women carry learning into classrooms, homes, workplaces, and communities. When women understand AI, the benefits can reach far beyond one individual learner."
+      },
+      {
+        question: "How does Urdu Ai make AI learning more accessible for women?",
+        answer:
+          "Urdu Ai uses simple Urdu explanations, trusted local facilitators, women-friendly learning spaces, practical examples, and follow-up pathways connected to its wider public learning ecosystem."
+      },
+      {
+        question: "What can women use AI for after an Urdu Ai session?",
+        answer:
+          "Women can use AI for lesson planning, study support, CV writing, research, document summaries, small business content, communication, and everyday problem solving while learning to verify outputs and protect privacy."
+      }
+    ],
+    sources: [
+      { label: "AI Opportunity Fund: Asia-Pacific", href: "https://avpn.asia/ai-opportunity-fund-asia-pacific/" },
+      { label: "AVPN Urdu Ai profile", href: "https://avpn.asia/ai-course/urdu-ai/" },
+      { label: "WANG", href: "https://wang.org.pk/about.html" },
+      { label: "Google.org", href: "https://www.google.org/" },
+      { label: "Asian Development Bank", href: "https://www.adb.org/" }
+    ],
+    links: [
+      { label: "Explore Urdu Ai's reported impact numbers", href: "/#numbers" },
+      { label: "View the Urdu Ai Dost map", href: "/#map" },
+      { label: "See institutional MoUs", href: "/institutional-partnerships/" },
+      { label: "Discuss partnership", href: "/contact/" },
+      { label: "AVPN Urdu Ai profile", href: "https://avpn.asia/ai-course/urdu-ai/" },
+      { label: "Visit urduai.org", href: "https://urduai.org/" }
+    ]
+  },
+  {
     slug: "why-urdu-language-ai-literacy-matters-pakistan",
     title: "Why Urdu-Language AI Literacy Matters for Pakistan's Future",
     seoTitle: "Why Urdu-Language AI Literacy Matters in Pakistan | Urdu Ai Impact Notes",

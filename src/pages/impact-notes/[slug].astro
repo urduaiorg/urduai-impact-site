@@ -11,9 +11,15 @@ export function getStaticPaths() {
 
 const { note } = Astro.props;
 const canonical = `https://impact.urduai.org/impact-notes/${note.slug}/`;
+const displayDate = new Date(`${note.date}T00:00:00`).toLocaleDateString("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric"
+});
 const articleBody = note.sections
   .flatMap((section) => [section.heading, ...section.body])
   .join("\n\n");
+const wordCount = articleBody.split(/\s+/).filter(Boolean).length;
 const articleSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -23,14 +29,24 @@ const articleSchema = {
       "url": canonical,
       "headline": note.title,
       "description": note.description,
-      "image": new URL(note.image, "https://impact.urduai.org").href,
+      "image": {
+        "@type": "ImageObject",
+        "url": new URL(note.image, "https://impact.urduai.org").href,
+        "width": 1200,
+        "height": 750
+      },
       "datePublished": note.date,
       "dateModified": note.date,
       "author": {
         "@type": "Organization",
-        "name": "Urdu Ai",
+        "name": note.author ?? "Urdu Ai",
         "url": "https://urduai.org/"
       },
+      "reviewedBy": note.reviewedBy ? {
+        "@type": "Organization",
+        "name": note.reviewedBy,
+        "url": "https://wang.org.pk/about.html"
+      } : undefined,
       "publisher": {
         "@type": "Organization",
         "name": "Urdu Ai Impact",
@@ -42,6 +58,10 @@ const articleSchema = {
       },
       "articleSection": note.category,
       "keywords": note.keywords.join(", "),
+      "inLanguage": "en",
+      "wordCount": wordCount,
+      "about": note.keywords,
+      "citation": note.sources?.map((source) => source.href),
       "articleBody": articleBody,
       "mainEntityOfPage": canonical
     },
@@ -94,12 +114,21 @@ const articleSchema = {
             <h1>{note.title}</h1>
             <p class="article-deck">{note.description}</p>
             <div class="article-meta">
-              <span>{new Date(note.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</span>
+              <span>By {note.author ?? "Urdu Ai"}</span>
+              <span>{displayDate}</span>
               <span>{note.readingTime}</span>
+              {note.reviewedBy && <span>Reviewed by WANG</span>}
             </div>
           </div>
           <figure>
-            <img src={note.image} alt={note.title} loading="eager" decoding="async" />
+            {note.imageWebp ? (
+              <picture>
+                <source srcset={note.imageWebp} type="image/webp" />
+                <img src={note.image} alt={note.title} loading="eager" decoding="async" width="1200" height="750" />
+              </picture>
+            ) : (
+              <img src={note.image} alt={note.title} loading="eager" decoding="async" />
+            )}
             <figcaption>Urdu Ai field learning and community AI education in Pakistan.</figcaption>
           </figure>
         </div>
@@ -125,6 +154,16 @@ const articleSchema = {
               ))}
             </nav>
           </div>
+          {note.sources && (
+            <div class="article-side-card">
+              <strong>Sources and recognition</strong>
+              <nav>
+                {note.sources.map((source) => (
+                  <a href={source.href}>{source.label}</a>
+                ))}
+              </nav>
+            </div>
+          )}
         </aside>
 
         <div class="article-content">
@@ -132,6 +171,19 @@ const articleSchema = {
             <section>
               <h2>{section.heading}</h2>
               {section.body.map((paragraph) => <p>{paragraph}</p>)}
+              {section.image && (
+                <figure class="article-inline-image">
+                  {section.image.webp ? (
+                    <picture>
+                      <source srcset={section.image.webp} type="image/webp" />
+                      <img src={section.image.src} alt={section.image.alt} loading="lazy" decoding="async" width="1200" height="750" />
+                    </picture>
+                  ) : (
+                    <img src={section.image.src} alt={section.image.alt} loading="lazy" decoding="async" />
+                  )}
+                  <figcaption>{section.image.caption}</figcaption>
+                </figure>
+              )}
             </section>
           ))}
 
@@ -146,9 +198,9 @@ const articleSchema = {
           </section>
 
           <section class="article-cta">
-            <h2>Partner with Urdu Ai</h2>
+            <h2>Partner with <span class="brand-inline on-dark"><span>Urdu</span> <span>Ai</span></span></h2>
             <p>
-              Urdu Ai is building practical AI literacy pathways through Urdu-first learning, Dost facilitators, institutional partners, and community access across Pakistan.
+              <span class="brand-inline on-dark"><span>Urdu</span> <span>Ai</span></span> is building practical AI literacy pathways through Urdu-first learning, Dost facilitators, institutional partners, and community access across Pakistan.
             </p>
             <div>
               <a class="button" href="/contact/">Discuss partnership</a>

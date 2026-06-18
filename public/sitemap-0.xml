@@ -26,9 +26,15 @@
   </url>
   <url>
     <loc>https://impact.urduai.org/impact-notes/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://impact.urduai.org/impact-notes/women-ai-and-the-language-of-confidence/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
   </url>
   <url>
     <loc>https://impact.urduai.org/impact-notes/why-urdu-language-ai-literacy-matters-pakistan/</loc>
