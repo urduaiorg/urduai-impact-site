@@ -2653,6 +2653,38 @@ a {
   line-height: 1.78;
 }
 
+.article-video {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow: 0 18px 44px rgba(46, 84, 154, 0.1);
+}
+
+.article-video-frame {
+  overflow: hidden;
+  border-radius: 6px;
+  background: #0b1110;
+}
+
+.article-video iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+.article-video p {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.article-video a {
+  color: var(--teal);
+  font-weight: 850;
+}
+
 .article-inline-image {
   margin: 28px 0 4px;
   overflow: hidden;

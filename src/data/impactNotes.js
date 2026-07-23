@@ -1,5 +1,166 @@
 export const impactNotes = [
   {
+    slug: "urdu-ai-for-police-hyderabad-ai-training",
+    title: "Urdu Ai for Police: Responsible AI Training with Hyderabad Police",
+    seoTitle: "Urdu Ai for Police | Responsible AI Training with Hyderabad Police",
+    description:
+      "How Urdu Ai and Hyderabad Police introduced officers, IT staff, and women police personnel to responsible AI use, prompt writing, data security, and practical public service workflows.",
+    date: "2026-07-23",
+    readingTime: "8 min read",
+    category: "Public sector AI",
+    image: "/assets/impact-notes/urdu-ai-police-hyderabad/police-headquarters-group.jpg",
+    author: "Urdu Ai Impact Team",
+    reviewedBy: "Welfare Association for New Generation (WANG)",
+    audience: "Police departments, public-sector teams, IT staff, women police personnel, government training partners, donors, CSR teams, and responsible AI programs",
+    keywords: [
+      "Urdu Ai for police",
+      "AI training for police Pakistan",
+      "responsible AI in law enforcement",
+      "AI awareness for public sector",
+      "digital capacity building Pakistan",
+      "AI literacy for government officials",
+      "Hyderabad Police AI training",
+      "Urdu AI prompt writing"
+    ],
+    video: {
+      title: "Urdu Ai AI Awareness and Practical Training Session with Hyderabad Police",
+      youtubeId: "cc1HWM5rOeo",
+      url: "https://youtu.be/cc1HWM5rOeo",
+      embedUrl: "https://www.youtube.com/embed/cc1HWM5rOeo",
+      thumbnailUrl: "https://img.youtube.com/vi/cc1HWM5rOeo/hqdefault.jpg"
+    },
+    takeaways: [
+      "Responsible AI training for police should begin with safe use, data security, human judgment, and clear boundaries before introducing tools.",
+      "The Hyderabad Police session showed how AI can support official communication, public awareness, translation, documentation, analysis, and everyday administrative work.",
+      "Urdu Ai's Dost network helps public institutions learn AI in practical language, making digital transformation more local, responsible, and service-focused."
+    ],
+    sections: [
+      {
+        heading: "Short answer",
+        body: [
+          "Hyderabad Police, in collaboration with Urdu Ai, organized an AI awareness and practical training session at the Police Headquarters in Hyderabad. The session introduced police officers, IT staff, and women police personnel to responsible AI use, prompt writing, data security, and practical AI tools.",
+          "For Urdu Ai, this is an important example of community AI education entering a public service institution. AI literacy is not only for students and teachers. It also matters for police departments, government offices, public communication teams, and frontline institutions that serve citizens every day."
+        ]
+      },
+      {
+        heading: "Why AI literacy matters for police and public service",
+        body: [
+          "Police departments handle communication, documentation, public awareness, reports, translations, internal coordination, and large amounts of routine administrative work. AI can support many of these tasks, but only when staff understand how to use it safely and responsibly.",
+          "That is why awareness comes before adoption. A public-sector team should know what AI can help with, where it can make mistakes, what information should never be entered into public tools, and when human review is required. Training creates that foundation.",
+          "For police and other public institutions, AI literacy is also a public trust issue. When staff understand the limits of a tool, they are less likely to misuse it, overtrust it, or apply it to sensitive situations without the right safeguards."
+        ],
+        image: {
+          src: "/assets/impact-notes/urdu-ai-police-hyderabad/police-ai-training-room.jpg",
+          alt: "Urdu Ai Dost Saif Ali leading an AI awareness and training workshop with Hyderabad Police officers",
+          caption: "The session introduced practical AI use while keeping responsible adoption and public service at the center."
+        }
+      },
+      {
+        heading: "What officers explored during the session",
+        body: [
+          "The training covered safe and responsible AI use, prompt writing, data security, and practical applications of AI tools. Participants discussed how better prompts can improve draft quality, how AI outputs should be checked, and why sensitive official or citizen information requires strict care.",
+          "The session also explored practical use cases: drafting official communication, creating public awareness messages, translating content, summarizing documents, supporting data analysis, organizing notes, and improving everyday administrative workflows.",
+          "These are the kinds of use cases where AI training can quickly become useful. A well-written draft still needs human review, but it can save time. A translation still needs context, but it can help staff communicate faster. A summary still needs verification, but it can help a busy team understand a document more quickly."
+        ]
+      },
+      {
+        heading: "Responsible AI means clear boundaries",
+        body: [
+          "For law enforcement, responsible AI is not a slogan. It is a requirement. AI tools should not replace officer judgment, legal process, evidence standards, or official approval. Public AI tools should not be treated as secure systems for confidential citizen data, investigation material, personal records, or sensitive internal information.",
+          "The right approach is careful and practical: use AI for low-risk drafting, learning, translation, public awareness, formatting, summarization, and productivity support; review outputs before use; protect data; and keep humans accountable for decisions.",
+          "That boundary is especially important in public institutions because mistakes do not stay private. A careless AI workflow can affect citizen trust, internal confidence, and the credibility of digital transformation. Responsible training helps teams move forward without pretending the risks do not exist."
+        ],
+        image: {
+          src: "/assets/impact-notes/urdu-ai-police-hyderabad/police-responsible-ai-discussion.jpg",
+          alt: "Hyderabad Police officers participating in a responsible AI discussion during an Urdu Ai workshop",
+          caption: "Responsible AI training helps public institutions understand both opportunity and risk before adopting new tools."
+        }
+      },
+      {
+        heading: "Women police personnel and IT staff are central",
+        body: [
+          "The session included women police personnel and IT staff, which matters for long-term digital capacity. Women officers often support public interaction, community trust, reporting processes, and institutional coordination. IT teams help translate new learning into safer internal practice.",
+          "When both frontline staff and technical staff understand AI together, institutions are better positioned to adopt tools responsibly instead of leaving the topic to a small technical group or external consultant.",
+          "This also makes AI literacy more inclusive inside the institution. Digital skills should not sit only with senior staff, outside vendors, or technical teams. Women personnel, junior staff, administrative teams, and public-facing officers all need enough understanding to use tools safely and ask the right questions."
+        ]
+      },
+      {
+        heading: "Why local language training changes adoption",
+        body: [
+          "AI training becomes more useful when it is explained in the language people already use at work. Urdu-first and locally contextual training helps participants move past the idea that AI is only for software engineers or English-speaking professionals.",
+          "In a police training room, the examples need to feel familiar: official letters, public announcements, translations, meeting notes, awareness campaigns, reports, and routine office work. When the examples match the institution's real work, the learning becomes easier to remember and easier to apply."
+        ]
+      },
+      {
+        heading: "The Urdu Ai Dost network makes institutional learning local",
+        body: [
+          "This session was led locally through the Urdu Ai Dost network, with strong work from Urdu Ai Dost Saif Ali in Hyderabad. That local leadership is important. Public institutions are more likely to engage when training comes through people who understand their language, context, and practical needs.",
+          "Urdu Ai is reaching communities across Pakistan through Dost facilitators: teachers, police officers, government officials, madrasa educators, community organizations, churches, temples, entrepreneurs, and rural learners. The goal is the same across each setting: make AI accessible, practical, and responsible in the language people understand."
+        ]
+      },
+      {
+        heading: "Why this matters for donors and partners",
+        body: [
+          "For donors, CSR teams, foundations, and public-sector partners, the Hyderabad Police session shows why community AI education is not limited to classrooms. The same model can strengthen public service, local governance, citizen communication, women's participation, and institutional readiness.",
+          "A credible AI literacy program should show trusted local delivery, inclusive participation, practical skills, responsible technology use, and evidence that institutions are willing to learn. This workshop makes those signals visible.",
+          "It also shows a pathway for scale. Donor support can help turn one session into a repeatable public-sector training model: facilitator preparation, responsible AI curricula, Urdu-language learning materials, follow-up support, and evidence that departments are applying the learning safely."
+        ]
+      },
+      {
+        heading: "What a next phase could include",
+        body: [
+          "The next phase of AI capacity building for public institutions can be structured around simple, practical modules: AI basics, prompt writing, safe drafting, translation workflows, document summaries, data protection, misinformation awareness, and responsible use policies.",
+          "For a police department, the most useful training is not about chasing every new tool. It is about building everyday confidence: knowing when AI can help, knowing when it should not be used, and knowing how to protect public trust while improving service quality."
+        ]
+      },
+      {
+        heading: "A practical step toward public-sector digital transformation",
+        body: [
+          "Digital transformation does not begin with software procurement. It begins when people inside institutions understand what new tools can do, what they cannot do, and how to use them with care.",
+          "The Hyderabad Police and Urdu Ai session is one practical step in that direction: one workshop, one institution, one group of learners building confidence with AI in a responsible way. That is how meaningful transformation becomes real."
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: "What was the Urdu Ai training with Hyderabad Police about?",
+        answer:
+          "The session introduced police officers, IT staff, and women police personnel to responsible AI use, prompt writing, data security, and practical AI workflows for communication, translation, documentation, public awareness, and administrative work."
+      },
+      {
+        question: "How can AI support police administration?",
+        answer:
+          "AI can support low-risk administrative work such as drafting, summarizing, translation, public awareness content, document organization, and basic data analysis, as long as outputs are reviewed and sensitive information is protected."
+      },
+      {
+        question: "Why is responsible AI important for law enforcement?",
+        answer:
+          "Responsible AI is important for law enforcement because police work involves public trust, sensitive information, legal process, and human accountability. AI should support trained staff, not replace judgment or official decision-making."
+      },
+      {
+        question: "Who led the Urdu Ai police training in Hyderabad?",
+        answer:
+          "The session was supported by the Urdu Ai Dost network, with Urdu Ai Dost Saif Ali recognized for leading this inspiring work in his community."
+      }
+    ],
+    sources: [
+      { label: "Urdu Ai police training video", href: "https://youtu.be/cc1HWM5rOeo" },
+      { label: "Urdu Ai LinkedIn", href: "https://www.linkedin.com/company/urduaiorg/" },
+      { label: "Saif Ali", href: "https://www.linkedin.com/in/saif-ali1997/" },
+      { label: "AVPN Urdu Ai profile", href: "https://avpn.asia/ai-course/urdu-ai/" },
+      { label: "WANG", href: "https://wang.org.pk/about.html" }
+    ],
+    links: [
+      { label: "Watch the Hyderabad Police training video", href: "https://youtu.be/cc1HWM5rOeo" },
+      { label: "Explore Urdu Ai's reported impact numbers", href: "/#numbers" },
+      { label: "View the Urdu Ai Dost map", href: "/#map" },
+      { label: "Read about teachers and AI", href: "/impact-notes/when-teachers-learn-ai-classrooms-change/" },
+      { label: "Read about women and AI", href: "/impact-notes/women-ai-and-the-language-of-confidence/" },
+      { label: "Discuss partnership", href: "/contact/" },
+      { label: "Visit urduai.org", href: "https://urduai.org/" }
+    ]
+  },
+  {
     slug: "when-teachers-learn-ai-classrooms-change",
     title: "When Teachers Learn AI, Classrooms Change",
     seoTitle: "When Teachers Learn AI, Classrooms Change | Urdu Ai",

@@ -20,6 +20,15 @@ const articleBody = note.sections
   .flatMap((section) => [section.heading, ...section.body])
   .join("\n\n");
 const wordCount = articleBody.split(/\s+/).filter(Boolean).length;
+const videoSchema = note.video ? {
+  "@type": "VideoObject",
+  "name": note.video.title,
+  "description": note.description,
+  "thumbnailUrl": note.video.thumbnailUrl ? [note.video.thumbnailUrl] : undefined,
+  "uploadDate": note.date,
+  "embedUrl": note.video.embedUrl,
+  "contentUrl": note.video.url
+} : undefined;
 const articleSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -65,6 +74,7 @@ const articleSchema = {
       "articleBody": articleBody,
       "mainEntityOfPage": canonical
     },
+    ...(videoSchema ? [videoSchema] : []),
     {
       "@type": "FAQPage",
       "mainEntity": note.faqs.map((faq) => ({
@@ -167,6 +177,23 @@ const articleSchema = {
         </aside>
 
         <div class="article-content">
+          {note.video && (
+            <section class="article-video" aria-label={note.video.title}>
+              <div class="article-video-frame">
+                <iframe
+                  src={note.video.embedUrl}
+                  title={note.video.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <p>
+                Watch the field video: <a href={note.video.url}>{note.video.title}</a>.
+              </p>
+            </section>
+          )}
+
           {note.sections.map((section) => (
             <section>
               <h2>{section.heading}</h2>
