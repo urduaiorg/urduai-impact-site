@@ -6,6 +6,7 @@ export const impactNotes = [
     description:
       "How Urdu Ai and Hyderabad Police introduced officers, IT staff, and women police personnel to responsible AI use, prompt writing, data security, and practical public service workflows.",
     date: "2026-07-23",
+    modifiedDate: "2026-08-07",
     readingTime: "8 min read",
     category: "Public sector AI",
     image: "/assets/impact-notes/urdu-ai-police-hyderabad/police-headquarters-group.jpg",
@@ -119,6 +120,28 @@ export const impactNotes = [
           "Digital transformation does not begin with software procurement. It begins when people inside institutions understand what new tools can do, what they cannot do, and how to use them with care.",
           "The Hyderabad Police and Urdu Ai session is one practical step in that direction: one workshop, one institution, one group of learners building confidence with AI in a responsible way. That is how meaningful transformation becomes real."
         ]
+      }
+    ],
+    gallery: [
+      {
+        src: "/assets/impact-notes/urdu-ai-police-hyderabad/field-gallery/hyderabad-police-dsp-office-group.jpg",
+        alt: "Hyderabad Police and Urdu Ai Dost group photo outside the DSP office",
+        caption: "Public-sector AI literacy becomes credible when institutions open their own spaces for practical training."
+      },
+      {
+        src: "/assets/impact-notes/urdu-ai-police-hyderabad/field-gallery/rescue-1122-ai-training-room.jpg",
+        alt: "Urdu Ai trainer leading a practical AI session with Rescue 1122 personnel",
+        caption: "Practical training helps frontline teams connect AI to communication, documentation, and public service workflows."
+      },
+      {
+        src: "/assets/impact-notes/urdu-ai-police-hyderabad/field-gallery/women-rescue-personnel-ai-training.jpg",
+        alt: "Women Rescue 1122 personnel attending an Urdu Ai training session",
+        caption: "Women personnel are part of the public-sector AI readiness story."
+      },
+      {
+        src: "/assets/impact-notes/urdu-ai-police-hyderabad/field-gallery/urdu-ai-public-sector-laptop.jpg",
+        alt: "Urdu Ai presentation shown on a laptop during public-sector AI training",
+        caption: "Urdu-language learning materials make AI easier to understand and safer to apply."
       }
     ],
     faqs: [

@@ -34,24 +34,56 @@ const capacitySteps = [
 ];
 const showcaseImages = [
   {
-    image: "/assets/showcase/women-community-workshop.jpg",
-    title: "Women learn AI together",
-    text: "Trusted spaces help women ask questions, practice in Urdu, and build confidence together."
+    image: "/assets/field-gallery/youth-innovation-ai-workshop.jpg",
+    title: "AI enters professional learning rooms",
+    text: "Workshops help educators, professionals, and young people practice AI together."
   },
   {
-    image: "/assets/showcase/school-computer-lab-workshop.jpg",
-    title: "AI enters classrooms and labs",
-    text: "Dosts turn formal learning spaces into practical AI sessions with tools learners can use immediately."
+    image: "/assets/field-gallery/government-officials-ai-training.jpg",
+    title: "Public institutions build AI readiness",
+    text: "Government and education teams learn practical AI workflows in trusted local spaces."
   },
   {
-    image: "/assets/showcase/night-community-session.jpg",
+    image: "/assets/field-gallery/rural-community-ai-learning-circle.jpg",
     title: "AI reaches the last mile",
-    text: "Learning does not stop at formal venues; Dosts also reach people in local evening gatherings."
+    text: "Learning moves into rural and community settings where English-first training rarely reaches."
   },
   {
-    image: "/assets/showcase/women-dost-banner.jpg",
-    title: "Women carry AI forward",
-    text: "Women-led groups help carry Urdu Ai into schools, families, and community networks."
+    image: "/assets/field-gallery/women-education-partner-visit.jpg",
+    title: "Women and youth learn together",
+    text: "Mixed cohorts show how AI learning can include women, students, and professionals in the same room."
+  }
+];
+const fieldGallery = [
+  {
+    image: "/assets/field-gallery/public-sector-dost-group-hyderabad.jpg",
+    title: "Public-sector learning in Hyderabad",
+    text: "Urdu Ai Dost sessions show how AI literacy can support government communication and service delivery."
+  },
+  {
+    image: "/assets/field-gallery/community-dost-group-banner.jpg",
+    title: "Community Dost delivery",
+    text: "Local facilitators turn Urdu Ai from online awareness into face-to-face learning."
+  },
+  {
+    image: "/assets/field-gallery/government-officials-ai-training.jpg",
+    title: "Government officials and educators",
+    text: "Workshops create practical entry points for public-sector and institutional teams."
+  },
+  {
+    image: "/assets/field-gallery/rural-community-ai-learning-circle.jpg",
+    title: "Rural AI access",
+    text: "Community circles make AI understandable for people outside elite technology spaces."
+  },
+  {
+    image: "/assets/field-gallery/youth-innovation-ai-workshop.jpg",
+    title: "Youth and professional skills",
+    text: "Training connects AI to productivity, communication, employment, and learning."
+  },
+  {
+    image: "/assets/field-gallery/women-education-partner-visit.jpg",
+    title: "Women and youth participation",
+    text: "Visible mixed participation strengthens the case for inclusive AI education."
   }
 ];
 const investmentCase = [
@@ -329,6 +361,29 @@ const credibilitySignals = [
         <div class="showcase-grid" aria-label="Visual showcase of how Urdu Ai works">
           {showcaseImages.map((item, index) => (
             <figure class:list={["showcase-tile", index === 0 && "wide"]}>
+              <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+              <figcaption>
+                <strong>{item.title}</strong>
+                <span>{item.text}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section field-gallery-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Field proof</span>
+          <h2>Training photos show where Urdu Ai is actually working.</h2>
+          <p class="section-lede">
+            The impact is visible across public institutions, classrooms, innovation spaces, rural communities, and women-friendly education settings.
+          </p>
+        </div>
+        <div class="field-gallery-grid">
+          {fieldGallery.map((item, index) => (
+            <figure class:list={["field-gallery-card", index === 0 && "wide"]}>
               <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
               <figcaption>
                 <strong>{item.title}</strong>

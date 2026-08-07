@@ -214,6 +214,20 @@ const articleSchema = {
             </section>
           ))}
 
+          {note.gallery && (
+            <section class="article-photo-gallery" aria-label={`${note.title} field photos`}>
+              <h2>Field photos</h2>
+              <div class="article-gallery-grid">
+                {note.gallery.map((item, index) => (
+                  <figure class:list={[index === 0 && "wide"]}>
+                    <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+                    <figcaption>{item.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </section>
+          )}
+
           <section class="article-faq">
             <h2>Common questions</h2>
             {note.faqs.map((faq) => (
