@@ -472,6 +472,7 @@ export const impactNotes = [
     description:
       "Why Urdu-language AI literacy matters for Pakistan's students, teachers, women, workers, and community leaders, and how Urdu Ai is making AI learning practical and accessible.",
     date: "2026-06-15",
+    modifiedDate: "2026-08-07",
     readingTime: "7 min read",
     category: "AI literacy",
     image: "/assets/impact-notes/women-urdu-ai-literacy-classroom.jpg",
@@ -515,7 +516,7 @@ export const impactNotes = [
         heading: "How Urdu Ai turns awareness into learning",
         body: [
           "Urdu Ai combines a large public learning ecosystem with local delivery. The public side helps people discover AI in simple Urdu through videos, tutorials, and social platforms. The local side works through Urdu Ai Dost facilitators, training sessions, institutions, and community spaces where learners can ask questions and practice together.",
-          "The current public impact record includes 13,569+ reported learner records, 311 training sessions, 51% women participation, and district activity visible through the Urdu Ai Dost map. These numbers matter because they show that Urdu-language AI learning is not only a content idea. It is becoming a community education model."
+          "The current public impact record includes 20,424+ learners trained as of August 1, 2026, 311 training sessions, 51% women participation, and district activity visible through the Urdu Ai Dost map. These numbers matter because they show that Urdu-language AI learning is not only a content idea. It is becoming a community education model."
         ]
       },
       {
@@ -574,6 +575,7 @@ export const impactNotes = [
     description:
       "A practical guide for donors, CSR teams, foundations, and education partners evaluating community AI education programs, based on lessons from Urdu Ai in Pakistan.",
     date: "2026-06-15",
+    modifiedDate: "2026-08-07",
     readingTime: "8 min read",
     category: "Community AI education",
     image: "/assets/impact-notes/community-ai-classroom-participation.jpg",
@@ -637,7 +639,7 @@ export const impactNotes = [
       {
         heading: "Show impact clearly and carefully",
         body: [
-          "Good community AI programs should explain their impact without exaggeration. Urdu Ai's public impact site separates reported learner records, training sessions, women participation, district coverage, Dost profiles, stories, and media coverage.",
+          "Good community AI programs should explain their impact without exaggeration. Urdu Ai's public impact site separates learners trained, training sessions, women participation, district coverage, Dost profiles, stories, and media coverage.",
           "This kind of clarity helps potential donors, CSR teams, foundations, and public-sector partners understand both the scale of the work and the basis behind the numbers. It also respects learners by presenting their stories as real accounts, not inflated claims."
         ]
       },

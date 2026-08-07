@@ -45,7 +45,7 @@ const articleSchema = {
         "height": 750
       },
       "datePublished": note.date,
-      "dateModified": note.date,
+      "dateModified": note.modifiedDate ?? note.date,
       "author": {
         "@type": "Organization",
         "name": note.author ?? "Urdu Ai",

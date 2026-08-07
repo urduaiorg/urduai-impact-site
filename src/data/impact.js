@@ -1,8 +1,8 @@
 export const stats = [
   {
-    value: "13,569+",
-    label: "Reported learner records",
-    note: "Combines 9,563 training completions and 4,006 learner records reported in May 2026."
+    value: "20,424+",
+    label: "Learners trained",
+    note: "Updated August 1, 2026 from combined programme records: 4,824 learners plus 15,600 additional learners."
   },
   {
     value: "311",
@@ -22,8 +22,8 @@ export const stats = [
 ];
 
 export const proofPoints = [
-  "10,528 learners started structured training pathways.",
-  "9,563 learners completed structured training records.",
+  "20,424+ learners trained as of August 1, 2026.",
+  "The current total combines 4,824 learners and 15,600 additional learners in reported programme records.",
   "29 districts represented in the Urdu Ai Dost impact map.",
   "30+ community facilitators supporting local access and follow-up.",
   "35-40 million estimated monthly digital reach through Urdu Ai content.",
