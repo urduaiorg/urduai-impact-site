@@ -124,14 +124,14 @@ export const impactNotes = [
     ],
     gallery: [
       {
-        src: "/assets/impact-notes/urdu-ai-police-hyderabad/field-gallery/hyderabad-police-dsp-office-group.jpg",
-        alt: "Hyderabad Police and Urdu Ai Dost group photo outside the DSP office",
-        caption: "Public-sector AI literacy becomes credible when institutions open their own spaces for practical training."
+        src: "/assets/impact-notes/urdu-ai-police-hyderabad/field-gallery/rescue-1122-building-group.jpg",
+        alt: "Rescue 1122 personnel and Urdu Ai Dosts standing outside the Hyderabad district station",
+        caption: "Public-service AI literacy becomes credible when frontline institutions open their own spaces for practical training."
       },
       {
-        src: "/assets/impact-notes/urdu-ai-police-hyderabad/field-gallery/rescue-1122-ai-training-room.jpg",
-        alt: "Urdu Ai trainer leading a practical AI session with Rescue 1122 personnel",
-        caption: "Practical training helps frontline teams connect AI to communication, documentation, and public service workflows."
+        src: "/assets/impact-notes/urdu-ai-police-hyderabad/field-gallery/information-department-hyderabad-session.jpg",
+        alt: "Public-sector participants attending an Urdu Ai session at the Information Conference Hall in Hyderabad",
+        caption: "The same responsible AI model can support public communication, documentation, and citizen-facing service work."
       },
       {
         src: "/assets/impact-notes/urdu-ai-police-hyderabad/field-gallery/women-rescue-personnel-ai-training.jpg",
