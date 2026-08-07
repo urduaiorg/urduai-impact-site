@@ -1,5 +1,14 @@
 export const institutionalPartners = [
   {
+    image: "/assets/institutions/alkhidmat-foundation-pakistan-mou.jpg",
+    institution: "Alkhidmat Foundation Pakistan",
+    place: "Lahore / National partnership",
+    focus: "National-level AI education, digital literacy, and future-ready skills across diverse communities and sectors",
+    audience: "SMEs, persons with disabilities, educational institutions, service-sector professionals, nonprofits, youth, teachers, and underserved communities",
+    type: "National nonprofit humanitarian partner",
+    url: "https://alkhidmat.org/"
+  },
+  {
     image: "/assets/institutions/government-sadiq-women-university-bahawalpur-mou.jpg",
     institution: "Government Sadiq Women University Bahawalpur",
     place: "Bahawalpur",

@@ -5,7 +5,7 @@ import { stats } from "../data/impact.js";
 
 const pageTitle = "Institutional Partnerships & MoUs | Urdu Ai Impact";
 const pageDescription =
-  "Urdu Ai institutional partnerships and MoUs with universities, women-focused institutes, technical and vocational partners, and regional education centers advancing community AI education, digital literacy, and future-ready skills in Pakistan.";
+  "Urdu Ai institutional partnerships and MoUs with national nonprofit organizations, universities, women-focused institutes, technical and vocational partners, and regional education centers advancing community AI education, digital literacy, and future-ready skills in Pakistan.";
 
 const schema = {
   "@context": "https://schema.org",
@@ -24,8 +24,16 @@ const schema = {
       "about": [
         "community AI education in Pakistan",
         "AI literacy partnerships",
+        "national nonprofit AI education partnerships",
         "digital skills for youth and women",
         "institutional MoUs for future-ready skills"
+      ],
+      "mentions": [
+        {
+          "@type": "NGO",
+          "name": "Alkhidmat Foundation Pakistan",
+          "url": "https://alkhidmat.org/"
+        }
       ]
     },
     {
@@ -87,7 +95,7 @@ const schema = {
           <span class="eyebrow">Institutional partnerships and MoUs</span>
           <h1>MoUs help grow Urdu Ai as a trusted community AI education movement across Pakistan.</h1>
           <p class="partnership-lede">
-            Urdu Ai is building one of Pakistan's largest Urdu-first community AI education movements through trusted universities, women-focused institutions, technical training centers, and regional education partners.
+            Urdu Ai is building one of Pakistan's largest Urdu-first community AI education movements through national nonprofit partners, trusted universities, women-focused institutions, technical training centers, and regional education networks.
           </p>
           <p class="partnership-urdu urdu-line">تعلیمی اداروں کے ساتھ شراکت داری سے اے آئی سیکھنا زیادہ قابل اعتماد، مقامی اور قابل پیمائش بنتا ہے۔</p>
           <div class="partnership-actions">
@@ -97,7 +105,7 @@ const schema = {
         </div>
         <div class="partnership-hero-card partnership-hero-card--text" aria-label="MoU partnership summary">
           <strong>MoU network</strong>
-          <span>Universities, technical centers, and regional education partners</span>
+          <span>National nonprofit, university, technical, and regional education partners</span>
           <p>Formal agreements help Urdu Ai schedule training, support learners, and grow trusted AI literacy pathways beyond one-off events.</p>
         </div>
       </div>
@@ -108,7 +116,7 @@ const schema = {
         <div class="section-head">
           <h2>MoU photo slideshow.</h2>
           <p class="section-lede">
-            These photos show institutional trust: universities, technical centers, and local education partners formally opening pathways for AI literacy, digital skills, and applied learning.
+            These photos show institutional trust: national nonprofit organizations, universities, technical centers, and local education partners formally opening pathways for AI literacy, digital skills, and applied learning.
           </p>
         </div>
 
@@ -120,6 +128,7 @@ const schema = {
                 <span>{partner.place}</span>
                 <strong>{partner.institution}</strong>
                 <p>{partner.focus}</p>
+                {partner.url && <a class="partner-reference" href={partner.url}>View partner</a>}
               </figcaption>
             </figure>
           ))}
@@ -133,16 +142,41 @@ const schema = {
       </div>
     </section>
 
+    <section class="section alt national-mou-section" data-reveal>
+      <div class="container national-mou-grid">
+        <figure>
+          <img src="/assets/institutions/alkhidmat-foundation-pakistan-mou.jpg" alt="National-level MoU between Alkhidmat Foundation Pakistan and Urdu Ai at Head Office Lahore" loading="lazy" decoding="async" />
+        </figure>
+        <div>
+          <span class="eyebrow">National-level MoU</span>
+          <h2>Alkhidmat Foundation Pakistan and Urdu Ai are opening a larger pathway for AI education and digital inclusion.</h2>
+          <p>
+            Urdu Ai has signed a national-level MoU with Alkhidmat Foundation Pakistan at its Head Office in Lahore. Alkhidmat is one of Pakistan's leading nonprofit humanitarian organizations, serving vulnerable communities since 1990 through education, healthcare, disaster response, orphan care, clean water, skills development, microfinance, and community services.
+          </p>
+          <p>
+            Through this partnership, Urdu Ai aims to bring practical AI education and digital skills to small and medium-sized enterprises, persons with disabilities, educational institutions, service-sector professionals, nonprofit organizations, young people, teachers, and underserved communities across Pakistan.
+          </p>
+          <p>
+            By combining Alkhidmat's nationwide community network with Urdu Ai's accessible Urdu-language AI education, the partnership can help more Pakistanis use artificial intelligence for learning, employment, entrepreneurship, productivity, and social impact.
+          </p>
+          <div class="national-mou-actions">
+            <a class="button" href="/contact/">Discuss partnership</a>
+            <a class="button secondary" href="https://alkhidmat.org/">View Alkhidmat</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section alt" id="why-partners-care" data-reveal>
       <div class="container funder-case-grid">
         <div class="funder-case-copy">
           <span class="eyebrow">Why partners support this</span>
           <h2>Strong AI education programs need trusted places where people can learn and continue practicing.</h2>
           <p>
-            Urdu Ai's institutional MoUs create reliable pathways for women, youth, students, and vocational learners through trusted local institutions, Urdu-first learning, practical digital skills, and partner-supported follow-up.
+            Urdu Ai's institutional MoUs create reliable pathways for women, youth, students, vocational learners, service-sector professionals, persons with disabilities, SMEs, and underserved communities through trusted local institutions, Urdu-first learning, practical digital skills, and partner-supported follow-up.
           </p>
           <p>
-            Urdu Ai's institutional partnerships support AI literacy, digital inclusion, teacher enablement, youth employability, vocational skills, responsible AI use, and community-led learning across Pakistan.
+            Urdu Ai's institutional partnerships support AI literacy, digital inclusion, teacher enablement, youth employability, vocational skills, responsible AI use, nonprofit capacity, entrepreneurship, and community-led learning across Pakistan.
           </p>
         </div>
         <div class="funder-keywords" aria-label="Partner and search-friendly themes">
@@ -152,6 +186,8 @@ const schema = {
           <span>Women and girls in AI</span>
           <span>Responsible AI learning</span>
           <span>Vocational AI skills</span>
+          <span>AI for nonprofit and humanitarian work</span>
+          <span>AI skills for SMEs and PWDs</span>
           <span>Future-ready skills</span>
           <span>Education technology for inclusion</span>
           <span>AI for underserved communities</span>
@@ -165,7 +201,7 @@ const schema = {
         <div class="section-head">
           <h2>Partner network.</h2>
           <p class="section-lede">
-            The MoU network now combines women-focused universities, regional universities, and technical-vocational education, giving Urdu Ai a stronger path from awareness to applied skills.
+            The MoU network now combines a national humanitarian nonprofit partner, women-focused universities, regional universities, and technical-vocational education, giving Urdu Ai a stronger path from awareness to applied skills.
           </p>
         </div>
         <div class="partnership-card-grid">
@@ -176,6 +212,7 @@ const schema = {
                 <span>{partner.place}</span>
                 <h3>{partner.institution}</h3>
                 <p>{partner.focus}</p>
+                {partner.url && <a class="partner-reference" href={partner.url}>View partner</a>}
                 <dl>
                   <div>
                     <dt>Audience</dt>
@@ -200,6 +237,7 @@ const schema = {
           <h2>From public awareness to structured AI learning pathways.</h2>
           <ul>
             <li>Institutions provide trusted venues where learners already gather.</li>
+            <li>National nonprofit partners can connect AI learning with humanitarian, livelihood, inclusion, and community service networks.</li>
             <li>Faculty and administrators help organize cohorts and follow-up.</li>
             <li>Women-focused and regional partners reduce access barriers.</li>
             <li>Vocational partners connect AI learning with employability and technical skills.</li>
@@ -244,13 +282,13 @@ const schema = {
           <article>
             <h3>How do MoUs help?</h3>
             <p>
-              MoUs convert interest into repeatable delivery: scheduled cohorts, partner venues, student access, faculty engagement, follow-up, and long-term institutional trust.
+              MoUs convert interest into repeatable delivery: scheduled cohorts, partner venues, student access, community access, faculty engagement, nonprofit networks, follow-up, and long-term institutional trust.
             </p>
           </article>
           <article>
             <h3>What can partners support?</h3>
             <p>
-              Partners can support women-led AI learning cohorts, vocational AI skills, teacher training, district facilitators, public-interest AI curricula, learner stories, and regional expansion.
+              Partners can support women-led AI learning cohorts, vocational AI skills, teacher training, district facilitators, AI skills for SMEs and PWDs, public-interest AI curricula, learner stories, and regional expansion.
             </p>
           </article>
         </div>
