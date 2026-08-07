@@ -5,9 +5,9 @@ export const stats = [
     note: "Updated August 1, 2026 from combined programme records: 4,824 learners plus 15,600 additional learners."
   },
   {
-    value: "311",
-    label: "Training sessions",
-    note: "Community-based cohorts delivered through Urdu Ai and Dost partners."
+    value: "680-817",
+    label: "Estimated trainings",
+    note: "Calculated from 20,424 learners at an average of 25-30 participants per training."
   },
   {
     value: "51%",
@@ -24,6 +24,7 @@ export const stats = [
 export const proofPoints = [
   "20,424+ learners trained as of August 1, 2026.",
   "The current total combines 4,824 learners and 15,600 additional learners in reported programme records.",
+  "At 25-30 participants per training, this equals roughly 680-817 average-size trainings conducted.",
   "29 districts represented in the Urdu Ai Dost impact map.",
   "30+ community facilitators supporting local access and follow-up.",
   "35-40 million estimated monthly digital reach through Urdu Ai content.",
