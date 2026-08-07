@@ -1,13 +1,13 @@
 export const stats = [
   {
     value: "20,424+",
-    label: "Learners trained",
-    note: "Updated August 1, 2026 from combined programme records: 4,824 learners plus 15,600 additional learners."
+    label: "People trained",
+    note: "Reported programme reach as of August 1, 2026."
   },
   {
-    value: "680-817",
-    label: "Estimated trainings",
-    note: "Calculated from 20,424 learners at an average of 25-30 participants per training."
+    value: "700+",
+    label: "Training workshops",
+    note: "Community, institutional, and Dost-led AI learning workshops across Pakistan."
   },
   {
     value: "51%",
@@ -22,9 +22,8 @@ export const stats = [
 ];
 
 export const proofPoints = [
-  "20,424+ learners trained as of August 1, 2026.",
-  "The current total combines 4,824 learners and 15,600 additional learners in reported programme records.",
-  "At 25-30 participants per training, this equals roughly 680-817 average-size trainings conducted.",
+  "20,424+ people trained as of August 1, 2026.",
+  "700+ training workshops conducted through community, institutional, and Dost-led delivery.",
   "29 districts represented in the Urdu Ai Dost impact map.",
   "30+ community facilitators supporting local access and follow-up.",
   "35-40 million estimated monthly digital reach through Urdu Ai content.",

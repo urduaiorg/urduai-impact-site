@@ -516,7 +516,7 @@ export const impactNotes = [
         heading: "How Urdu Ai turns awareness into learning",
         body: [
           "Urdu Ai combines a large public learning ecosystem with local delivery. The public side helps people discover AI in simple Urdu through videos, tutorials, and social platforms. The local side works through Urdu Ai Dost facilitators, training sessions, institutions, and community spaces where learners can ask questions and practice together.",
-          "The current public impact record includes 20,424+ learners trained as of August 1, 2026, an estimated 680-817 average-size trainings based on 25-30 participants per session, 51% women participation, and district activity visible through the Urdu Ai Dost map. These numbers matter because they show that Urdu-language AI learning is not only a content idea. It is becoming a community education model."
+          "The current public impact record includes 20,424+ people trained as of August 1, 2026, 700+ training workshops, 51% women participation, and district activity visible through the Urdu Ai Dost map. These numbers matter because they show that Urdu-language AI learning is not only a content idea. It is becoming a community education model."
         ]
       },
       {
@@ -639,7 +639,7 @@ export const impactNotes = [
       {
         heading: "Show impact clearly and carefully",
         body: [
-          "Good community AI programs should explain their impact without exaggeration. Urdu Ai's public impact site separates learners trained, estimated training equivalents, women participation, district coverage, Dost profiles, stories, and media coverage.",
+          "Good community AI programs should explain their impact without exaggeration. Urdu Ai's public impact site separates people trained, training workshops, women participation, district coverage, Dost profiles, stories, and media coverage.",
           "This kind of clarity helps potential donors, CSR teams, foundations, and public-sector partners understand both the scale of the work and the basis behind the numbers. It also respects learners by presenting their stories as real accounts, not inflated claims."
         ]
       },
