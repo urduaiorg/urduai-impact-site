@@ -1,8 +1,8 @@
 export const stats = [
   {
-    value: "20,424+",
+    value: "24,777",
     label: "People trained",
-    note: "Reported programme reach as of August 1, 2026."
+    note: "Reported training total as of September 1, 2026."
   },
   {
     value: "700+",
@@ -22,7 +22,7 @@ export const stats = [
 ];
 
 export const proofPoints = [
-  "20,424+ people trained as of August 1, 2026.",
+  "24,777 people trained as of September 1, 2026.",
   "700+ training workshops conducted through community, institutional, and Dost-led delivery.",
   "29 districts represented in the Urdu Ai Dost impact map.",
   "30+ community facilitators supporting local access and follow-up.",

@@ -206,9 +206,9 @@ const credibilitySignals = [
             </div>
           </div>
           <div class="atlas-proof-card">
-            <span class="proof-label">People trained</span>
-            <strong>20,424+</strong>
-            <p>Reported programme reach as of August 1, 2026.</p>
+            <span class="proof-label">{stats[0].label}</span>
+            <strong>{stats[0].value}</strong>
+            <p>{stats[0].note}</p>
           </div>
           <div class="atlas-proof-card dark">
             <span class="proof-label">Local delivery</span>
@@ -368,6 +368,26 @@ const credibilitySignals = [
               </figcaption>
             </figure>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section learn-section" id="learn" aria-labelledby="learn-heading" data-reveal>
+      <div class="container learn-grid">
+        <div class="learn-copy">
+          <span class="eyebrow">Learn Now</span>
+          <h2 id="learn-heading">Learn AI in Urdu.<br />Start today.</h2>
+          <p>
+            The next step is yours. Start the free Urdu Ai Masterclass and turn curiosity into practical skills, one lesson at a time.
+          </p>
+        </div>
+        <div class="learn-pathway">
+          <ul class="learn-details" aria-label="Masterclass highlights">
+            <li><strong>9 video lessons</strong><span>From AI basics and prompts to creating content and your first website.</span></li>
+            <li><strong>Your pace. Your language.</strong><span>Beginner-friendly learning in Urdu, on your phone or laptop.</span></li>
+            <li><strong>Put learning into practice</strong><span>Complete the lessons and quizzes to earn an Urdu Ai completion certificate.</span></li>
+          </ul>
+          <a class="button learn-button" href="https://urduai.org/courses/masterclass/">Start the free Masterclass</a>
         </div>
       </div>
     </section>
@@ -753,7 +773,7 @@ const credibilitySignals = [
         <article class="report-panel">
           <h3>How the numbers are counted.</h3>
           <p>
-            Current headline numbers combine reported programme records updated on August 1, 2026. Duplicate entries and shared institutional records are handled carefully and are not presented as unique people unless clearly stated.
+            The reported training total is 24,777 as of September 1, 2026. Programme records are not presented as independently de-duplicated unique people unless clearly stated. Other indicators retain their separately reported scope.
           </p>
           <a class="button secondary" href="#numbers">Review how numbers are counted</a>
         </article>

@@ -495,7 +495,7 @@ export const impactNotes = [
     description:
       "Why Urdu-language AI literacy matters for Pakistan's students, teachers, women, workers, and community leaders, and how Urdu Ai is making AI learning practical and accessible.",
     date: "2026-06-15",
-    modifiedDate: "2026-08-07",
+    modifiedDate: "2026-10-06",
     readingTime: "7 min read",
     category: "AI literacy",
     image: "/assets/impact-notes/women-urdu-ai-literacy-classroom.jpg",
@@ -539,7 +539,7 @@ export const impactNotes = [
         heading: "How Urdu Ai turns awareness into learning",
         body: [
           "Urdu Ai combines a large public learning ecosystem with local delivery. The public side helps people discover AI in simple Urdu through videos, tutorials, and social platforms. The local side works through Urdu Ai Dost facilitators, training sessions, institutions, and community spaces where learners can ask questions and practice together.",
-          "The current public impact record includes 20,424+ people trained as of August 1, 2026, 700+ training workshops, 51% women participation, and district activity visible through the Urdu Ai Dost map. These numbers matter because they show that Urdu-language AI learning is not only a content idea. It is becoming a community education model."
+          "The current public impact record includes 24,777 people trained as of September 1, 2026. Other reported indicators include 700+ training workshops, 51% women participation, and district activity visible through the Urdu Ai Dost map. These numbers matter because they show that Urdu-language AI learning is not only a content idea. It is becoming a community education model."
         ]
       },
       {
