@@ -452,9 +452,19 @@ a {
 
 .learn-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  align-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
   gap: 64px;
+}
+
+.learn-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.learn-copy[lang="en"] {
+  align-self: center;
 }
 
 .learn-copy .eyebrow {
@@ -462,7 +472,7 @@ a {
 }
 
 .learn-section .learn-copy h2 {
-  font-size: 48px;
+  font-size: 38px;
   line-height: 1.12;
 }
 
@@ -474,7 +484,8 @@ a {
 
 .learn-details {
   list-style: none;
-  margin: 0 0 28px;
+  width: 100%;
+  margin: 24px 0 28px;
   padding: 0;
 }
 
@@ -502,6 +513,51 @@ a {
   background: var(--gold);
   border-color: var(--gold);
   color: var(--ink);
+  margin-top: auto;
+}
+
+.learn-urdu {
+  align-items: stretch;
+  font-family: "Noto Nastaliq Urdu", serif;
+  padding-left: 40px;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  text-align: right;
+}
+
+.learn-urdu .eyebrow {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 2.5;
+  margin-bottom: 14px;
+  letter-spacing: 0;
+}
+
+.learn-section .learn-urdu h2 {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 2.2;
+}
+
+.learn-urdu p {
+  line-height: 2.5;
+}
+
+.learn-urdu .learn-details strong {
+  font-size: 18px;
+  line-height: 2.4;
+}
+
+.learn-urdu .learn-details span {
+  font-size: 15px;
+  line-height: 2.5;
+}
+
+.learn-urdu .learn-button {
+  align-self: flex-start;
+  padding: 10px 24px 14px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 2.2;
 }
 
 .learn-button:hover {
@@ -518,11 +574,22 @@ a {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
   }
+
+  .learn-urdu {
+    order: -1;
+    padding: 0 0 36px;
+    border-left: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
 }
 
 @media (max-width: 640px) {
   .learn-section .learn-copy h2 {
     font-size: 34px;
+  }
+
+  .learn-section .learn-urdu h2 {
+    font-size: 26px;
   }
 
   .learn-button {
