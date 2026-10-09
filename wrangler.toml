@@ -3,6 +3,10 @@ name = "urduai-impact-site"
 compatibility_date = "2026-06-05"
 pages_build_output_dir = "./dist"
 
+[vars]
+SURVEY_ACCESS_ISSUER = "https://shrill-frog-f789.cloudflareaccess.com"
+SURVEY_ACCESS_AUD = "1019c9cf20163382bf02edd2f6de3bd694f59b98c4328edf70c919d748d09735"
+
 [[d1_databases]]
 binding = "SURVEY_DB"
 database_name = "urduai-survey-referrals"
@@ -10,6 +14,10 @@ database_id = "3ea4ef46-0823-4970-a38f-3e3ca6e56c7c"
 migrations_dir = "migrations"
 
 [env.production]
+
+[env.production.vars]
+SURVEY_ACCESS_ISSUER = "https://shrill-frog-f789.cloudflareaccess.com"
+SURVEY_ACCESS_AUD = "1019c9cf20163382bf02edd2f6de3bd694f59b98c4328edf70c919d748d09735"
 
 [[env.production.d1_databases]]
 binding = "SURVEY_DB"

@@ -16,6 +16,8 @@ Private reports: `https://impact.urduai.org/surveys/admin/`
 
 ## Cloudflare Access
 
+Production configuration: Access application `f49dad96-b3f1-49a3-ad58-2dc4b4c88eac` (Urdu Ai Survey Reporting), team domain `shrill-frog-f789.cloudflareaccess.com`, policy `c94754c9-92be-4a92-88db-e4b8d999b396`. Both reporting paths are protected; the participant page remains public. Only the one-time PIN provider is enabled for this application. HTTP-only authentication cookies are enabled.
+
 All reporting endpoints fail closed unless the Access issuer and application audience are configured. Never disable authentication to make a dashboard reachable.
 
 1. Enable Cloudflare Access on the hosting account's Free plan.
@@ -46,5 +48,7 @@ The public intake validates allowed IDs, same-origin JSON submissions, names, co
 Run `npm test` for the committed regression tests covering the facilitator/survey registry, Pakistan date boundaries, CSV safety, input validation, duplicate retries, failed saves and fail-closed authentication.
 
 Local integration tests exercised all three exact redirects, server-side timestamps, duplicate retries, rejected payloads, forged/unauthorized JWTs, failed-save retry behavior, Pakistan date filters and Unicode-safe CSV exports. Browser checks covered 320, 390, 768 and 1440px. Live tests use only invalid submissions until authenticated reporting is enabled; do not pollute production with synthetic participant records.
+
+Production checks passed for the public form at 390 and 1440px, rejected invalid intake without saving a row, and confirmed that the dashboard, records and CSV endpoints redirect unauthenticated visitors to Access. The first real team email-code sign-in still needs to be checked by a team member; no production authentication bypass or synthetic participant record was used.
 
 The existing Astro build toolchain has npm audit advisories. Review and upgrade it separately rather than applying a forced major-version update during a reporting deployment.
