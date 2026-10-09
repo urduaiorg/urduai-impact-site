@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/surveys.css";
+import { facilitators, surveyChoices } from "../../../shared/surveys.js";
+---
+
+<BaseLayout title="Workshop Surveys | Urdu Ai" description="Start your Urdu Ai workshop survey." simpleNav robots="noindex, nofollow">
+  <main class="survey-page">
+    <section class="survey-entry" aria-labelledby="survey-title">
+      <div class="survey-heading">
+        <span class="survey-kicker">Urdu Ai Workshops</span>
+        <h1 id="survey-title">Workshop surveys</h1>
+        <p class="survey-urdu survey-title-urdu" lang="ur" dir="rtl">ورکشاپ کے سروے</p>
+      </div>
+      <form id="survey-form" class="survey-form">
+        <div class="survey-field">
+          <label for="participant-name"><span>Your name</span><span class="survey-urdu" lang="ur" dir="rtl">آپ کا نام</span></label>
+          <input id="participant-name" name="name" type="text" autocomplete="name" maxlength="120" required dir="auto" />
+        </div>
+        <div class="survey-field">
+          <label for="facilitator"><span>Facilitator</span><span class="survey-urdu" lang="ur" dir="rtl">تربیت دینے والا</span></label>
+          <input id="facilitator-search" type="search" aria-label="Search facilitator names / تربیت دینے والے کا نام تلاش کریں" placeholder="Search name / نام تلاش کریں" autocomplete="off" />
+          <select id="facilitator" name="facilitator" required>
+            <option value="">Select facilitator / نام منتخب کریں</option>
+            {facilitators.map(item => <option value={item.id}>{item.name}</option>)}
+          </select>
+        </div>
+        <div class="survey-field">
+          <label for="survey"><span>Survey</span><span class="survey-urdu" lang="ur" dir="rtl">سروے</span></label>
+          <select id="survey" name="survey" required>
+            <option value="">Select survey / سروے منتخب کریں</option>
+            {surveyChoices.map(item => <option value={item.id}>{item.en} / {item.ur}</option>)}
+          </select>
+        </div>
+        <div class="survey-trap" aria-hidden="true">
+          <label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+        <div class="survey-privacy">
+          <p>We save your name, selected facilitator, survey, and entry date for programme monitoring. Survey answers are collected separately on Jotform. For questions or deletion requests: <a href="mailto:ai@urduai.org">ai@urduai.org</a>.</p>
+          <p class="survey-urdu" lang="ur" dir="rtl">پروگرام کی نگرانی کے لیے آپ کا نام، تربیت دینے والے کا نام، منتخب سروے اور اندراج کی تاریخ محفوظ کی جاتی ہے۔ سروے کے جواب جوٹ فارم پر الگ جمع ہوتے ہیں۔ سوال یا اپنا اندراج حذف کروانے کے لیے ہم سے رابطہ کریں۔</p>
+        </div>
+        <label class="survey-consent">
+          <input type="checkbox" name="consent" required />
+          <span><span>I agree to this record being saved.</span><span class="survey-urdu" lang="ur" dir="rtl">میں اس اندراج کو محفوظ کرنے پر رضامند ہوں۔</span></span>
+        </label>
+        <div id="survey-status" class="survey-status" role="status" aria-live="polite"></div>
+        <button type="submit" class="button survey-submit"><span>Continue to Survey</span><span class="survey-urdu" lang="ur" dir="rtl">سروے شروع کریں</span></button>
+        <noscript><p>JavaScript is needed to save your entry. / اندراج محفوظ کرنے کے لیے جاوا اسکرپٹ فعال کریں۔</p></noscript>
+      </form>
+    </section>
+    <a class="survey-back" href="/">Urdu Ai Impact</a>
+  </main>
+  <script>
+    const form = document.querySelector<HTMLFormElement>("#survey-form")!;
+    const facilitator = document.querySelector<HTMLSelectElement>("#facilitator")!;
+    const search = document.querySelector<HTMLInputElement>("#facilitator-search")!;
+    const status = document.querySelector<HTMLElement>("#survey-status")!;
+    const submit = form.querySelector<HTMLButtonElement>("button[type=submit]")!;
+    const options = Array.from(facilitator.options).map(option => ({ value: option.value, text: option.text }));
+    let requestId = crypto.randomUUID();
+    let saving = false;
+    search.addEventListener("input", () => {
+      const chosen = facilitator.value;
+      const filtered = options.filter(option => !option.value || option.value === chosen || option.text.toLowerCase().includes(search.value.trim().toLowerCase()));
+      facilitator.replaceChildren(...filtered.map(option => new Option(option.text, option.value)));
+      facilitator.value = chosen;
+    });
+    form.addEventListener("input", () => { if (!saving) requestId = crypto.randomUUID(); });
+    form.addEventListener("change", () => { if (!saving) requestId = crypto.randomUUID(); });
+    form.addEventListener("submit", async event => {
+      event.preventDefault();
+      if (saving || !form.reportValidity()) return;
+      const fields = new FormData(form);
+      saving = true;
+      submit.disabled = true;
+      form.querySelectorAll<HTMLInputElement | HTMLSelectElement>("input, select").forEach(field => field.disabled = true);
+      form.setAttribute("aria-busy", "true");
+      status.classList.remove("is-error");
+      status.textContent = "Saving your entry… / آپ کا اندراج محفوظ کیا جا رہا ہے۔";
+      try {
+        const response = await fetch("/api/surveys/start", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: fields.get("name"), facilitator: fields.get("facilitator"), survey: fields.get("survey"), consent: fields.get("consent") === "on", website: fields.get("website"), requestId })
+        });
+        const result = await response.json();
+        if (!response.ok || !result.saved) {
+          if (response.status === 409) requestId = crypto.randomUUID();
+          throw new Error(result.error || "We could not save your entry.");
+        }
+        const destination = new URL(result.redirect);
+        if (destination.origin !== "https://tsic.jotform.com") throw new Error("Invalid survey destination.");
+        status.textContent = "Saved. Opening your survey… / اندراج محفوظ ہوگیا۔ سروے کھل رہا ہے۔";
+        window.location.assign(destination.href);
+      } catch (error) {
+        status.classList.add("is-error");
+        status.textContent = `${error instanceof Error ? error.message : "Please try again."} / اندراج محفوظ نہیں ہوسکا۔ براہِ کرم دوبارہ کوشش کریں۔`;
+        saving = false;
+        submit.disabled = false;
+        form.querySelectorAll<HTMLInputElement | HTMLSelectElement>("input, select").forEach(field => field.disabled = false);
+        form.removeAttribute("aria-busy");
+      }
+    });
+  </script>
+</BaseLayout>

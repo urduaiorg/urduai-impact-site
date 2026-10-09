@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import "../../../styles/surveys.css";
+import { facilitators, surveyChoices } from "../../../../shared/surveys.js";
+---
+
+<BaseLayout title="Survey Reports | Urdu Ai" simpleNav robots="noindex, nofollow">
+  <main class="survey-admin container">
+    <header class="survey-admin-heading">
+      <div><span class="survey-kicker">Private programme records</span><h1>Survey referrals</h1><p id="admin-email"></p></div>
+      <a class="button secondary" href="/surveys/">Participant page</a>
+    </header>
+    <form id="report-filters" class="survey-filters">
+      <label>Facilitator<select name="facilitator"><option value="">All facilitators</option>{facilitators.map(item => <option value={item.id}>{item.name}</option>)}</select></label>
+      <label>Survey<select name="survey"><option value="">All surveys</option>{surveyChoices.map(item => <option value={item.id}>{item.en} / {item.ur}</option>)}</select></label>
+      <label>From date<input name="from" type="date" /></label>
+      <label>To date<input name="to" type="date" /></label>
+      <button type="submit" class="button">Apply filters</button>
+      <button type="reset" class="button secondary">Reset</button>
+    </form>
+    <p class="survey-report-note">Entry dates and times are shown in Pakistan time (UTC+5). These are saved survey referrals, not verified attendance or completed surveys. Names alone do not identify unique participants.</p>
+    <p id="report-status" role="status" aria-live="polite"></p>
+    <div class="survey-report-totals" aria-label="Filtered referral totals">
+      <div><strong id="total-referrals">0</strong><span>Saved referrals</span></div>
+      {surveyChoices.map(item => <div><strong id={`total-${item.id}`}>0</strong><span>{item.en}</span></div>)}
+    </div>
+    <section class="survey-report-section">
+      <h2>By facilitator</h2>
+      <div id="facilitator-totals" class="survey-facilitator-totals"></div>
+    </section>
+    <section class="survey-report-section">
+      <div class="survey-table-heading"><h2>Participant entries</h2><a id="export-records" class="button" href="/api/surveys/admin/export">Export CSV</a></div>
+      <div class="survey-table-scroll"><table class="survey-records"><thead><tr><th>Name</th><th>Facilitator</th><th>Survey</th><th>Entry date</th><th>Entry time</th></tr></thead><tbody id="records-body"></tbody></table></div>
+      <div class="survey-pagination"><button id="previous-page" class="button secondary" type="button" disabled>Previous</button><span id="page-label">Page 1</span><button id="next-page" class="button secondary" type="button" disabled>Next</button></div>
+    </section>
+    <script type="application/json" id="survey-catalog" is:inline set:html={JSON.stringify({ facilitators, surveyChoices })}></script>
+  </main>
+  <script>
+    const form = document.querySelector<HTMLFormElement>("#report-filters")!;
+    const status = document.querySelector<HTMLElement>("#report-status")!;
+    const catalog = JSON.parse(document.querySelector("#survey-catalog")!.textContent!);
+    const names = Object.fromEntries(catalog.facilitators.map((item: { id: string; name: string }) => [item.id, item.name]));
+    const surveys = Object.fromEntries(catalog.surveyChoices.map((item: { id: string; en: string }) => [item.id, item.en]));
+    const previous = document.querySelector<HTMLButtonElement>("#previous-page")!;
+    const next = document.querySelector<HTMLButtonElement>("#next-page")!;
+    const exportLink = document.querySelector<HTMLAnchorElement>("#export-records")!;
+    const dateFormat = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Karachi", day: "2-digit", month: "short", year: "numeric" });
+    const timeFormat = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Karachi", hour: "2-digit", minute: "2-digit", second: "2-digit" });
+    let page = 1;
+    let activeFilters = new URLSearchParams();
+    let pending = 0;
+    function clearRecords() {
+      document.querySelector("#records-body")!.replaceChildren();
+      document.querySelector("#facilitator-totals")!.replaceChildren();
+      document.querySelectorAll(".survey-report-totals strong").forEach(item => item.textContent = "0");
+    }
+    async function load() {
+      const sequence = ++pending;
+      status.textContent = "Loading records…";
+      previous.disabled = next.disabled = true;
+      exportLink.removeAttribute("href");
+      const query = new URLSearchParams(activeFilters);
+      query.set("page", String(page));
+      try {
+        const response = await fetch(`/api/surveys/admin/records?${query}`, { cache: "no-store" });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || "Could not load records.");
+        if (sequence !== pending) return;
+        clearRecords();
+        document.querySelector("#admin-email")!.textContent = result.email;
+        document.querySelector("#total-referrals")!.textContent = result.total.toLocaleString();
+        for (const item of result.surveys) document.querySelector(`#total-${item.survey_id}`)!.textContent = item.total.toLocaleString();
+        const totals = document.querySelector("#facilitator-totals")!;
+        for (const item of result.facilitators) {
+          const row = document.createElement("div");
+          const name = document.createElement("span");
+          const count = document.createElement("strong");
+          name.textContent = names[item.facilitator_id] || item.facilitator_id;
+          count.textContent = item.total.toLocaleString();
+          row.append(name, count); totals.append(row);
+        }
+        const table = document.querySelector("#records-body")!;
+        for (const item of result.records) {
+          const row = document.createElement("tr");
+          const created = new Date(item.created_at);
+          for (const value of [item.participant_name, names[item.facilitator_id], surveys[item.survey_id], dateFormat.format(created), timeFormat.format(created)]) {
+            const cell = document.createElement("td");
+            cell.dir = "auto"; cell.textContent = value; row.append(cell);
+          }
+          table.append(row);
+        }
+        const pages = Math.max(1, Math.ceil(result.total / result.pageSize));
+        document.querySelector("#page-label")!.textContent = `Page ${page} of ${pages}`;
+        previous.disabled = page <= 1; next.disabled = page >= pages;
+        exportLink.href = `/api/surveys/admin/export?${activeFilters}`;
+        status.textContent = result.total ? `${result.total.toLocaleString()} ${result.total === 1 ? "entry matches" : "entries match"} the current filters.` : "No entries yet for this selection.";
+      } catch (error) {
+        if (sequence !== pending) return;
+        clearRecords();
+        status.textContent = error instanceof Error ? error.message : "Please try again.";
+      }
+    }
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      activeFilters = new URLSearchParams();
+      for (const [key, value] of new FormData(form)) if (value) activeFilters.set(key, String(value));
+      page = 1; load();
+    });
+    form.addEventListener("reset", () => { activeFilters = new URLSearchParams(); page = 1; load(); });
+    previous.addEventListener("click", () => { if (page > 1) { page--; load(); } });
+    next.addEventListener("click", () => { page++; load(); });
+    load();
+  </script>
+</BaseLayout>

@@ -5,6 +5,8 @@ const {
   title = "Urdu Ai Impact",
   description = "Public impact hub for Urdu Ai's AI literacy work across Pakistan.",
   canonical,
+  simpleNav = false,
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   ogImage = "/assets/urdu-ai-logo-og.png"
 } = Astro.props;
 
@@ -20,7 +22,8 @@ const ogImageUrl = new URL(ogImage, site).href;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="robots" content={robots} />
+    {simpleNav && <meta name="referrer" content="no-referrer" />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -54,7 +57,7 @@ const ogImageUrl = new URL(ogImage, site).href;
             <span class="brand-mark" aria-hidden="true"><span>Urdu</span><span>Ai</span></span>
             <span class="brand-word">Impact</span>
           </a>
-          <nav class="nav-links" aria-label="Primary">
+          {!simpleNav && <nav class="nav-links" aria-label="Primary">
             <a href="/#numbers">Numbers</a>
             <a href="/#map">Atlas</a>
             <a href="/#model">Model</a>
@@ -66,7 +69,7 @@ const ogImageUrl = new URL(ogImage, site).href;
             <a href="/#recognition">Recognition</a>
             <a href="/#partner">Partner</a>
             <a href="/contact/">Contact</a>
-          </nav>
+          </nav>}
           <a class="button secondary" href="/#learn">Learn Now</a>
         </div>
       </header>

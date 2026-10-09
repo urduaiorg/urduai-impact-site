@@ -19,6 +19,8 @@ npm run dev
 
 ## Cloudflare Pages
 
+Survey gateway operations and private reporting setup: [`docs/survey-gateway.md`](docs/survey-gateway.md).
+
 Build command: `npm run build`
 
 Output directory: `dist`
