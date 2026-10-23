@@ -1,0 +1,27 @@
+# Cloudflare Pages headers — https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), browsing-topics=(), interest-cohort=()
+  Content-Security-Policy: frame-ancestors 'self'
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+
+# Hashed build output (Astro renames on every content change) — cache for a year
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Self-hosted fonts are versioned in the filename
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# Un-hashed static assets (OG image, brand mark, partner SVG) — 30 days
+/assets/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# HTML stays fresh
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

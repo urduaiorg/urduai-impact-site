@@ -193,7 +193,6 @@ export const impactNotes = [
     readingTime: "7 min read",
     category: "Teachers and AI",
     image: "/assets/impact-notes/teachers-ai-classrooms/teacher-training-room.jpg",
-    imageWebp: "/assets/impact-notes/teachers-ai-classrooms/teacher-training-room.webp",
     author: "Urdu Ai Impact Team",
     reviewedBy: "Welfare Association for New Generation (WANG)",
     audience: "Teachers, school leaders, education partners, universities, vocational institutes, CSR teams, foundations, and AI access programs",
@@ -226,7 +225,6 @@ export const impactNotes = [
         ],
         image: {
           src: "/assets/impact-notes/teachers-ai-classrooms/teacher-discussion.jpg",
-          webp: "/assets/impact-notes/teachers-ai-classrooms/teacher-discussion.webp",
           alt: "Educators attending an Urdu Ai teacher training session",
           caption: "Teacher training turns AI literacy into a classroom multiplier."
         }
@@ -253,7 +251,6 @@ export const impactNotes = [
         ],
         image: {
           src: "/assets/impact-notes/teachers-ai-classrooms/night-community-classroom.jpg",
-          webp: "/assets/impact-notes/teachers-ai-classrooms/night-community-classroom.webp",
           alt: "Urdu Ai community learning session held outdoors at night",
           caption: "AI learning reaches further when training follows the community, not only formal venues."
         }
@@ -266,7 +263,6 @@ export const impactNotes = [
         ],
         image: {
           src: "/assets/impact-notes/teachers-ai-classrooms/women-educators.jpg",
-          webp: "/assets/impact-notes/teachers-ai-classrooms/women-educators.webp",
           alt: "Women educators participating in an Urdu Ai learning session",
           caption: "Women educators help AI literacy travel through classrooms, families, and peer networks."
         }
@@ -279,7 +275,6 @@ export const impactNotes = [
         ],
         image: {
           src: "/assets/impact-notes/teachers-ai-classrooms/teachers-classroom.jpg",
-          webp: "/assets/impact-notes/teachers-ai-classrooms/teachers-classroom.webp",
           alt: "Urdu Ai Dost leading a classroom workshop for educators",
           caption: "The classroom shift often begins quietly, with one teacher testing one useful workflow."
         }
@@ -299,7 +294,6 @@ export const impactNotes = [
         ],
         image: {
           src: "/assets/impact-notes/teachers-ai-classrooms/women-teacher-classroom.jpg",
-          webp: "/assets/impact-notes/teachers-ai-classrooms/women-teacher-classroom.webp",
           alt: "Women attending an Urdu Ai teacher training session in a classroom",
           caption: "AI learning reaches women educators inside classrooms where they already gather."
         }
@@ -349,7 +343,6 @@ export const impactNotes = [
     readingTime: "7 min read",
     category: "Women and AI",
     image: "/assets/impact-notes/women-ai-confidence/learning-circle.jpg",
-    imageWebp: "/assets/impact-notes/women-ai-confidence/learning-circle.webp",
     author: "Urdu Ai Impact Team",
     reviewedBy: "Welfare Association for New Generation (WANG)",
     audience: "Women learners, educators, community partners, institutional partners, CSR teams, foundations, and AI access programs",
@@ -382,7 +375,6 @@ export const impactNotes = [
         ],
         image: {
           src: "/assets/impact-notes/women-ai-confidence/classroom-banner.jpg",
-          webp: "/assets/impact-notes/women-ai-confidence/classroom-banner.webp",
           alt: "Women standing together with an Urdu Ai banner after a learning session",
           caption: "Women-centered sessions create visible confidence around AI learning."
         }
@@ -395,7 +387,6 @@ export const impactNotes = [
         ],
         image: {
           src: "/assets/impact-notes/women-ai-confidence/presentation.jpg",
-          webp: "/assets/impact-notes/women-ai-confidence/presentation.webp",
           alt: "A woman facilitator leading an Urdu Ai workshop",
           caption: "Local facilitators make AI feel practical, not remote."
         }
@@ -408,7 +399,6 @@ export const impactNotes = [
         ],
         image: {
           src: "/assets/impact-notes/women-ai-confidence/vocational.jpg",
-          webp: "/assets/impact-notes/women-ai-confidence/vocational.webp",
           alt: "Women attending an Urdu Ai session in a vocational learning space",
           caption: "AI learning can happen in the same places where women already gather to build skills."
         }
@@ -421,7 +411,6 @@ export const impactNotes = [
         ],
         image: {
           src: "/assets/impact-notes/women-ai-confidence/courtyard.jpg",
-          webp: "/assets/impact-notes/women-ai-confidence/courtyard.webp",
           alt: "Women attending an Urdu Ai session in a community courtyard",
           caption: "AI literacy reaches further when it can enter everyday community spaces."
         }
@@ -441,7 +430,6 @@ export const impactNotes = [
         ],
         image: {
           src: "/assets/impact-notes/women-ai-confidence/group.jpg",
-          webp: "/assets/impact-notes/women-ai-confidence/group.webp",
           alt: "Women standing together after an Urdu Ai training session",
           caption: "When women learn AI together, confidence becomes collective."
         }

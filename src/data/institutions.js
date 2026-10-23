@@ -41,7 +41,7 @@ export const institutionalPartners = [
     type: "Regional public university"
   },
   {
-    image: "/assets/institutions/sbk-womens-university-mou.png",
+    image: "/assets/institutions/sbk-womens-university-mou.jpg",
     institution: "Sardar Bahadur Khan Women's University",
     place: "Quetta",
     focus: "AI training access for students and faculty",
@@ -49,7 +49,7 @@ export const institutionalPartners = [
     type: "Women-focused public university"
   },
   {
-    image: "/assets/institutions/mir-chakar-university-mou.png",
+    image: "/assets/institutions/mir-chakar-university-mou.jpg",
     institution: "Mir Chakar Khan Rind University",
     place: "Sibi",
     focus: "Youth and faculty AI training pathways",
@@ -57,7 +57,7 @@ export const institutionalPartners = [
     type: "Regional public university"
   },
   {
-    image: "/assets/institutions/superior-university-mou.png",
+    image: "/assets/institutions/superior-university-mou.jpg",
     institution: "Superior University",
     place: "Lahore",
     focus: "AI training collaboration for youth and faculty",
@@ -65,7 +65,7 @@ export const institutionalPartners = [
     type: "Private university partner"
   },
   {
-    image: "/assets/institutions/university-of-makran-mou.png",
+    image: "/assets/institutions/university-of-makran-mou.jpg",
     institution: "University of Makran",
     place: "Panjgur",
     focus: "Regional youth AI training through public education partners",

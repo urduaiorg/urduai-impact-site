@@ -4,6 +4,7 @@ import { stats, proofPoints, sectors, stories, learnerOutcomes, impactQuotes, sh
 import { institutionalPartners, institutionalEvidence } from "../data/institutions.js";
 import { impactNotes } from "../data/impactNotes.js";
 import { dostProfiles, teamProfiles } from "../data/profiles.js";
+import Pic from "../components/Pic.astro";
 
 const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg", "/assets/classroom.jpg", "/assets/training-hero.jpg"];
 const dostCards = dostProfiles.map((profile) => ({
@@ -183,7 +184,7 @@ const credibilitySignals = [
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-content" data-reveal>
+        <div class="hero-content">
           <div class="credibility-row" aria-label="Urdu Ai credibility highlights">
             {credibilitySignals.map((item) => <span>{item}</span>)}
           </div>
@@ -197,9 +198,9 @@ const credibilitySignals = [
             <a class="button secondary" href="#recognition">See partners</a>
           </div>
         </div>
-        <div class="hero-atlas" aria-label="Urdu Ai impact preview" data-reveal>
+        <div class="hero-atlas" aria-label="Urdu Ai impact preview">
           <div class="atlas-photo">
-            <img src="/assets/showcase/women-community-workshop.jpg" alt="Women participating in an Urdu Ai community workshop" />
+            <Pic src="/assets/showcase/women-community-workshop.jpg" alt="Women participating in an Urdu Ai community workshop" loading="eager" fetchpriority="high" widths={[400, 640, 800, 1200]} sizes="(max-width: 900px) 88vw, 560px" quality={80} />
             <div class="atlas-caption">
               <strong>51%</strong>
               <span>women participation across reported activity</span>
@@ -216,8 +217,8 @@ const credibilitySignals = [
             <p>Districts represented through public Urdu Ai Dost records.</p>
           </div>
           <div class="atlas-mini-grid">
-            <img src="/assets/showcase/school-computer-lab-workshop.jpg" alt="Urdu Ai Dost delivering a school computer lab session" />
-            <img src="/assets/showcase/night-community-session.jpg" alt="Urdu Ai Dost delivering a night community session" />
+            <Pic src="/assets/showcase/school-computer-lab-workshop.jpg" alt="Urdu Ai Dost delivering a school computer lab session" loading="eager" widths={[240, 320, 480, 640, 960]} sizes="(max-width: 900px) 42vw, 280px" />
+            <Pic src="/assets/showcase/night-community-session.jpg" alt="Urdu Ai Dost delivering a night community session" loading="eager" widths={[240, 320, 480, 640, 960]} sizes="(max-width: 900px) 42vw, 280px" />
           </div>
         </div>
       </div>
@@ -361,7 +362,7 @@ const credibilitySignals = [
         <div class="showcase-grid" aria-label="Visual showcase of how Urdu Ai works">
           {showcaseImages.map((item, index) => (
             <figure class:list={["showcase-tile", index === 0 && "wide"]}>
-              <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+              <Pic src={item.image} alt={item.title} widths={[480, 800, 1200, 1600]} sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 640px" />
               <figcaption>
                 <strong>{item.title}</strong>
                 <span>{item.text}</span>
@@ -415,7 +416,7 @@ const credibilitySignals = [
         <div class="field-gallery-grid">
           {fieldGallery.map((item, index) => (
             <figure class:list={["field-gallery-card", index === 0 && "wide"]}>
-              <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+              <Pic src={item.image} alt={item.title} widths={[480, 800, 1200, 1600]} sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 640px" />
               <figcaption>
                 <strong>{item.title}</strong>
                 <span>{item.text}</span>
@@ -451,7 +452,7 @@ const credibilitySignals = [
         <div class="dost-grid">
           {dostCards.map((profile) => (
             <article class="profile-card dost-card">
-              <img src={profile.image} alt={`${profile.name}, Urdu Ai Dost in ${profile.district}`} loading="lazy" decoding="async" />
+              <Pic src={profile.image} alt={`${profile.name}, Urdu Ai Dost in ${profile.district}`} widths={[300]} sizes="(max-width: 720px) 50vw, 300px" />
               <div class="profile-card-body">
                 <span class="profile-location">{profile.district}</span>
                 <h3>{profile.name}</h3>
@@ -478,7 +479,7 @@ const credibilitySignals = [
         <div class="stories-grid">
           {stories.map((story, index) => (
             <article class="story">
-              <img src={storyImages[index]} alt={story.title} loading="lazy" decoding="async" />
+              <Pic src={storyImages[index]} alt={story.title} widths={[480, 800, 1200]} sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 400px" />
               <div>
                 <h3>{story.title}</h3>
                 <p>{story.text}</p>
@@ -573,7 +574,7 @@ const credibilitySignals = [
         <div class="home-notes-grid">
           {impactNotes.map((note) => (
             <article class="home-note-card">
-              <img src={note.image} alt={note.title} loading="lazy" decoding="async" />
+              <Pic src={note.image} alt={note.title} widths={[210, 420, 640]} sizes="(max-width: 720px) 100vw, 210px" />
               <div>
                 <span>{note.category}</span>
                 <h3>{note.title}</h3>
@@ -599,7 +600,7 @@ const credibilitySignals = [
             <article class:list={["partner-badge", partner.variant && `partner-badge--${partner.variant}`]}>
               <span>{partner.label}</span>
               <div class="partner-logo-frame">
-                <img src={partner.image} alt={partner.name} loading="lazy" decoding="async" />
+                <Pic src={partner.image} alt={partner.name} widths={[200, 400]} sizes="200px" />
               </div>
               <strong>{partner.name}</strong>
             </article>
@@ -632,7 +633,7 @@ const credibilitySignals = [
         <div class="institution-feature-grid">
           {institutionalPartners.map((partner) => (
             <article class="institution-card">
-              <img src={partner.image} alt={`${partner.institution} Urdu Ai MoU`} loading="lazy" decoding="async" />
+              <Pic src={partner.image} alt={`${partner.institution} Urdu Ai MoU`} widths={[480, 800, 1200]} sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 420px" />
               <div>
                 <span>{partner.place}</span>
                 <h3>{partner.institution}</h3>
@@ -661,7 +662,7 @@ const credibilitySignals = [
           <div class="institution-photo-grid">
             {institutionalEvidence.map((item) => (
               <figure>
-                <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+                <Pic src={item.image} alt={item.title} widths={[480, 800, 1200]} sizes="(max-width: 720px) 100vw, 50vw" />
                 <figcaption>
                   <strong>{item.title}</strong>
                   <span>{item.text}</span>
@@ -684,7 +685,7 @@ const credibilitySignals = [
         <div class="team-grid">
           {teamProfiles.map((profile) => (
             <article class="profile-card team-card">
-              <img src={profile.image} alt={profile.name} loading="lazy" decoding="async" />
+              <Pic src={profile.image} alt={profile.name} widths={[300, 600, 900, 1200]} sizes="(max-width: 720px) 100vw, 400px" />
               <div class="profile-card-body">
                 <span class="profile-location">{profile.role}</span>
                 <h3>{profile.name}</h3>

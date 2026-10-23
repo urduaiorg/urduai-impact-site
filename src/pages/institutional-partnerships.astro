@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { institutionalPartners, institutionalEvidence } from "../data/institutions.js";
 import { stats } from "../data/impact.js";
+import Pic from "../components/Pic.astro";
 
 const pageTitle = "Institutional Partnerships & MoUs | Urdu Ai Impact";
 const pageDescription =
@@ -123,7 +124,7 @@ const schema = {
         <div class="mou-slider" aria-label="Urdu Ai institutional MoU photo slideshow">
           {institutionalPartners.map((partner, index) => (
             <figure class="mou-slide" id={`mou-${index + 1}`}>
-              <img src={partner.image} alt={`MoU between Urdu Ai and ${partner.institution} in ${partner.place}`} loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+              <Pic src={partner.image} alt={`MoU between Urdu Ai and ${partner.institution} in ${partner.place}`} loading={index === 0 ? "eager" : "lazy"} fetchpriority={index === 0 ? "high" : undefined} widths={[480, 800, 1200, 1640]} sizes="(max-width: 900px) 100vw, 760px" />
               <figcaption>
                 <span>{partner.place}</span>
                 <strong>{partner.institution}</strong>
@@ -145,7 +146,7 @@ const schema = {
     <section class="section alt national-mou-section" data-reveal>
       <div class="container national-mou-grid">
         <figure>
-          <img src="/assets/institutions/alkhidmat-foundation-pakistan-mou.jpg" alt="National-level MoU between Alkhidmat Foundation Pakistan and Urdu Ai at Head Office Lahore" loading="lazy" decoding="async" />
+          <Pic src="/assets/institutions/alkhidmat-foundation-pakistan-mou.jpg" alt="National-level MoU between Alkhidmat Foundation Pakistan and Urdu Ai at Head Office Lahore" widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 600px" />
         </figure>
         <div>
           <span class="eyebrow">National-level MoU</span>
@@ -207,7 +208,7 @@ const schema = {
         <div class="partnership-card-grid">
           {institutionalPartners.map((partner) => (
             <article class="partnership-card">
-              <img src={partner.image} alt={`${partner.institution} MoU with Urdu Ai`} loading="lazy" decoding="async" />
+              <Pic src={partner.image} alt={`${partner.institution} MoU with Urdu Ai`} widths={[480, 800, 1200]} sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 420px" />
               <div>
                 <span>{partner.place}</span>
                 <h3>{partner.institution}</h3>
@@ -247,7 +248,7 @@ const schema = {
         <div class="institution-photo-grid">
           {institutionalEvidence.map((item) => (
             <figure>
-              <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+              <Pic src={item.image} alt={item.title} widths={[480, 800, 1200]} sizes="(max-width: 720px) 100vw, 50vw" />
               <figcaption>
                 <strong>{item.title}</strong>
                 <span>{item.text}</span>

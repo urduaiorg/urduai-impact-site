@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import { getImage } from "astro:assets";
+import { resolveImage } from "../lib/images.js";
 
 const {
   title = "Urdu Ai Impact",
@@ -12,7 +14,61 @@ const {
 
 const site = Astro.site ?? new URL("https://impact.urduai.org");
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site).href;
-const ogImageUrl = new URL(ogImage, site).href;
+// A "/assets/..." share image that now lives in src/assets is rendered to a stable
+// 1200px JPEG (social crawlers do not all accept WebP); anything else passes through.
+const ogMeta = resolveImage(ogImage);
+const ogRendered = ogMeta ? await getImage({ src: ogMeta, width: 1200, format: "jpg", quality: 80 }) : null;
+const ogImageUrl = new URL(ogRendered?.src ?? ogImage, site).href;
+const ogImageWidth = ogRendered?.attributes?.width ?? 1200;
+const ogImageHeight = ogRendered?.attributes?.height ?? 630;
+
+// Site-wide entity graph. Page templates add their own WebPage / Article nodes and
+// reference the organisation by its @id.
+const siteSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "NGO"],
+      "@id": "https://urduai.org/#organization",
+      "name": "Urdu Ai",
+      "alternateName": ["Urdu AI", "اردو اے آئی"],
+      "url": "https://urduai.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://impact.urduai.org/assets/urdu-ai-logo-og.png",
+        "width": 2058,
+        "height": 1156
+      },
+      "description":
+        "Pakistan's first Urdu-language AI literacy platform. Urdu Ai trains local facilitators (Dosts) who deliver community AI education in Urdu across schools, universities, vocational centres and public institutions.",
+      "email": "ai@urduai.org",
+      "areaServed": { "@type": "Country", "name": "Pakistan" },
+      "knowsLanguage": ["ur", "en"],
+      "parentOrganization": {
+        "@type": "NGO",
+        "name": "WANG",
+        "url": "https://wang.org.pk/"
+      },
+      "sameAs": [
+        "https://www.facebook.com/urduaiorg",
+        "https://www.instagram.com/urduaiorg/",
+        "https://x.com/urduaiorg",
+        "https://www.tiktok.com/@urduaiorg",
+        "https://www.linkedin.com/company/urduaiorg/",
+        "https://www.youtube.com/playlist?list=PLcj1P8Ql0CihyALOpajIbj_yquUC6NlXI"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://impact.urduai.org/#website",
+      "url": "https://impact.urduai.org/",
+      "name": "Urdu Ai Impact",
+      "description": "Public impact hub for Urdu Ai's AI literacy work across Pakistan: reported reach, Dost network, institutional partnerships and field notes.",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://urduai.org/#organization" }
+    }
+  ]
+};
 ---
 
 <!doctype html>
@@ -29,8 +85,8 @@ const ogImageUrl = new URL(ogImage, site).href;
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:width" content={String(ogImageWidth)} />
+    <meta property="og:image:height" content={String(ogImageHeight)} />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Urdu Ai Impact Program" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -41,13 +97,13 @@ const ogImageUrl = new URL(ogImage, site).href;
     <script is:inline>
       document.documentElement.classList.add("js");
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <meta name="theme-color" content="#2e549a" />
+    <link rel="preload" href="/fonts/montserrat-latin-wght-v31.woff2" as="font" type="font/woff2" crossorigin />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(siteSchema)} />
   </head>
   <body>
     <div class="site-shell">

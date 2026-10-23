@@ -1,0 +1,45 @@
+---
+/**
+ * Drop-in replacement for `<img src="/assets/...">`.
+ * Resolves the public-style path to an imported asset and renders Astro's
+ * optimised <Image> (WebP, srcset, intrinsic width/height → no CLS).
+ * Falls back to a plain <img> for anything not under src/assets (SVGs, remote).
+ */
+import { Image } from "astro:assets";
+import { resolveImage, clampWidths } from "../lib/images.js";
+
+const {
+  src,
+  alt,
+  widths = [480, 800, 1200],
+  sizes = "(max-width: 720px) 100vw, 50vw",
+  loading = "lazy",
+  fetchpriority,
+  quality = 78,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const meta = resolveImage(src);
+const finalWidths = meta ? clampWidths(widths, meta) : undefined;
+---
+
+{
+  meta ? (
+    <Image
+      src={meta}
+      alt={alt}
+      widths={finalWidths}
+      sizes={sizes}
+      format="webp"
+      quality={quality}
+      loading={loading}
+      fetchpriority={fetchpriority}
+      decoding="async"
+      class={className}
+      {...rest}
+    />
+  ) : (
+    <img src={src} alt={alt} loading={loading} fetchpriority={fetchpriority} decoding="async" class={className} {...rest} />
+  )
+}

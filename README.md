@@ -10,6 +10,14 @@ Astro static site for `impact.urduai.org`.
 - Current reported training total: `24,777` as of September 1, 2026. Keep historical figures labeled with their reporting period; do not add them to this cumulative total.
 - Present women participation as `51%` on the public site. Do not show the raw female learner count in headline metrics.
 
+## Images, Fonts, Headers
+
+- Photos live in `src/assets/**` and are referenced from data files by their old public-style path (`/assets/showcase/x.jpg`). Render them with `src/components/Pic.astro`, which maps that path to the imported asset and emits an optimised WebP `<img>` with `srcset`, `sizes`, and intrinsic `width`/`height`. Drop new photos into `src/assets/**` (JPEG, ≤ 1800 px wide) and reference them the same way; never put photos back in `public/assets/`.
+- Only the OG logo, the brand mark, and partner SVGs stay in `public/assets/`.
+- Fonts are self-hosted in `public/fonts/` (variable Montserrat, variable Noto Nastaliq Urdu) and declared in `src/styles/global.css`. Do not re-add Google Fonts `<link>`s.
+- `public/_headers` sets Cloudflare Pages caching and security headers (HSTS, nosniff, frame-ancestors, Referrer-Policy, Permissions-Policy, one-year cache on `/_astro/*` and `/fonts/*`).
+- `src/layouts/BaseLayout.astro` emits the site-wide Organization + WebSite JSON-LD; page templates add their own WebPage/Article nodes.
+
 ## Local Preview
 
 ```bash

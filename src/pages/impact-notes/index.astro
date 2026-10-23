@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { impactNotes } from "../../data/impactNotes.js";
+import Pic from "../../components/Pic.astro";
 
 const pageTitle = "Urdu Ai Impact Notes | Community AI Education in Pakistan";
 const pageDescription =
@@ -78,14 +79,7 @@ const schema = {
           {impactNotes.map((note) => (
             <article class="note-card">
               <a href={`/impact-notes/${note.slug}/`} aria-label={`Read ${note.title}`}>
-                {note.imageWebp ? (
-                  <picture>
-                    <source srcset={note.imageWebp} type="image/webp" />
-                    <img src={note.image} alt={note.title} loading="lazy" decoding="async" width="1200" height="750" />
-                  </picture>
-                ) : (
-                  <img src={note.image} alt={note.title} loading="lazy" decoding="async" />
-                )}
+                <Pic src={note.image} alt={note.title} widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 50vw" />
               </a>
               <div>
                 <span>{note.category} · {note.readingTime}</span>

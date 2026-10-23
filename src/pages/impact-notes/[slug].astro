@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { impactNotes } from "../../data/impactNotes.js";
+import { getImage } from "astro:assets";
+import Pic from "../../components/Pic.astro";
+import { resolveImage } from "../../lib/images.js";
 
 export function getStaticPaths() {
   return impactNotes.map((note) => ({
@@ -11,6 +14,11 @@ export function getStaticPaths() {
 
 const { note } = Astro.props;
 const canonical = `https://impact.urduai.org/impact-notes/${note.slug}/`;
+const heroMeta = resolveImage(note.image);
+const heroShare = heroMeta ? await getImage({ src: heroMeta, width: 1200, format: "jpg", quality: 80 }) : null;
+const heroShareUrl = new URL(heroShare?.src ?? note.image, "https://impact.urduai.org").href;
+const heroShareWidth = Number(heroShare?.attributes?.width ?? 1200);
+const heroShareHeight = Number(heroShare?.attributes?.height ?? 750);
 const displayDate = new Date(`${note.date}T00:00:00`).toLocaleDateString("en-US", {
   month: "long",
   day: "numeric",
@@ -40,9 +48,9 @@ const articleSchema = {
       "description": note.description,
       "image": {
         "@type": "ImageObject",
-        "url": new URL(note.image, "https://impact.urduai.org").href,
-        "width": 1200,
-        "height": 750
+        "url": heroShareUrl,
+        "width": heroShareWidth,
+        "height": heroShareHeight
       },
       "datePublished": note.date,
       "dateModified": note.modifiedDate ?? note.date,
@@ -131,14 +139,7 @@ const articleSchema = {
             </div>
           </div>
           <figure>
-            {note.imageWebp ? (
-              <picture>
-                <source srcset={note.imageWebp} type="image/webp" />
-                <img src={note.image} alt={note.title} loading="eager" decoding="async" width="1200" height="750" />
-              </picture>
-            ) : (
-              <img src={note.image} alt={note.title} loading="eager" decoding="async" />
-            )}
+            <Pic src={note.image} alt={note.title} loading="eager" fetchpriority="high" widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 560px" />
             <figcaption>Urdu Ai field learning and community AI education in Pakistan.</figcaption>
           </figure>
         </div>
@@ -200,14 +201,7 @@ const articleSchema = {
               {section.body.map((paragraph) => <p>{paragraph}</p>)}
               {section.image && (
                 <figure class="article-inline-image">
-                  {section.image.webp ? (
-                    <picture>
-                      <source srcset={section.image.webp} type="image/webp" />
-                      <img src={section.image.src} alt={section.image.alt} loading="lazy" decoding="async" width="1200" height="750" />
-                    </picture>
-                  ) : (
-                    <img src={section.image.src} alt={section.image.alt} loading="lazy" decoding="async" />
-                  )}
+                  <Pic src={section.image.src} alt={section.image.alt} widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 760px" />
                   {section.image.caption && <figcaption>{section.image.caption}</figcaption>}
                 </figure>
               )}
@@ -220,7 +214,7 @@ const articleSchema = {
               <div class="article-gallery-grid">
                 {note.gallery.map((item, index) => (
                   <figure class:list={[index === 0 && "wide"]}>
-                    <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+                    <Pic src={item.src} alt={item.alt} widths={[480, 800, 1200]} sizes="(max-width: 720px) 100vw, 50vw" />
                     <figcaption>{item.caption}</figcaption>
                   </figure>
                 ))}
