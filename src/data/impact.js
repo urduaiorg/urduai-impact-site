@@ -1,8 +1,23 @@
+export const trainingReports = [
+  { phase: "Phase 1", cutoff: "25 September 2026", starts: 5759, completions: 5651 },
+  { phase: "Phase 2", cutoff: "31 October 2026", starts: 24337, completions: 23379 }
+];
+
+const count = new Intl.NumberFormat("en-GB");
+export const trainingStarts = count.format(trainingReports.reduce((total, report) => total + report.starts, 0));
+export const trainingCompletions = count.format(trainingReports.reduce((total, report) => total + report.completions, 0));
+export const womenCompletionShare = "43.1%";
+export const trainingReportBreakdown = trainingReports.map(({ phase, cutoff, starts, completions }) =>
+  `${phase} (through ${cutoff}): ${count.format(starts)} starts and ${count.format(completions)} completions.`
+);
+export const trainingReportingNote =
+  "These are self-reported programme records, not donor-verified totals. The reports have different cutoffs, and possible overlap between phases has not been checked. The combined counts do not represent confirmed unique learners.";
+
 export const stats = [
   {
-    value: "24,777",
-    label: "People trained",
-    note: "Reported training total as of September 1, 2026."
+    value: trainingCompletions,
+    label: "Reported training completions",
+    note: "Combined across two programme reports. May include repeat learners."
   },
   {
     value: "700+",
@@ -10,9 +25,9 @@ export const stats = [
     note: "Community, institutional, and Dost-led AI learning workshops across Pakistan."
   },
   {
-    value: "51%",
-    label: "Women participation",
-    note: "Presented as a participation share across reported learning activity."
+    value: womenCompletionShare,
+    label: "Completions by women",
+    note: "Share of combined reported training completions."
   },
   {
     value: "64",
@@ -22,7 +37,7 @@ export const stats = [
 ];
 
 export const proofPoints = [
-  "24,777 people trained as of September 1, 2026.",
+  `${trainingStarts} training starts reported across both phases.`,
   "700+ training workshops conducted through community, institutional, and Dost-led delivery.",
   "29 districts represented in the Urdu Ai Dost impact map.",
   "30+ community facilitators supporting local access and follow-up.",
@@ -121,7 +136,14 @@ export const impactQuotes = [
   }
 ];
 
-export const shorts = [
+export const latestImpactShorts = [
+  ["4Swdcw8FMHQ", "AI and jobs in Dera Ismail Khan"],
+  ["zOSLUbepufk", "Khanewal's brick-kiln teachers and AI"],
+  ["f1HutKnaqEo", "How Adeel built software without a coding background"],
+  ["Um2-C2msZmY", "What learners took away from the Lasbela workshop"]
+];
+
+export const earlierImpactShorts = [
   ["dNO1yp18-VA", "AI helping students and teachers"],
   ["yo2vpEsIbig", "Maria learning graphic design with Urdu Ai"],
   ["CZh27xj6-vk", "Khunsha using AI for blog writing"],

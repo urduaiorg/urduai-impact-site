@@ -1,0 +1,198 @@
+---
+import { latestImpactShorts, earlierImpactShorts } from "../data/impact.js";
+
+const groups = [
+  { label: "", videos: latestImpactShorts },
+  { label: "Earlier impact stories", videos: earlierImpactShorts }
+];
+---
+
+<section class="section" id="impact-shorts" aria-labelledby="impact-shorts-heading">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="impact-shorts-heading">Latest impact Shorts.</h2>
+      <p class="section-lede">Hear from people learning, teaching, and putting AI to work in their communities.</p>
+    </div>
+    {groups.map(({ label, videos }) => {
+      const cards = (
+        <ul class:list={["shorts-grid", { "shorts-archive": label }]}>
+          {videos.map(([id, title]) => (
+            <li>
+              <a class="short-card" data-video={id} href={`https://www.youtube.com/shorts/${id}`}>
+                <span class="short-poster">
+                  <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" decoding="async" />
+                  <span class="short-play" aria-hidden="true"></span>
+                </span>
+                <span class="short-title">{title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      );
+      return label ? <details><summary>{label}</summary>{cards}</details> : cards;
+    })}
+    <a class="text-link shorts-channel" href="https://www.youtube.com/@Urduaiorg/shorts">More Shorts on Urdu Ai's YouTube</a>
+  </div>
+
+  <dialog aria-labelledby="short-player-title">
+    <div class="player-heading">
+      <h3 id="short-player-title"></h3>
+      <form method="dialog">
+        <button class="player-close" type="submit" aria-label="Close video" autofocus>&times;</button>
+      </form>
+    </div>
+    <div class="player-frame"></div>
+    <a class="text-link player-fallback" href="https://www.youtube.com/@Urduaiorg/shorts" target="_blank" rel="noopener">Watch on YouTube</a>
+  </dialog>
+</section>
+
+<script>
+  const section = document.querySelector("#impact-shorts");
+  const dialog = section?.querySelector("dialog");
+  const frame = dialog?.querySelector(".player-frame");
+  const title = dialog?.querySelector("h3");
+  const fallback = dialog?.querySelector<HTMLAnchorElement>(".player-fallback");
+
+  if (section && dialog && frame && title && fallback && typeof dialog.showModal === "function") {
+    let opener: HTMLAnchorElement | null = null;
+
+    section.addEventListener("click", (event) => {
+      if (!(event instanceof MouseEvent) || !(event.target instanceof Element) ||
+          event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const card = event.target.closest<HTMLAnchorElement>("a[data-video]");
+      const id = card?.dataset.video;
+      if (!card || !id || !/^[\w-]{11}$/.test(id)) return;
+
+      event.preventDefault();
+      opener = card;
+      const name = card.querySelector(".short-title")?.textContent?.trim() || "Urdu Ai Short";
+      title.textContent = name;
+      fallback.href = card.href;
+      const player = document.createElement("iframe");
+      player.title = name;
+      player.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      player.allowFullscreen = true;
+      player.referrerPolicy = "strict-origin-when-cross-origin";
+      player.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1`;
+      dialog.showModal();
+      frame.replaceChildren(player);
+    });
+
+    dialog.addEventListener("close", () => {
+      frame.replaceChildren();
+      opener?.focus();
+      opener = null;
+    });
+  }
+</script>
+
+<style>
+  .shorts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .shorts-archive { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .short-card { display: block; color: var(--ink); text-decoration: none; }
+  .short-card:hover .short-title { text-decoration: underline; }
+
+  .short-poster {
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    aspect-ratio: 9 / 16;
+    border-radius: 8px;
+    background: var(--primary);
+  }
+
+  .short-poster img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .short-play {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gold, #fadf70);
+  }
+
+  .short-play::after {
+    content: "";
+    margin-left: 3px;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 11px solid #16213b;
+  }
+
+  .short-title {
+    display: block;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  details { margin-top: 24px; border-top: 1px solid var(--line); }
+  summary { padding: 14px 0; font-weight: 700; cursor: pointer; }
+  .shorts-channel { display: inline-block; margin-top: 12px; }
+
+  dialog {
+    width: min(382px, calc(100% - 24px));
+    max-height: calc(100dvh - 24px);
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  dialog::backdrop { background: rgb(10 17 30 / 82%); }
+  .player-heading { display: flex; align-items: start; gap: 12px; justify-content: space-between; }
+  .player-heading h3 { margin: 5px 0 12px; font-size: 16px; line-height: 1.35; }
+
+  .player-close {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--paper);
+    color: inherit;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .player-frame :global(iframe) {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    max-height: max(200px, calc(100dvh - 158px));
+    border: 0;
+    border-radius: 6px;
+    background: #101010;
+  }
+
+  .player-fallback { display: inline-block; margin-top: 12px; }
+
+  @media (max-width: 900px) {
+    .shorts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .shorts-archive { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 540px) {
+    .shorts-archive { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>

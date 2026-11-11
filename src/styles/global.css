@@ -1326,27 +1326,6 @@ a {
   text-decoration: none;
 }
 
-.shorts-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 14px;
-}
-
-.short-card iframe {
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  border: 0;
-  border-radius: 8px;
-  background: #0b1110;
-}
-
-.short-card p {
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.35;
-}
-
 .recognition-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3226,10 +3205,6 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .shorts-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .media-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -3619,11 +3594,6 @@ a {
   .stat {
     border-right: 0;
     border-bottom: 1px solid var(--line);
-  }
-
-  .shorts-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
   }
 
   .media-grid {

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { institutionalPartners, institutionalEvidence } from "../data/institutions.js";
-import { stats } from "../data/impact.js";
+import { trainingCompletions, womenCompletionShare } from "../data/impact.js";
 import Pic from "../components/Pic.astro";
 
 const pageTitle = "Institutional Partnerships & MoUs | Urdu Ai Impact";
@@ -302,7 +302,7 @@ const schema = {
           <span class="eyebrow">Partner with Urdu Ai</span>
           <h2>Support community AI education that trusted institutions can host.</h2>
           <p>
-            Urdu Ai has reported {stats[0].value} people trained, {stats[1].value} training workshops, {stats[2].value} women participation, and institutional relationships across Pakistan. The next step is deeper, better-supported AI learning pathways.
+            Two programme reports record {trainingCompletions} training completions, with {womenCompletionShare} by women. These are <a href="/#numbers">reported completion records</a>, not a count of unique learners. The next step is deeper, better-supported AI learning pathways.
           </p>
         </div>
         <a class="button" href="mailto:ai@urduai.org?subject=Urdu Ai institutional partnership">Discuss partnership</a>

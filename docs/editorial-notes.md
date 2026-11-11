@@ -19,7 +19,7 @@ These notes should guide future Impact Notes, public impact pages, and partnersh
 - Keep the voice clear, practical, and grounded in real field work.
 - Explain public numbers carefully. Use "reported learner records" or "training completions" unless a number is verified as unique beneficiaries.
 - Do not publish Phase 3 internal material.
-- Present women participation as `51%` on the public site. Do not use raw female learner counts in headline metrics.
+- Report women's share of completions as a percentage of all completion records, with the same phase scope as the total. Do not use raw gender counts in headline metrics or conflate the completion share with the earlier 51% participation figure.
 
 ## SEO and AEO Checklist
 

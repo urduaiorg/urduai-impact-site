@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { stats, proofPoints, sectors, stories, learnerOutcomes, impactQuotes, shorts, mediaVideos, recognition } from "../data/impact.js";
+import { stats, proofPoints, sectors, stories, learnerOutcomes, impactQuotes, mediaVideos, recognition, trainingReportBreakdown, trainingReportingNote, womenCompletionShare } from "../data/impact.js";
 import { institutionalPartners, institutionalEvidence } from "../data/institutions.js";
 import { impactNotes } from "../data/impactNotes.js";
 import { dostProfiles, teamProfiles } from "../data/profiles.js";
 import Pic from "../components/Pic.astro";
+import ImpactShorts from "../components/ImpactShorts.astro";
 
 const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg", "/assets/classroom.jpg", "/assets/training-hero.jpg"];
 const dostCards = dostProfiles.map((profile) => ({
@@ -115,7 +116,7 @@ const fundingPriorities = [
     label: "Women-led pathways",
     title: "Deepen safer, trusted AI learning spaces for women and girls.",
     text: "Support women-friendly cohorts, female facilitators, community access points, and applied learning tracks for education, livelihood, and confidence.",
-    proof: "Anchored in reported 51% women participation."
+    proof: `Women account for ${womenCompletionShare} of reported training completions across the two phases.`
   },
   {
     label: "Teacher and livelihood tracks",
@@ -178,7 +179,7 @@ const credibilitySignals = [
 
 <BaseLayout
   title="Urdu Ai Impact | Reported AI Literacy Reach Across Pakistan"
-  description="Impact stories, people trained, district coverage, Urdu Ai Dost profiles, media coverage, and recognition for Urdu Ai's AI literacy work across Pakistan."
+  description="Impact stories, reported training completions, district coverage, Urdu Ai Dost profiles, and recognition for Urdu Ai's AI literacy work across Pakistan."
   canonical="https://impact.urduai.org/"
 >
   <main>
@@ -202,8 +203,8 @@ const credibilitySignals = [
           <div class="atlas-photo">
             <Pic src="/assets/showcase/women-community-workshop.jpg" alt="Women participating in an Urdu Ai community workshop" loading="eager" fetchpriority="high" widths={[400, 640, 800, 1200]} sizes="(max-width: 900px) 88vw, 560px" quality={80} />
             <div class="atlas-caption">
-              <strong>51%</strong>
-              <span>women participation across reported activity</span>
+              <strong>{womenCompletionShare}</strong>
+              <span>of reported training completions by women</span>
             </div>
           </div>
           <div class="atlas-proof-card">
@@ -263,7 +264,7 @@ const credibilitySignals = [
           {proofPoints.map((point) => <li>{point}</li>)}
         </ul>
         <p class="data-note">
-          These figures are reported programme records. They are presented as people trained, not as independently de-duplicated unique individuals unless that is clearly stated.
+          {trainingReportBreakdown.join(" ")} {trainingReportingNote} Workshop and geographic figures are reported separately.
         </p>
       </div>
     </section>
@@ -316,7 +317,7 @@ const credibilitySignals = [
         </div>
         <div class="district-list" aria-label="Urdu Ai delivery channels">
           <div><strong>Schools and colleges</strong><br />AI awareness, teacher workflows, student research, and classroom use.</div>
-          <div><strong>Women and girls</strong><br />51% women participation shown through safer access, trusted settings, and follow-up learning.</div>
+          <div><strong>Women and girls</strong><br />Trusted settings, local facilitators, and follow-up learning help women and girls take part.</div>
           <div><strong>Community cohorts</strong><br />Local facilitators helping first-time learners build confidence.</div>
           <div><strong>Freelancers and small businesses</strong><br />Design, content, customer service, documentation, and productivity workflows.</div>
         </div>
@@ -543,24 +544,7 @@ const credibilitySignals = [
       </div>
     </section>
 
-    <section class="section" data-reveal>
-      <div class="container">
-        <div class="section-head">
-          <h2>Latest impact Shorts.</h2>
-          <p class="section-lede">
-            Short, mobile-first stories from learners, teachers, Dosts, farmers, and communities using AI in everyday work.
-          </p>
-        </div>
-        <div class="shorts-grid">
-          {shorts.map(([id, title]) => (
-            <article class="short-card">
-              <iframe src={`https://www.youtube.com/embed/${id}`} title={title} loading="lazy" allowfullscreen></iframe>
-              <p>{title}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
+    <ImpactShorts />
 
     <section class="section" id="impact-notes" data-reveal>
       <div class="container">
@@ -785,7 +769,7 @@ const credibilitySignals = [
         <article class="report-panel">
           <h3>How the numbers are counted.</h3>
           <p>
-            The reported training total is 24,777 as of September 1, 2026. Programme records are not presented as independently de-duplicated unique people unless clearly stated. Other indicators retain their separately reported scope.
+            Training starts and completions are counted separately and added across two self-reported programme totals. The reports have different cutoff dates and may count some learners in both phases.
           </p>
           <a class="button secondary" href="#numbers">Review how numbers are counted</a>
         </article>
