@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { stats, proofPoints, sectors, stories, learnerOutcomes, impactQuotes, mediaVideos, recognition, trainingReportBreakdown, trainingReportingNote, womenCompletionShare } from "../data/impact.js";
+import { stats, proofPoints, sectors, stories, learnerOutcomes, impactQuotes, mediaVideos, recognition, trainingReports, trainingCompletions, trainingReportBreakdown, trainingReportingNote, womenCompletionShare } from "../data/impact.js";
 import { institutionalPartners, institutionalEvidence } from "../data/institutions.js";
 import { impactNotes } from "../data/impactNotes.js";
 import { dostProfiles, teamProfiles } from "../data/profiles.js";
@@ -32,7 +32,7 @@ const capacitySteps = [
   {
     step: "04",
     title: "Learning continues online",
-    text: "After the session, learners join Urdu Ai's 1M+ public learning ecosystem to keep practicing, asking questions, watching tutorials, and sharing progress."
+    text: "After the session, learners can keep practicing, asking questions, and watching tutorials in Urdu Ai's online community."
   }
 ];
 const showcaseImages = [
@@ -265,7 +265,7 @@ const credibilitySignals = [
           {proofPoints.map((point) => <li>{point}</li>)}
         </ul>
         <p class="data-note">
-          {trainingReportBreakdown.join(" ")} {trainingReportingNote} Workshop and geographic figures are reported separately.
+          {trainingReportBreakdown.join(" ")} {trainingReportingNote} Training batches, cities, and mapped Dost districts count different things.
         </p>
       </div>
     </section>
@@ -285,7 +285,7 @@ const credibilitySignals = [
             <div class="map-summary-chips" aria-label="Urdu Ai Dost map summary">
               <span><strong>31</strong> active Dost records</span>
               <span><strong>5</strong> regions represented</span>
-              <span><strong>1M+</strong> public learning ecosystem</span>
+              <span><strong>1M+</strong> reported online community</span>
             </div>
           </div>
         </div>
@@ -332,7 +332,7 @@ const credibilitySignals = [
             <span class="eyebrow">Capacity building model</span>
             <h2>Urdu Ai does not stop at one workshop.</h2>
             <p>
-              The model builds local capacity first. Urdu Ai trains Dosts, Dosts train their own communities, and learners continue inside Urdu Ai's 1M+ online learning ecosystem.
+              Urdu Ai trains Dosts, Dosts train their own communities, and learners can continue practising through Urdu Ai's online community.
             </p>
           </div>
           <div class="capacity-metrics" aria-label="Urdu Ai capacity building highlights">
@@ -346,7 +346,7 @@ const credibilitySignals = [
             </div>
             <div>
               <strong>1M+</strong>
-              <span>Online community for continued Urdu-first AI learning</span>
+              <span>Reported online community across Urdu Ai channels</span>
             </div>
           </div>
         </div>
@@ -684,19 +684,19 @@ const credibilitySignals = [
       </div>
     </section>
 
-    <section class="section" data-reveal>
+    <section class="section" id="sectors" aria-labelledby="sectors-heading" data-reveal>
       <div class="container">
         <div class="section-head">
-          <h2>Who Urdu Ai reached.</h2>
+          <h2 id="sectors-heading">Training completions by sector.</h2>
           <p class="section-lede">
-            Training data includes learners across education, employment, social sector, and small business contexts.
+            Combined WANG-reported completions: Phase 1 through {trainingReports[0].cutoff} and Phase 2 through {trainingReports[1].cutoff}. Repeat learners may appear in both phases.
           </p>
         </div>
         <table class="sector-table">
           <thead>
             <tr>
-              <th>Reported learner group</th>
-              <th>Records</th>
+              <th scope="col">Reported learner group</th>
+              <th scope="col">Completions</th>
             </tr>
           </thead>
           <tbody>
@@ -707,7 +707,14 @@ const credibilitySignals = [
               </tr>
             ))}
           </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Total reported completions</th>
+              <td>{trainingCompletions}</td>
+            </tr>
+          </tfoot>
         </table>
+        <p class="data-note">Service-sector and MSME employees were listed separately only in the Phase 2 report.</p>
       </div>
     </section>
 
@@ -772,7 +779,7 @@ const credibilitySignals = [
         <article class="report-panel">
           <h3>How the numbers are counted.</h3>
           <p>
-            Training starts and completions are counted separately and added across two self-reported programme totals. The reports have different cutoff dates and may count some learners in both phases.
+            Training starts and completions are counted separately and added across two WANG-reported programme totals. The reports have different cutoff dates and may count some learners in both phases.
           </p>
           <a class="button secondary" href="#numbers">Review how numbers are counted</a>
         </article>

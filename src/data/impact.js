@@ -1,8 +1,9 @@
 export const trainingReports = [
-  { phase: "Phase 1", cutoff: "25 September 2026", starts: 5759, completions: 5651 },
-  { phase: "Phase 2", cutoff: "31 October 2026", starts: 24337, completions: 23379 }
+  { phase: "Phase 1", cutoff: "25 September 2026", starts: 5759, completions: 5651, batches: 183 },
+  { phase: "Phase 2", cutoff: "31 October 2026", starts: 24337, completions: 23379, batches: 827, cities: 97 }
 ];
 
+const [phaseOne, phaseTwo] = trainingReports;
 const count = new Intl.NumberFormat("en-GB");
 export const trainingStarts = count.format(trainingReports.reduce((total, report) => total + report.starts, 0));
 export const trainingCompletions = count.format(trainingReports.reduce((total, report) => total + report.completions, 0));
@@ -11,7 +12,7 @@ export const trainingReportBreakdown = trainingReports.map(({ phase, cutoff, sta
   `${phase} (through ${cutoff}): ${count.format(starts)} starts and ${count.format(completions)} completions.`
 );
 export const trainingReportingNote =
-  "These are self-reported programme records, not donor-verified totals. The reports have different cutoffs, and possible overlap between phases has not been checked. The combined counts do not represent confirmed unique learners.";
+  "These are WANG-reported programme records, not donor-verified totals. The reports have different cutoffs, and possible overlap between phases has not been checked. The combined counts do not represent confirmed unique learners.";
 
 export const stats = [
   {
@@ -20,9 +21,9 @@ export const stats = [
     note: "Combined across two programme reports. May include repeat learners."
   },
   {
-    value: "700+",
-    label: "Training workshops",
-    note: "Community, institutional, and Dost-led AI learning workshops across Pakistan."
+    value: count.format(phaseTwo.batches),
+    label: "Phase 2 training batches",
+    note: `Cumulative batches reported through ${phaseTwo.cutoff}.`
   },
   {
     value: womenCompletionShare,
@@ -30,31 +31,31 @@ export const stats = [
     note: "Share of combined reported training completions."
   },
   {
-    value: "64",
-    label: "Cities reached",
-    note: "Across Pakistan, with district-level outreach expanding through Dosts."
+    value: count.format(phaseTwo.cities),
+    label: "Cities reached in Phase 2",
+    note: `Reported in the Phase 2 narrative through ${phaseTwo.cutoff}. Distinct from mapped Dost districts.`
   }
 ];
 
 export const proofPoints = [
   `${trainingStarts} training starts reported across both phases.`,
-  "700+ training workshops conducted through community, institutional, and Dost-led delivery.",
+  `${phaseOne.batches} Phase 1 training batches reported through ${phaseOne.cutoff}.`,
   "29 districts represented in the Urdu Ai Dost impact map.",
   "30+ community facilitators supporting local access and follow-up.",
-  "35-40 million estimated monthly digital reach through Urdu Ai content.",
-  "1 million+ learners and followers connected to Urdu Ai's public learning ecosystem."
+  "1M+ reported online community across Urdu Ai channels, separate from programme completions."
 ];
 
-export const sectors = [
-  ["College and university students", "3,920"],
-  ["Education workers, including teachers", "2,335"],
-  ["Vocational school students", "1,549"],
-  ["Unemployed learners", "1,006"],
-  ["Small business and MSME employees", "362"],
-  ["Nonprofit workers", "180"],
-  ["Service sector workers", "167"],
-  ["Healthcare-related workers", "44"]
+export const sectorCompletions = [
+  ["Unemployed learners", 1489, 5184],
+  ["College and university students", 1094, 4452],
+  ["Vocational school students", 1392, 3925],
+  ["Education workers, including teachers", 900, 3454],
+  ["Nonprofit workers", 776, 1735],
+  ["Service sector workers", null, 2490],
+  ["Small business and MSME employees", null, 2139]
 ];
+
+export const sectors = sectorCompletions.map(([name, phase1, phase2]) => [name, count.format((phase1 ?? 0) + phase2)]);
 
 export const stories = [
   {
