@@ -1,0 +1,47 @@
+---
+const programmeUrl = "https://urduai.org/ustad/";
+---
+
+<section class="section alt ustad-section" id="ustad" aria-labelledby="ustad-heading">
+  <div class="container ustad-grid">
+    <div lang="en">
+      <span class="eyebrow">What's next</span>
+      <h2 id="ustad-heading">Urdu Ai Ustad</h2>
+      <p>Urdu Ai Ustad is our upcoming Urdu-language training programme for teachers. It will help educators use AI to plan lessons, create classroom materials, and guide students in using AI responsibly.</p>
+      <a class="text-link" href={programmeUrl}>Explore Urdu Ai Ustad</a>
+    </div>
+    <div class="urdu-line ustad-urdu" lang="ur" dir="rtl">
+      <span class="eyebrow">جلد آ رہا ہے</span>
+      <h2>اردو اے آئی استاد</h2>
+      <p>اس تربیتی پروگرام میں اساتذہ سیکھیں گے کہ سبق کی تیاری اور تدریسی مواد بنانے میں اے آئی سے کیسے مدد لیں، اور طلبہ کو اس کے ذمہ دارانہ استعمال کی رہنمائی کیسے دیں۔</p>
+      <a class="text-link" href={programmeUrl}>پروگرام کے بارے میں جانیں</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ustad-section { padding-block: 52px; }
+
+  .ustad-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px;
+  }
+
+  .ustad-section h2 { font-size: 36px; line-height: 1.15; }
+  .ustad-section .eyebrow { color: var(--teal); letter-spacing: 0; }
+  .ustad-section p { max-width: 52ch; margin: 16px 0 12px; color: var(--muted); }
+  .ustad-urdu { border-inline-end: 1px solid var(--line); padding-inline-end: 48px; }
+  .ustad-urdu .eyebrow { font-size: 16px; }
+  .ustad-urdu h2 { font-size: 27px; line-height: 2; }
+  .ustad-urdu p { max-width: none; margin-top: 8px; line-height: 2.5; }
+  .ustad-urdu .text-link { font-size: 16px; }
+
+  @media (max-width: 760px) {
+    .ustad-section { padding-block: 36px; }
+    .ustad-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .ustad-section h2 { font-size: 30px; }
+    .ustad-urdu { border-inline-end: 0; border-top: 1px solid var(--line); padding: 18px 0 0; }
+    .ustad-urdu h2 { font-size: 24px; }
+  }
+</style>

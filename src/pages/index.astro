@@ -6,6 +6,7 @@ import { impactNotes } from "../data/impactNotes.js";
 import { dostProfiles, teamProfiles } from "../data/profiles.js";
 import Pic from "../components/Pic.astro";
 import ImpactShorts from "../components/ImpactShorts.astro";
+import UstadPreview from "../components/UstadPreview.astro";
 
 const storyImages = ["/assets/training-group.jpg", "/assets/dost-community.jpg", "/assets/classroom.jpg", "/assets/training-hero.jpg"];
 const dostCards = dostProfiles.map((profile) => ({
@@ -404,6 +405,8 @@ const credibilitySignals = [
         </div>
       </div>
     </section>
+
+    <UstadPreview />
 
     <section class="section field-gallery-section" data-reveal>
       <div class="container">
