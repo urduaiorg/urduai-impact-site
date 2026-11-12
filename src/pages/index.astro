@@ -561,7 +561,7 @@ const credibilitySignals = [
         <div class="home-notes-grid">
           {impactNotes.map((note) => (
             <article class="home-note-card">
-              <Pic src={note.image} alt={note.title} widths={[210, 420, 640]} sizes="(max-width: 720px) 100vw, 210px" />
+              <Pic src={note.image} alt={note.imageAlt ?? note.title} widths={[210, 420, 640]} sizes="(max-width: 720px) 100vw, 210px" />
               <div>
                 <span>{note.category}</span>
                 <h3>{note.title}</h3>

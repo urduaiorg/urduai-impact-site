@@ -33,7 +33,7 @@ const videoSchema = note.video ? {
   "name": note.video.title,
   "description": note.description,
   "thumbnailUrl": note.video.thumbnailUrl ? [note.video.thumbnailUrl] : undefined,
-  "uploadDate": note.date,
+  "uploadDate": note.video.uploadDate ?? note.date,
   "embedUrl": note.video.embedUrl,
   "contentUrl": note.video.url
 } : undefined;
@@ -139,8 +139,8 @@ const articleSchema = {
             </div>
           </div>
           <figure>
-            <Pic src={note.image} alt={note.title} loading="eager" fetchpriority="high" widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 560px" />
-            <figcaption>Urdu Ai field learning and community AI education in Pakistan.</figcaption>
+            <Pic src={note.image} alt={note.imageAlt ?? note.title} loading="eager" fetchpriority="high" widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 560px" style={note.preserveImageFraming ? "height:auto;aspect-ratio:auto" : undefined} />
+            <figcaption>{note.imageCaption ?? "Urdu Ai field learning and community AI education in Pakistan."}</figcaption>
           </figure>
         </div>
       </header>
@@ -185,12 +185,13 @@ const articleSchema = {
                   src={note.video.embedUrl}
                   title={note.video.title}
                   loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
               </div>
               <p>
-                Watch the field video: <a href={note.video.url}>{note.video.title}</a>.
+                Watch on YouTube: <a href={note.video.url}>{note.video.title}</a>.
               </p>
             </section>
           )}

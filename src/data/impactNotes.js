@@ -1,5 +1,84 @@
 export const impactNotes = [
   {
+    slug: "urdu-ai-world-forum-for-democracy",
+    title: "Urdu Ai at the World Forum for Democracy",
+    seoTitle: "Urdu Ai at the World Forum for Democracy in Strasbourg",
+    description:
+      "At the Council of Europe's World Forum for Democracy in Strasbourg, Abrar Ahmed presented how Urdu Ai makes practical AI learning accessible in Pakistan.",
+    date: "2026-11-12",
+    readingTime: "2 min read",
+    category: "International forums",
+    image: "/assets/impact-notes/world-forum-democracy/strasbourg-ai-democracy-panel.jpg",
+    preserveImageFraming: true,
+    imageAlt: "Panellists seated beneath the Council of Europe backdrop at the World Forum for Democracy",
+    imageCaption: "The AI and Democracy panel at the Palais de l'Europe in Strasbourg, 3 November 2026.",
+    author: "Urdu Ai Impact Team",
+    audience: "Educators, civil society organisations, and partners working on AI literacy and digital inclusion.",
+    video: {
+      title: "Abrar Ahmed: You don't need English to understand AI",
+      url: "https://www.youtube.com/watch?v=J4mWPWnJ2IM",
+      embedUrl: "https://www.youtube-nocookie.com/embed/J4mWPWnJ2IM",
+      thumbnailUrl: "https://i.ytimg.com/vi/J4mWPWnJ2IM/hqdefault.jpg",
+      uploadDate: "2026-11-04T00:33:26-08:00"
+    },
+    keywords: [
+      "Urdu Ai",
+      "World Forum for Democracy 2026",
+      "AI literacy in Pakistan",
+      "Council of Europe",
+      "responsible AI"
+    ],
+    takeaways: [
+      "Abrar Ahmed represented WANG and presented Urdu Ai in the forum's AI and Democracy session.",
+      "Learning in a familiar language gives people more room to question AI outputs and judge when to trust them."
+    ],
+    sections: [
+      {
+        heading: "What Urdu Ai brought to Strasbourg",
+        body: [
+          "On 3 November 2026, Abrar Ahmed, Youth Engagement Coordinator at the Welfare Association for New Generation (WANG), presented Urdu Ai at the Council of Europe's World Forum for Democracy. The session at the Palais de l'Europe in Strasbourg looked at the opportunities, risks, and governance questions AI raises for democracy.",
+          "Urdu Ai brought a practical example from Pakistan: teach AI in the language people use, and give them a chance to try it with someone they know. Urdu-language resources make it possible to start online. Local Urdu Ai Dost facilitators bring the same learning into classrooms, vocational settings, and community spaces."
+        ]
+      },
+      {
+        heading: "Why language matters for responsible AI use",
+        body: [
+          "Being able to ask an AI tool a question is only the first step. People also need to know when to check an answer, where to look for a reliable source, and what information they should not share. Those habits are easier to practise when the explanation is in a language learners can use confidently.",
+          "That is the connection between local AI education and public life: people should be able to question information that affects them, not just receive it."
+        ],
+        image: {
+          src: "/assets/impact-notes/world-forum-democracy/strasbourg-forum-audience.jpg",
+          alt: "Audience and panellists in the Council of Europe chamber during the AI and Democracy session",
+          caption: "A wide view of the forum session at the Palais de l'Europe."
+        }
+      }
+    ],
+    faqs: [
+      {
+        question: "Who presented Urdu Ai at the World Forum for Democracy?",
+        answer: "Abrar Ahmed, Youth Engagement Coordinator at WANG, presented Urdu Ai at the AI and Democracy session in Strasbourg on 3 November 2026."
+      },
+      {
+        question: "Where can I find the session programme and recording?",
+        answer: "The Council of Europe's official session page lists the participating initiatives and provides the session recording."
+      }
+    ],
+    sources: [
+      {
+        label: "Council of Europe: AI and Democracy session and recording",
+        href: "https://www.coe.int/en/web/world-forum-democracy/session-7-ai-and-democracy-opportunities-risks-and-governance-challenges"
+      },
+      {
+        label: "World Forum for Democracy 2026 programme",
+        href: "https://www.coe.int/en/web/world-forum-democracy/programme-2026"
+      }
+    ],
+    links: [
+      { label: "Explore reported training results", href: "/#numbers" },
+      { label: "See the Urdu Ai Dost map", href: "/dost-map/" }
+    ]
+  },
+  {
     slug: "urdu-ai-for-police-hyderabad-ai-training",
     title: "Urdu Ai for Police: Responsible AI Training with Hyderabad Police",
     seoTitle: "Urdu Ai for Police | Responsible AI Training with Hyderabad Police",

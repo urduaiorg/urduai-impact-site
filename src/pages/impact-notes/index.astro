@@ -79,7 +79,7 @@ const schema = {
           {impactNotes.map((note) => (
             <article class="note-card">
               <a href={`/impact-notes/${note.slug}/`} aria-label={`Read ${note.title}`}>
-                <Pic src={note.image} alt={note.title} widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 50vw" />
+                <Pic src={note.image} alt={note.imageAlt ?? note.title} widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 50vw" />
               </a>
               <div>
                 <span>{note.category} · {note.readingTime}</span>
