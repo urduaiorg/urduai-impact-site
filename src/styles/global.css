@@ -1326,6 +1326,38 @@ a {
   text-decoration: none;
 }
 
+.forum-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  margin: 24px 0;
+  padding: 24px 0;
+  border-block: 1px solid var(--line);
+}
+
+.forum-feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.forum-feature h3 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+.forum-feature p { color: var(--muted); }
+.forum-feature .forum-kicker { color: var(--teal); margin: 0 0 10px; letter-spacing: 0; }
+.forum-links { display: flex; flex-wrap: wrap; gap: 10px 24px; }
+
+@media (max-width: 760px) {
+  .forum-feature { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .forum-feature h3 { font-size: 25px; }
+}
+
 .recognition-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
