@@ -598,6 +598,7 @@ const credibilitySignals = [
         {forumNote && (
           <article class="forum-feature" aria-labelledby="forum-recognition-heading">
             <Pic
+              class="forum-photo"
               src={forumNote.image}
               alt={forumNote.imageAlt ?? forumNote.title}
               widths={[480, 800, 1200]}
@@ -607,6 +608,15 @@ const credibilitySignals = [
               <p class="eyebrow forum-kicker">International recognition · Strasbourg, November 2026</p>
               <h3 id="forum-recognition-heading">World Forum for Democracy</h3>
               <p>Pre-selected from more than 480 applications, Urdu Ai was one of 21 initiatives presented at the Council of Europe's 2026 forum. Abrar Ahmed presented WANG's approach to AI literacy in Urdu in the AI and Democracy session.</p>
+              <img
+                class="forum-logo"
+                src="/assets/recognition/council-of-europe.png"
+                alt="Council of Europe / Conseil de l’Europe"
+                width="296"
+                height="238"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="forum-links">
                 <a class="text-link" href={`/impact-notes/${forumNote.slug}/`}>Read the forum story</a>
                 <a class="text-link" href={forumSessionUrl}>Council of Europe session page</a>
@@ -619,7 +629,7 @@ const credibilitySignals = [
             <article class="recognition-card">
               <h3>{item.name}</h3>
               <p>{item.text}</p>
-              {item.url && <a href={item.url}>View reference</a>}
+              {item.url && <a href={item.url}>{item.linkLabel ?? "View reference"}</a>}
             </article>
           ))}
         </div>

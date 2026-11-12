@@ -163,6 +163,12 @@ export const mediaVideos = [
 
 export const recognition = [
   {
+    name: "Global Trust Challenge",
+    text: "UrduTrust AI advanced to the Prototyping phase. The team is developing a Trust Centre in the Urdu Ai app to help Urdu speakers check sources and turn community concerns about online information into reports for educators and policymakers.",
+    url: "https://www.globalchallenge.ai/teams#teams",
+    linkLabel: "See the official team listing"
+  },
+  {
     name: "S&P Global Foundation StepForward",
     text: "Selected as one of six regional partners from 336 submissions under the StepForward: Essential Innovation Challenge, supporting Urdu Ai's work to connect AI learning with livelihood pathways.",
     url: "https://www.spglobal.com/en/who-we-are/corporate-responsibility/foundation"

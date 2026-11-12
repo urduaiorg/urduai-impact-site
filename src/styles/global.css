@@ -1336,7 +1336,7 @@ a {
   border-block: 1px solid var(--line);
 }
 
-.forum-feature img {
+.forum-photo {
   display: block;
   width: 100%;
   height: auto;
@@ -1351,6 +1351,7 @@ a {
 
 .forum-feature p { color: var(--muted); }
 .forum-feature .forum-kicker { color: var(--teal); margin: 0 0 10px; letter-spacing: 0; }
+.forum-logo { display: block; width: 148px; max-width: 100%; height: auto; margin: 0 0 20px; }
 .forum-links { display: flex; flex-wrap: wrap; gap: 10px 24px; }
 
 @media (max-width: 760px) {
@@ -1360,7 +1361,7 @@ a {
 
 .recognition-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
 }
 
