@@ -171,7 +171,8 @@ export const recognition = [
   {
     name: "S&P Global Foundation StepForward",
     text: "Selected as one of six regional partners from 336 submissions under the StepForward: Essential Innovation Challenge, supporting Urdu Ai's work to connect AI learning with livelihood pathways.",
-    url: "https://www.spglobal.com/en/who-we-are/corporate-responsibility/foundation"
+    url: "https://www.spglobal.com/en/who-we-are/corporate-responsibility/stepforward",
+    linkLabel: "See the StepForward announcement"
   },
   {
     name: "AI Opportunity Fund: Asia-Pacific",
@@ -179,8 +180,9 @@ export const recognition = [
     url: "https://avpn.asia/ai-course/urdu-ai/"
   },
   {
-    name: "WANG and WALI community network",
-    text: "Backed by WANG's 35-year community presence and WALI's rural innovation work in Balochistan.",
-    url: "https://wang.org.pk/about.html"
+    name: "Internet Society and WANG",
+    text: "The Internet Society supported WANG's community network and featured how the WANG Lab of Innovation expands internet access and digital learning for women and girls in rural Balochistan.",
+    url: "https://www.internetsociety.org/issues/community-networks/success-stories/tackling-inequality-using-the-internet/",
+    linkLabel: "Read the Internet Society story"
   }
 ];
