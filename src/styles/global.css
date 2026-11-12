@@ -1319,7 +1319,9 @@ a {
 
 .recognition-card a {
   display: inline-flex;
-  margin-top: 16px;
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 16px;
   color: var(--teal);
   font-size: 13px;
   font-weight: 850;
@@ -1424,10 +1426,21 @@ a {
 }
 
 .recognition-card {
+  display: flex;
+  flex-direction: column;
   padding: 24px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--paper);
+}
+
+.recognition-logo {
+  display: block;
+  width: min(100%, 216px);
+  height: 58px;
+  object-fit: contain;
+  object-position: left center;
+  margin-top: 12px;
 }
 
 .institution-section {

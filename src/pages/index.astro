@@ -628,6 +628,17 @@ const credibilitySignals = [
           {recognition.map((item) => (
             <article class="recognition-card">
               <h3>{item.name}</h3>
+              {item.logo && (
+                <img
+                  class="recognition-logo"
+                  src={item.logo.src}
+                  width={item.logo.width}
+                  height={item.logo.height}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
               <p>{item.text}</p>
               {item.url && <a href={item.url}>{item.linkLabel ?? "View reference"}</a>}
             </article>

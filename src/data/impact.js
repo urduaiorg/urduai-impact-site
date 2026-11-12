@@ -164,12 +164,14 @@ export const mediaVideos = [
 export const recognition = [
   {
     name: "Global Trust Challenge",
+    logo: { src: "/assets/recognition/global-trust-challenge.png", width: 750, height: 250 },
     text: "UrduTrust AI advanced to the Prototyping phase. The team is developing a Trust Centre in the Urdu Ai app to help Urdu speakers check sources and turn community concerns about online information into reports for educators and policymakers.",
     url: "https://www.globalchallenge.ai/teams#teams",
     linkLabel: "See the official team listing"
   },
   {
     name: "S&P Global Foundation StepForward",
+    logo: { src: "/assets/recognition/sp-global-foundation.jpg", width: 398, height: 88 },
     text: "Selected as one of six regional partners from 336 submissions under the StepForward: Essential Innovation Challenge, supporting Urdu Ai's work to connect AI learning with livelihood pathways.",
     url: "https://www.spglobal.com/en/who-we-are/corporate-responsibility/stepforward",
     linkLabel: "See the StepForward announcement"
@@ -181,6 +183,7 @@ export const recognition = [
   },
   {
     name: "Internet Society and WANG",
+    logo: { src: "/assets/recognition/internet-society.png", width: 400, height: 133 },
     text: "The Internet Society supported WANG's community network and featured how the WANG Lab of Innovation expands internet access and digital learning for women and girls in rural Balochistan.",
     url: "https://www.internetsociety.org/issues/community-networks/success-stories/tackling-inequality-using-the-internet/",
     linkLabel: "Read the Internet Society story"
